@@ -2,7 +2,7 @@
   "name": "issue-status",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/tadhglewis/issue-status",
+  "homepage": "https://tadhglewis.github.io/issue-status",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
