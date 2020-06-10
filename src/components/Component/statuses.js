@@ -1,22 +1,27 @@
 export default {
   operational: {
     name: "Operational",
-    colour: "#3da751",
+    colour: "#2c7e3c",
+    backgroundColour: "rgba(61, 167, 81, 0.1)",
   },
   performanceIssues: {
     name: "Performance Issues",
-    colour: "#4990e2",
+    colour: "#2a5e9b",
+    backgroundColour: "rgba(73, 144, 226, 0.1)",
   },
   partialOutage: {
     name: "Partial Outage",
-    colour: "#ffc667",
+    colour: "#b18741",
+    backgroundColour: "rgba(255, 198, 103, 0.1)",
   },
   majorOutage: {
     name: "Major Outage",
-    colour: "#d94430",
+    colour: "#b12715",
+    backgroundColour: "rgba(217, 68, 48, 0.1)",
   },
   unknown: {
     name: "Unknown",
-    colour: "#b1b1b1",
+    colour: "#8c8c8c",
+    backgroundColour: "rgba(177, 177, 177, 0.1)",
   },
 };

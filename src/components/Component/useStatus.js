@@ -11,7 +11,8 @@ export default (labels) => {
       )
     );
   }, [labels]);
-  // if (!status) setStatus("Unknown");
+
+  if (!status) setStatus(statuses.unknown);
 
   return [status];
 };

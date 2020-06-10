@@ -4,10 +4,17 @@ import useStatus from "./useStatus";
 
 const Status = styled.div`
   color: ${(props) => props.color};
+  background-color: ${(props) => props.backgroundColour};
+  padding: 5px 12px;
+  border-radius: 16px;
 `;
 
 export default ({ labels }) => {
   const [status] = useStatus(labels);
 
-  return <Status color={status?.colour}>{status?.name}</Status>;
+  return (
+    <Status color={status?.colour} backgroundColour={status?.backgroundColour}>
+      {status?.name}
+    </Status>
+  );
 };

@@ -16,11 +16,11 @@ const Container = styled.div`
 
 export default () => {
   // TODO: handle loading
-  const [results] = useIssues();
+  const [results, refetch] = useIssues();
 
   return (
     <Container>
-      <Status />
+      <Status refetch={refetch} />
       {results?.map((issue) => (
         <Component key={issue.id} issue={issue} />
       ))}

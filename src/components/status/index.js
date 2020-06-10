@@ -8,8 +8,23 @@ const StatusBar = styled.div`
   font-size: 20px;
   border-radius: 3px;
   margin: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export default () => {
-  return <StatusBar>All Systems Operational</StatusBar>;
+const Reload = styled.button`
+  background-color: transparent;
+  color: white;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+`;
+
+export default ({ refetch }) => {
+  return (
+    <StatusBar>
+      All Systems Operational <Reload onClick={refetch}>Reload</Reload>
+    </StatusBar>
+  );
 };
