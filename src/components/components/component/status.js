@@ -7,6 +7,7 @@ const Status = styled.div`
   background-color: ${(props) => props.backgroundColour};
   padding: 5px 12px;
   border-radius: 16px;
+  font-size: 13px;
 `;
 
 export default ({ labels }) => {

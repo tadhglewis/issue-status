@@ -21,6 +21,7 @@ const Reload = styled.button`
   cursor: pointer;
 `;
 
+// TODO: change all systems status based on current status of all components
 export default ({ refetch }) => {
   return (
     <StatusBar>

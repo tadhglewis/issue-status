@@ -1,6 +1,6 @@
 # Issue Status
 
-## Simple GitHub issues based status page
+## Simple GitHub Issues based status page
 
 ### Demo
 

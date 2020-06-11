@@ -15,10 +15,10 @@ const Component = styled.div`
   }
 `;
 
-export default ({ issue }) => {
+export default ({ component }) => {
   return (
     <Component>
-      {issue.title} <Status labels={issue.labels} />
+      {component.title} <Status labels={component.labels} />
     </Component>
   );
 };
