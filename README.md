@@ -2,6 +2,8 @@
 
 ## Simple status page built using React and GitHub Issues
 
+![Banner](/banner.png?raw=true)
+
 ### Demo
 
 You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-status). This demo is hosted on GitHub Pages
@@ -43,3 +45,7 @@ You are able to automate Components and Incidents using the [GitHub API](https:/
 - Issue Status uses the [GitHub API v3](https://developer.github.com/v3) which has a rate limit of 60 requests per hour for unauthenticated requests (Issue Status is client side and will use unauthenticated requests). Issue Status will fetch 15 times per hour, sending 2 requests per fetch / 30 requests per hour (excluding reload button)
 
 If you have any issues or questions feel free to contact me
+
+### Version
+
+1
