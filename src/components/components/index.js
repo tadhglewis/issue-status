@@ -4,9 +4,13 @@ import Component from "./component";
 
 export default ({ loading, components }) => {
   return !loading ? (
-    components.map((component) => (
-      <Component key={component.id} component={component} />
-    ))
+    components?.length > 0 ? (
+      components?.map((component) => (
+        <Component key={component.id} component={component} />
+      ))
+    ) : (
+      <p>No Components found.</p>
+    )
   ) : (
     <>
       <Skeleton />

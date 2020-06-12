@@ -4,7 +4,7 @@ import Incident from "./incident";
 import Skeleton from "./skeleton";
 
 const Container = styled.div`
-  margin: 32px auto;
+  margin: 32px auto 0 auto;
   max-width: 1040px;
 `;
 
@@ -14,14 +14,22 @@ const Title = styled.div`
   margin-bottom: 16px;
 `;
 
+const NoFound = styled.div`
+  margin: 0 8px;
+`;
+
 export default ({ loading, incidents }) => {
   return (
     <Container>
       <Title>Incidents</Title>
       {!loading ? (
-        incidents.map((incident) => (
-          <Incident key={incident.id} incident={incident} />
-        ))
+        incidents?.length > 0 ? (
+          incidents?.map((incident) => (
+            <Incident key={incident.id} incident={incident} />
+          ))
+        ) : (
+          <NoFound>No Incidents found.</NoFound>
+        )
       ) : (
         <>
           <Skeleton />

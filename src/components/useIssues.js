@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import config from "../config";
 
 export default (label) => {
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,23 +12,28 @@ export default (label) => {
       new Date(localStorage.getItem(`issueStatusLastFetch${label}`)) <
       new Date() - 180000
     ) {
-      fetchData(setResults, setLoading, label);
+      fetchData(setLoading, setError, setResults, label);
     } else {
       setResults(JSON.parse(localStorage.getItem(`issueStatus${label}`)));
       setLoading(false);
+      setError();
     }
   }, []);
 
-  return [loading, {}, results, () => fetchData(setResults, setLoading, label)];
+  return [
+    loading,
+    error,
+    results,
+    () => fetchData(setLoading, setError, setResults, label),
+  ];
 };
 
-const fetchData = (setResults, setLoading, label) => {
+const fetchData = (setLoading, setError, setResults, label) => {
   setLoading(true);
   fetch(
     `https://api.github.com/repos/${config.user}/issue-status/issues?state=all&labels=issue status,${label}`
   )
     .then((response) => {
-      // TODO: check response for GitHub rate limiting / any other possible issues
       return response.json();
     })
     .then((data) => {
@@ -35,9 +41,11 @@ const fetchData = (setResults, setLoading, label) => {
       localStorage.setItem(`issueStatus${label}`, JSON.stringify(data));
       setResults(data);
       setLoading(false);
+      setError();
     })
     .catch((error) => {
-      // TODO: handle errors
-      console.log(error);
+      setError(error.toString());
+      setResults(JSON.parse(localStorage.getItem(`issueStatus${label}`)));
+      setLoading(false);
     });
 };
