@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 const Incident = styled.div`
   border-left: 16px solid
@@ -55,7 +56,11 @@ export default ({ incident }) => (
   <Incident active={incident.closed_at}>
     <Header>
       <div>
-        <Created>{new Date(incident.created_at).toLocaleString()}</Created>
+        <Created>
+          {moment(incident.created_at)
+            .format("MMMM Do YYYY, h:mm a")
+            .toUpperCase()}
+        </Created>
         <Title>{incident.title}</Title>
       </div>
       <Status active={incident.closed_at}>

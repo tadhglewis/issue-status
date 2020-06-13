@@ -22,7 +22,7 @@ export default ({ loading, incidents }) => {
   return (
     <Container>
       <Title>Incidents</Title>
-      {!loading ? (
+      {!loading || incidents.length !== 0 ? (
         incidents?.length > 0 ? (
           incidents?.map((incident) => (
             <Incident key={incident.id} incident={incident} />

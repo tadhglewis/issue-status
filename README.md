@@ -21,7 +21,7 @@ You are able to automate Components and Incidents using the [GitHub API](https:/
 
 - Clone / Fork this repository to your GitHub account
 - Edit the `package.json` file and update `homepage`. You should enter the URL you are using for the status page
-- Edit `the config.js` file found in `src/config.js` and enter your GitHub username in the `user` field. Other configuration options are available
+- Edit the `config.js` file found in `src/config.js` and enter your GitHub username in the `user` field. Other configuration options are available
 - Run `npm run deploy` this will build the React project and deploy it to the `gh-pages` branch
 - Finally make sure GitHub Pages option in your GitHub repository settings is set to use the `gh-pages` branch
 

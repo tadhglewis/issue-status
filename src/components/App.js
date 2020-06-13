@@ -40,13 +40,14 @@ export default () => {
       <Header />
       <ComponentsContainer>
         <Status
-          refetch={() => {
-            componentsRefetch();
-            incidentsRefetch();
-          }}
+          loading={componentsLoading || incidentsLoading}
           error={{
             hasError: componentsError || incidentsError,
             errors: { componentsError, incidentsError },
+          }}
+          refetch={() => {
+            componentsRefetch();
+            incidentsRefetch();
           }}
         />
         <Components
