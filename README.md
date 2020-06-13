@@ -2,7 +2,7 @@
 
 ## Simple status page built using React and GitHub Issues
 
-![Banner](/banner.png?raw=true)
+![Banner](/banner.gif?raw=true)
 
 ### Demo
 
