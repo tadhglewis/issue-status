@@ -12,7 +12,7 @@ export default (components) => {
       statusSet = true;
     }
 
-    if (getComponentLabelPercent(components, "major outage") !== 0) {
+    if (getComponentLabelPercent(components, "major outage") > 0) {
       setStatus(statuses.outage);
       statusSet = true;
     }
