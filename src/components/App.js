@@ -45,6 +45,7 @@ export default () => {
             hasError: componentsError || incidentsError,
             errors: { componentsError, incidentsError },
           }}
+          components={componentsResults}
           refetch={() => {
             componentsRefetch();
             incidentsRefetch();

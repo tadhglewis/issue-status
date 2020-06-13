@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import useStatus from "./useStatus";
 import useRefetch from "./useRefetch";
 
 const StatusBar = styled.div`
-  background-color: #3da751;
+  background-color: ${(props) =>
+    props.backgroundColour ? props.backgroundColour : "#b1b1b1"};
   color: white;
   padding: 16px;
   border-radius: 3px;
@@ -36,7 +38,8 @@ const Code = styled.code`
 `;
 
 // TODO: change all systems status based on current status of all components
-export default ({ loading, error, refetch }) => {
+export default ({ loading, error, components, refetch }) => {
+  const [status] = useStatus(components);
   const [timeAgo] = useRefetch(refetch, [loading]);
 
   return (
@@ -51,8 +54,8 @@ export default ({ loading, error, refetch }) => {
           {JSON.stringify(error.errors, null, 3)}
         </Code>
       )}
-      <StatusBar>
-        <Status>All Systems Operational</Status>
+      <StatusBar backgroundColour={status?.backgroundColour}>
+        <Status>{status?.message}</Status>
         <Reload onClick={refetch}>{loading ? "reloading" : timeAgo}</Reload>
       </StatusBar>
     </>
