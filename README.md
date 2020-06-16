@@ -36,7 +36,7 @@ Other hosting providers
 
 ### Updating
 
-Updating is important to be able to get the latest features and patches
+Updating is important to get the latest features and patches
 
 - [This guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork) should bring you through the steps of syncing your forked version of this repository
 
