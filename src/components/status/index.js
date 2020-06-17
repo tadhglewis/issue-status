@@ -14,6 +14,7 @@ const StatusBar = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  transition: 0.3s;
 `;
 
 const Status = styled.h2`
@@ -40,7 +41,7 @@ const Code = styled.code`
 // TODO: change all systems status based on current status of all components
 export default ({ loading, error, components, refetch }) => {
   const [status] = useStatus(components);
-  const [timeAgo] = useRefetch(refetch, [loading]);
+  const [timeAgo] = useRefetch(refetch, loading);
 
   return (
     <>

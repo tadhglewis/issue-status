@@ -3,9 +3,10 @@ import "./App.css";
 import styled from "styled-components";
 import Status from "./status";
 import useIssues from "./useIssues";
-import Incidents from "./incidents";
-import Components from "./components";
 import Header from "./header";
+import Components from "./components";
+import Incidents from "./incidents";
+import Footer from "./footer";
 
 const Container = styled.div`
   max-width: 1008px;
@@ -57,6 +58,7 @@ export default () => {
         />
       </ComponentsContainer>
       <Incidents loading={incidentsLoading} incidents={incidentsResults} />
+      <Footer />
     </Container>
   );
 };

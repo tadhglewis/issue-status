@@ -8,6 +8,7 @@ const Status = styled.div`
   padding: 5px 12px;
   border-radius: 16px;
   font-size: 13px;
+  transition: 0.3s;
 `;
 
 export default ({ labels }) => {

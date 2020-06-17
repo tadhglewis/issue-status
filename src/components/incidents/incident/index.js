@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 
 const Incident = styled.div`
+  transition: 0.3s;
   border-left: 16px solid
     ${(props) =>
       props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
@@ -17,10 +18,10 @@ const Incident = styled.div`
   }
 `;
 
-const Header = styled.div`
+const Details = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   margin-bottom: 3px;
 `;
 
@@ -43,10 +44,10 @@ const Status = styled.div`
   padding: 5px 12px;
   border-radius: 16px;
   font-size: 13px;
+  transition: 0.3s;
 `;
 
 const Created = styled.div`
-  margin-bottom: 8px;
   font-size: 13px;
   color: #6e6b6b;
   font-weight: bold;
@@ -54,19 +55,17 @@ const Created = styled.div`
 
 export default ({ incident }) => (
   <Incident active={incident.closed_at}>
-    <Header>
-      <div>
-        <Created>
-          {moment(incident.created_at)
-            .format("MMMM Do YYYY, h:mm a")
-            .toUpperCase()}
-        </Created>
-        <Title>{incident.title}</Title>
-      </div>
+    <Details>
+      <Created>
+        {moment(incident.created_at)
+          .format("MMMM Do YYYY, h:mm a")
+          .toUpperCase()}
+      </Created>
       <Status active={incident.closed_at}>
         {incident.closed_at ? "Closed" : "Active"}
       </Status>
-    </Header>
+    </Details>
+    <Title>{incident.title}</Title>
     <Comment>{incident.body}</Comment>
   </Incident>
 );

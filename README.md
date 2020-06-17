@@ -21,8 +21,7 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 ### Setup
 
 - Clone / Fork this repository to your GitHub account (forking only required for GitHub Pages)
-- Edit the `package.json` file and update `homepage`. You should enter the URL you are using for the status page
-- Edit the `config.js` file found in `src/config.js` and enter your GitHub username in the `user` field. [Configuration options](#configuration)
+- Edit the `.env` file found in the root directory enter your [configuration options](#configuration)
 
 GitHub Pages
 
@@ -34,7 +33,7 @@ Other hosting providers
 - Run `npm run build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
-### Updating
+### Update
 
 Updating is important to get the latest features and patches
 
@@ -60,15 +59,14 @@ Integrate and automate Components and Incidents, this may be useful for changing
 
 ### Configuration
 
-package.json
+Customise your status page - ensure all required options are entered and any unused optional options are set blank, ie `REACT_APP_MANIFEST=`
 
-- `homepage` - Determines the root URL in the built HTML file. You should enter the URL you are using for the status page
-
-config.js (src/config.js)
-
-- `logo` - Accepts an image URL and is used in the status page header. Ensure the image size is correct
-- `name` - Used when no `logo` is provided and is used in the status page header. This will be used in the img alt attribute if a logo is provided
-- `user` - GitHub username that Component and Incidents will be fetched from
+- `REACT_APP_MANIFEST` (optional) - Determines the manifest url in the built HTML file
+- `REACT_APP_TITLE` (required) - Determines the `<title>` tag in the built HTML file with suffix `Status`
+- `REACT_APP_DESCRIPTION` (optional) - Determines the description `<meta>` tag in the built HTML file
+- `REACT_APP_LOGO` (optional) - Accepts an image URL and is used in the status page header
+- `REACT_APP_NAME` (optional) - Used in the status page header when no `REACT_APP_LOGO` is provided. This will be used in the img alt attribute if a logo is provided
+- `REACT_APP_USER` (required) - GitHub username that Component and Incidents will be fetched from
 
 ### Details
 

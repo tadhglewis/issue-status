@@ -1,10 +1,10 @@
 import React from "react";
-import config from "../../config";
 import styled from "styled-components";
 
 const Title = styled.h1`
   text-align: center;
   margin-top: 0;
+  margin-bottom: 0;
 `;
 
 const Logo = styled.img``;
@@ -15,12 +15,15 @@ const Header = styled.div`
 `;
 
 export default () =>
-  config.logo || config.name ? (
+  process.env.REACT_APP_LOGO || process.env.REACT_APP_NAME ? (
     <Header>
-      {config.logo ? (
-        <Logo src={config.logo} alt={config.name} />
+      {process.env.REACT_APP_LOGO ? (
+        <Logo
+          src={process.env.REACT_APP_LOGO}
+          alt={process.env.REACT_APP_NAME}
+        />
       ) : (
-        <Title>{config.name}</Title>
+        <Title>{process.env.REACT_APP_NAME}</Title>
       )}
     </Header>
   ) : null;
