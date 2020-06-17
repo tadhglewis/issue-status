@@ -1,6 +1,6 @@
 # Issue Status
 
-Simple status page built using React and GitHub Issues
+The simple and flexible status page
 
 ![Banner](/banner.gif?raw=true)
 
@@ -11,12 +11,13 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 ### Features
 
 - Easy setup
-- Component reporting to show the current status of your services
-- Incident reporting
-- Hosting on GitHub Pages or other hosting providers
-- Live updating status page
-- Use Zapier Triggers to update the status page
+- Show the current status of your services using Components
+- Report Incidents
+- Component and Incident templates
 - Easy integration with services and monitoring
+- Live updating status page
+- Hosting on GitHub Pages or other hosting providers
+- Use Zapier Triggers to update the status page
 
 ### Setup
 
@@ -32,6 +33,8 @@ Other hosting providers
 
 - Run `npm run build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
+
+You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates
 
 ### Update
 
