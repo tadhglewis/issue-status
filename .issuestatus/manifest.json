@@ -1,6 +1,6 @@
 {
   "short_name": "Issue Status",
-  "name": "The simple and flexible status page",
+  "name": "Simple, modern and flexible status page",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://tadhglewis.github.io/issue-status",
   "display": "standalone",
   "theme_color": "#3da751"
 }
