@@ -4,14 +4,16 @@ Simple, modern and flexible status page
 
 ![Banner](/banner.gif?raw=true)
 
-### Demo
+Issue Status is the static client-side status page built on React using GitHub Issues for Component and Incident reporting with live updating using the GitHub API, there is no need to rebuild and redeploy for every update. All hosted on GitHub Pages
+
+## Demo
 
 You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-status). This demo is hosted on GitHub Pages
 
-### Features
+## Features
 
 - Easy setup
-- Show the current status of your services using Components
+- Show status of your services using Components
 - Report Incidents
 - Component and Incident templates
 - Easy integration with services and monitoring
@@ -19,39 +21,41 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 - Hosting on GitHub Pages or other hosting providers
 - Use Zapier Triggers to update the status page
 
-### Setup
+## Setup
 
 - Clone / Fork this repository to your GitHub account (forking only required for GitHub Pages)
+- Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
 - Edit the `.env` file found in the root directory enter your [configuration options](#configuration)
 
-GitHub Pages
+### GitHub Pages
 
 - Run `npm run deploy` this will build the React project and deploy it to the `gh-pages` branch
 - Finally make sure GitHub Pages option in your GitHub repository settings is set to use the `gh-pages` branch
 
-Other hosting providers
+### Other hosting providers
 
 - Run `npm run build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
 You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates
 
-### Update
+## Update
 
 Updating is important to get the latest features and patches
 
 - [This guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork) should bring you through the steps of syncing your forked version of this repository. Ensure you have backed up your `.env` configuration file as this may be overwritten
+- Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
 
-GitHub Pages
+### GitHub Pages
 
 - Run `npm run deploy` to deploy the latest version to GitHub Pages
 
-Other hosting providers
+### Other hosting providers
 
 - Run `npm run build` to create a new build directory
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
-### Advanced
+## Advanced
 
 Integrate and automate Components and Incidents, this may be useful for changing a Component to `major outage` when you detect your services aren't running or `performance issues` when the response time goes over a set point.
 
@@ -60,7 +64,7 @@ Integrate and automate Components and Incidents, this may be useful for changing
 - [Zapier](https://zapier.com) - You can create Zaps which have a trigger and an action, use the GitHub Integrations action to update/created Components and Incidents with any of the Zapier Triggers
 - [GitHub API](https://developer.github.com) - You can use the GitHub API directly, you can use this for more advanced options
 
-### Configuration
+## Configuration
 
 Customise your status page - ensure all required options are entered and any unused optional options are set blank, ie `REACT_APP_MANIFEST=`
 
@@ -69,9 +73,9 @@ Customise your status page - ensure all required options are entered and any unu
 - `REACT_APP_DESCRIPTION` (optional) - Determines the description `<meta>` tag in the built HTML file
 - `REACT_APP_LOGO` (optional) - Accepts an image URL and is used in the status page header
 - `REACT_APP_NAME` (optional) - Used in the status page header when no `REACT_APP_LOGO` is provided. This will be used in the img alt attribute if a logo is provided
-- `REACT_APP_REPOSITORY` (required) - GitHub `username/repository` that Component and Incidents will be fetched from, ie `tadhglewis/issue-status`
+- `REACT_APP_REPOSITORY` (required) - GitHub `username/repository` that Components and Incidents will be fetched from, ie `tadhglewis/issue-status`
 
-### Details
+## Details
 
 In depth overview of the functionality
 
@@ -82,6 +86,6 @@ In depth overview of the functionality
 
 If you have any issues or questions feel free to contact me
 
-### Version
+## Version
 
 1
