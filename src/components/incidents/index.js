@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Incident from "./incident";
 import Skeleton from "./skeleton";
+import useDidMount from "../useDidMount";
 
 const Container = styled.div`
   margin: 32px auto 0 auto;
@@ -19,10 +20,12 @@ const NoFound = styled.div`
 `;
 
 export default ({ loading, incidents }) => {
+  const [hasMounted] = useDidMount();
+
   return (
     <Container>
       <Title>Incidents</Title>
-      {!loading || incidents.length !== 0 ? (
+      {!loading || hasMounted ? (
         incidents?.length > 0 ? (
           incidents?.map((incident) => (
             <Incident key={incident.id} incident={incident} />
