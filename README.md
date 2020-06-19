@@ -25,7 +25,7 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 
 - Clone / Fork this repository to your GitHub account (forking only required for GitHub Pages)
 - Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
-- Edit the `.env` file found in the root directory enter your [configuration options](#configuration)
+- Edit the `.env` file found in the root directory and enter your [configuration options](#configuration)
 
 ### GitHub Pages
 
@@ -43,7 +43,7 @@ You may also want to [configure issue templates for your repository](https://hel
 
 Updating is important to get the latest features and patches
 
-- [This guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork) should bring you through the steps of syncing your forked version of this repository. Ensure you have backed up your `.env` configuration file as this may be overwritten
+- [This guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork) should bring you through the steps of syncing your forked version of this repository. Ensure you have backed up your `.env` configuration file as this may be overwritten, you will need to make sure you include the env variables from the latest version
 - Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
 
 ### GitHub Pages
