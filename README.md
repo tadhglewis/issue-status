@@ -69,7 +69,7 @@ Customise your status page - ensure all required options are entered and any unu
 - `REACT_APP_DESCRIPTION` (optional) - Determines the description `<meta>` tag in the built HTML file
 - `REACT_APP_LOGO` (optional) - Accepts an image URL and is used in the status page header
 - `REACT_APP_NAME` (optional) - Used in the status page header when no `REACT_APP_LOGO` is provided. This will be used in the img alt attribute if a logo is provided
-- `REACT_APP_USER` (required) - GitHub username that Component and Incidents will be fetched from
+- `REACT_APP_REPOSITORY` (required) - GitHub `username/repository` that Component and Incidents will be fetched from, ie `tadhglewis/issue-status`
 
 ### Details
 
