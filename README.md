@@ -37,7 +37,7 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 - Run `npm run build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
-You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates
+You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates. **Including the `issue status` label in an issue template will allow unauthorised GitHub users to update the status page, this should be added when creating the issue**
 
 ## Update
 
