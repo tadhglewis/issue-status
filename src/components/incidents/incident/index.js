@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
+import ReactMarkdown from "react-markdown";
 
 const Incident = styled.div`
   transition: 0.3s;
@@ -66,6 +67,8 @@ export default ({ incident }) => (
       </Status>
     </Details>
     <Title>{incident.title}</Title>
-    <Comment>{incident.body}</Comment>
+    <Comment>
+      <ReactMarkdown source={incident.body} />
+    </Comment>
   </Incident>
 );

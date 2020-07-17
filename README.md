@@ -15,6 +15,7 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 - Easy setup
 - Show status of your services using Components
 - Report Incidents
+- Markdown support
 - Component and Incident templates
 - Easy integration with services and monitoring
 - Live updating status page
