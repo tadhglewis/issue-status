@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default () => {
-  const [hasMounted, setHasMounted] = useState();
+  const [hasMounted, setHasMounted] = useState<boolean>();
 
   useEffect(() => {
     setHasMounted(true);

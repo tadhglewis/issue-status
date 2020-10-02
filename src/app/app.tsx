@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import styled from "styled-components";
 import Status from "./status";
-import useIssues from "./useIssues";
+import useIssues from "./ouseIssues";
 import Header from "./header";
 import Components from "./components";
 import Incidents from "./incidents";
