@@ -1,6 +1,6 @@
 {
-  "short_name": "Issue Status",
-  "name": "Simple, modern and flexible status page",
+  "short_name": "deine-Landschaft Status",
+  "name": "Status page for the deine-Landschaft Services",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://tadhglewis.github.io/issue-status",
+  "start_url": "https://status.deine-Landschaft.de",
   "display": "standalone",
-  "theme_color": "#3da751"
+  "theme_color": "#689f38"
 }
