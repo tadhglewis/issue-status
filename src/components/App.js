@@ -6,6 +6,7 @@ import useIssues from "./useIssues";
 import Header from "./header";
 import Components from "./components";
 import Incidents from "./incidents";
+import Maintenance from "./smaintenance";
 import Footer from "./footer";
 
 const Container = styled.div`
@@ -35,21 +36,28 @@ export default () => {
     incidentsResults,
     incidentsRefetch,
   ] = useIssues("incident");
+  const [
+    smaintenanceLoading,
+    smaintenanceError,
+    smaintenanceResults,
+    smaintenanceRefetch,
+  ] = useIssues("maintenance");
 
   return (
     <Container>
       <Header />
       <ComponentsContainer>
         <Status
-          loading={componentsLoading || incidentsLoading}
+          loading={componentsLoading || incidentsLoading || smaintenanceError}
           error={{
-            hasError: componentsError || incidentsError,
-            errors: { componentsError, incidentsError },
+            hasError: componentsError || incidentsError || smaintenanceError,
+            errors: { componentsError, incidentsError, smaintenanceError },
           }}
           components={componentsResults}
           refetch={() => {
             componentsRefetch();
             incidentsRefetch();
+            smaintenanceRefetch();
           }}
         />
         <Components
@@ -58,6 +66,7 @@ export default () => {
         />
       </ComponentsContainer>
       <Incidents loading={incidentsLoading} incidents={incidentsResults} />
+      <Maintenance loading={smaintenanceLoading} smaintenance={smaintenanceResults} />
       <Footer />
     </Container>
   );
