@@ -1,7 +1,7 @@
 ---
-name: maintenance
-about: Maintenance - <TEXT HERE>
-title: ''
+name: Maintenance
+about: Maintenance - updates to things
+title: 'Maintenance - '
 labels: incident, issue status
 assignees: ''
 
