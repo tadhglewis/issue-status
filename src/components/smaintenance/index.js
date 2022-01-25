@@ -24,7 +24,7 @@ export default ({ loading, smaintenance }) => {
 
   return (
     <Container>
-      <Title>Maintenance</Title>
+      <Title>Scheduled Maintenance</Title>
       {!loading || hasMounted ? (
         smaintenance?.length > 0 ? (
           smaintenance?.map((maintenance) => (
