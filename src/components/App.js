@@ -19,7 +19,7 @@ const ComponentsContainer = styled.div`
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
   border-radius: 3px;
   background-color: white;
-  padding: 16px;
+  padding: 50px;
 `;
 
 export default () => {
@@ -41,7 +41,7 @@ export default () => {
     smaintenanceError,
     smaintenanceResults,
     smaintenanceRefetch,
-  ] = useIssues("maintenance");
+  ] = useIssues("maintenance&direction=asc");
 
   return (
     <Container>
@@ -65,8 +65,8 @@ export default () => {
           components={componentsResults}
         />
       </ComponentsContainer>
-      <Incidents loading={incidentsLoading} incidents={incidentsResults} />
       <Maintenance loading={smaintenanceLoading} smaintenance={smaintenanceResults} />
+      <Incidents loading={incidentsLoading} incidents={incidentsResults} />
       <Footer />
     </Container>
   );

@@ -4,3 +4,102 @@ body {
   font-family: Arial;
   background-color: #f5f8fa;
 }
+
+.w3-bottom,
+.w3-top {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.w3-top {
+  top: 0;
+}
+.w3-left-align {
+  text-align: left !important;
+}
+.w3-large {
+  font-size: 18px !important;
+}
+.w3-top {
+  top: 0;
+}
+.w3-bar .w3-button {
+  white-space: normal;
+}
+.w3-bar .w3-bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  outline: none;
+  display: block;
+}
+.w3-theme-l1 {
+  color: #fff !important;
+  background-color: #333333 !important;
+}
+.w3-right {
+  float: right !important;
+}
+.w3-large {
+  font-size: 18px !important;
+}
+@media (min-width: 993px)
+.w3-hide-large {
+  display: none !important;
+}
+.w3-btn, .w3-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.w3-btn, .w3-button {
+  border: none;
+  display: inline-block;
+  outline: 0;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.w3-padding-64 {
+    padding-top: 79px !important;
+    padding-bottom: 64px !important;
+}
+.w3-theme-l2 {
+    color: #fff !important;
+    background-color: #666666 !important;
+}
+.w3-padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+.w3-container, .w3-panel {
+    padding: 0.01em 16px;
+}
+.horwood-top {
+  background: -webkit-gradient(linear, left top, left bottom, from(#c1d2c0), to(#004c2c));
+  border-bottom: 3px
+  solid #ae8b65;
+}
+.horwood-bcs {
+  background: -webkit-gradient(linear, left top, left bottom, from(#5e816b), to(#c1d2c0));
+}
+.horwood_content {
+  padding-top: 40px !important;
+}
+.horwood-bottom {
+    background: -webkit-gradient(linear, left top, left bottom, from(#c1d2c0), to(#5e816b));
+}
+.horwood-page-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
