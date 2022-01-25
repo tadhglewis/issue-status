@@ -66,10 +66,9 @@ export default ({ maintenance }) => (
         {maintenance.closed_at ? "Closed" : "Active"}
       </Status>
     </Details>
-    <Title>{maintenance.title}</Title>
-    if(maintenance.closed_at != "active")
+    <Title><a href={maintenance.html_url}>{maintenance.title}</a></Title>
     <Comment>
-      <ReactMarkdown source={maintenance.body} />
+      <ReactMarkdown source={maintenance.closed_at ? "" : maintenance.body} />
     </Comment>
   </Maintenance>
 );

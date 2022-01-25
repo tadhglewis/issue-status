@@ -5,6 +5,12 @@ body {
   background-color: #f5f8fa;
 }
 
+a{
+  color: inherit;
+}
+a:hover{
+  color: #02623c;
+}
 .w3-bottom,
 .w3-top {
   position: fixed;
