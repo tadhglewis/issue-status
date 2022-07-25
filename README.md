@@ -89,4 +89,4 @@ If you have any issues or questions feel free to contact me or create an issue
 
 ## Version
 
-1.1.0
+1.1.1
