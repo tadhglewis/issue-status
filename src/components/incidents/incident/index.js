@@ -7,16 +7,24 @@ const Incident = styled.div`
   transition: 0.3s;
   border-left: 16px solid
     ${(props) =>
-    props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
+      props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
   background-color: white;
   border-radius: 3px;
   padding: 16px;
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
   margin-top: 8px;
-
+  :hover {
+    background-color:
+      ${(props) =>
+        props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
+  }
   :not(:last-child) {
     margin-bottom: 16px;
   }
+`;
+
+const Link = styled.a`
+  text-decoration: none;
 `;
 
 const Details = styled.div`
@@ -55,6 +63,7 @@ const Created = styled.div`
 `;
 
 export default ({ incident }) => (
+  <Link href={incident.html_url} target="_blank">
   <Incident active={incident.closed_at}>
     <Details>
       <Created>
@@ -68,7 +77,8 @@ export default ({ incident }) => (
     </Details>
     <Title>{incident.title}</Title>
     <Comment>
-      <ReactMarkdown>{incident.body}</ReactMarkdown>
+      <ReactMarkdown children={incident.body} />
     </Comment>
   </Incident>
+  </Link>
 );
