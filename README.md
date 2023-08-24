@@ -78,8 +78,6 @@ Customise your status page - ensure all required options are entered and any unu
 
 ## Details
 
-In depth overview of the functionality
-
 - The main status bar logic is as follows: < 70% Components `operational` = "Some systems are experiencing issues", more than 0 Components `major outage` = "Some systems are experiencing a major outage". Otherwise, "All Systems Operational"
 - A `Component` each display a current status. To create a Component add tags `issue status`, `component` and a tag for the current status: `operational`, `performance issues`, `partial outage` or `major outage` (if an issue only has `issue status` and `component` it will be listed as `Unknown`) to a GitHub Issue. You can view all the demo Components [here](https://github.com/tadhglewis/issue-status/issues?q=is%3Aissue+label%3A%22issue+status%22+label%3A%22component%22)
 - A `Incident` will show in the Incidents section as either `Active` or `Closed` depending whether on the GitHub Issue is Open or Closed. To create an Incident add tags `issue status` and `incident` to a GitHub Issue. You can view all the demo Incidents [here](https://github.com/tadhglewis/issue-status/issues?q=is%3Aissue+label%3A%22issue+status%22+label%3A%22incident%22)
