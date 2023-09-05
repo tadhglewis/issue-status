@@ -1,24 +1,24 @@
 {
-  "short_name": "Issue Status",
-  "name": "Simple, modern and flexible status page",
+  "short_name": "Inworld Status",
+  "name": "Inworld Status Page",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://assets.inworld.ai/meta/logo192.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "https://assets.inworld.ai/meta/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://assets.inworld.ai/meta/logo192.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://tadhglewis.github.io/issue-status",
+  "start_url": "https://inworld-ai.github.io/inworld-issue-status",
   "display": "standalone",
   "theme_color": "#3da751"
 }
