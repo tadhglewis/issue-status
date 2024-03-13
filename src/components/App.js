@@ -41,7 +41,7 @@ export default () => {
     smaintenanceError,
     smaintenanceResults,
     smaintenanceRefetch,
-  ] = useIssues("maintenance&direction=asc");
+  ] = useIssues("maintenance");
 
   return (
     <Container>
