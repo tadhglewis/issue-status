@@ -3,11 +3,11 @@ import styled from "styled-components";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
 
-const Incident = styled.div`
+const Card = styled.div`
   transition: 0.3s;
   border-left: 16px solid
     ${(props) =>
-    props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
+      props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
   background-color: white;
   border-radius: 3px;
   padding: 16px;
@@ -54,8 +54,8 @@ const Created = styled.div`
   font-weight: bold;
 `;
 
-export default ({ incident }) => (
-  <Incident active={incident.closed_at}>
+const Incident = ({ incident }) => (
+  <Card active={incident.closed_at}>
     <Details>
       <Created>
         {moment(incident.created_at)
@@ -70,5 +70,7 @@ export default ({ incident }) => (
     <Comment>
       <ReactMarkdown>{incident.body}</ReactMarkdown>
     </Comment>
-  </Incident>
+  </Card>
 );
+
+export default Incident;

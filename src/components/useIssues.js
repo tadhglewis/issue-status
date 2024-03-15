@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default (label) => {
+const useIssues = (label) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
@@ -26,6 +26,8 @@ export default (label) => {
     () => fetchData(setLoading, setError, setResults, label),
   ];
 };
+
+export default useIssues;
 
 const fetchData = (setLoading, setError, setResults, label) => {
   setLoading(true);

@@ -3,7 +3,7 @@ import Skeleton from "./skeleton";
 import Component from "./component";
 import useDidMount from "../useDidMount";
 
-export default ({ loading, components }) => {
+const Components = ({ loading, components }) => {
   const [hasMounted] = useDidMount();
 
   return !loading || hasMounted ? (
@@ -22,3 +22,5 @@ export default ({ loading, components }) => {
     </>
   );
 };
+
+export default Components;

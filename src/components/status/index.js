@@ -17,7 +17,7 @@ const StatusBar = styled.div`
   transition: 0.3s;
 `;
 
-const Status = styled.h2`
+const StatusTitle = styled.h2`
   font-size: 20px;
   margin: 0;
   font-weight: normal;
@@ -38,8 +38,7 @@ const Code = styled.code`
   display: block;
 `;
 
-// TODO: change all systems status based on current status of all components
-export default ({ loading, error, components, refetch }) => {
+const Status = ({ loading, error, components, refetch }) => {
   const [status] = useStatus(components);
   const [timeAgo] = useRefetch(refetch, loading);
 
@@ -56,9 +55,12 @@ export default ({ loading, error, components, refetch }) => {
         </Code>
       )}
       <StatusBar backgroundColour={status?.backgroundColour}>
-        <Status>{status?.message}</Status>
+        <StatusTitle>{status?.message}</StatusTitle>
         <Reload onClick={refetch}>{loading ? "reloading" : timeAgo}</Reload>
       </StatusBar>
     </>
   );
 };
+
+// TODO: change all systems status based on current status of all components
+export default Status;
