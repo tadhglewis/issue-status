@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
 
-export default (refetch, updateTimeAgoDep) => {
+const useRefetch = (refetch, updateTimeAgoDep) => {
   const [timeAgo, setTimeAgo] = useState(
     moment(
       new Date(localStorage.getItem(`issueStatusLastFetchcomponent`))
@@ -45,3 +45,5 @@ export default (refetch, updateTimeAgoDep) => {
 
   return [timeAgo];
 };
+
+export default useRefetch;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import statuses from "./statuses";
 
-export default (labels) => {
+const useStatus = (labels) => {
   const [status, setStatus] = useState();
 
   useEffect(() => {
@@ -16,3 +16,5 @@ export default (labels) => {
 
   return [status];
 };
+
+export default useStatus;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Status from "./status";
 
-const Component = styled.div`
+const Container = styled.div`
   background-color: #f7f8f9;
   padding: 8px 16px;
   border-radius: 3px;
@@ -15,10 +15,12 @@ const Component = styled.div`
   }
 `;
 
-export default ({ component }) => {
+const Component = ({ component }) => {
   return (
-    <Component>
+    <Container>
       {component.title} <Status labels={component.labels} />
-    </Component>
+    </Container>
   );
 };
+
+export default Component;

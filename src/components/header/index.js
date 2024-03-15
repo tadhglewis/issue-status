@@ -9,14 +9,14 @@ const Title = styled.h1`
 
 const Logo = styled.img``;
 
-const Header = styled.div`
+const Container = styled.div`
   text-align: center;
   margin-bottom: 16px;
 `;
 
-export default () =>
+const Header = () =>
   process.env.REACT_APP_LOGO || process.env.REACT_APP_NAME ? (
-    <Header>
+    <Container>
       {process.env.REACT_APP_LOGO ? (
         <Logo
           src={process.env.REACT_APP_LOGO}
@@ -25,5 +25,7 @@ export default () =>
       ) : (
         <Title>{process.env.REACT_APP_NAME}</Title>
       )}
-    </Header>
+    </Container>
   ) : null;
+
+export default Header;

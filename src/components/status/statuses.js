@@ -1,4 +1,4 @@
-export default {
+const statuses = {
   operational: {
     message: "All Systems Operational",
     backgroundColour: "#3da751",
@@ -12,3 +12,5 @@ export default {
     backgroundColour: "#d94430",
   },
 };
+
+export default statuses;

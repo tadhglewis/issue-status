@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Footer = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
@@ -19,8 +19,8 @@ const Branding = styled.a`
   }
 `;
 
-export default () => (
-  <Footer>
+const Footer = () => (
+  <Container>
     <div></div>
     <Branding
       visible={process.env.REACT_APP_BRANDING !== "false"}
@@ -30,5 +30,7 @@ export default () => (
     >
       Powered by Issue Status
     </Branding>
-  </Footer>
+  </Container>
 );
+
+export default Footer;

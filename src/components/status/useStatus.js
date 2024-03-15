@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import statuses from "./statuses";
 
-export default (components) => {
+const useStatus = (components) => {
   const [status, setStatus] = useState();
 
   useEffect(() => {
@@ -22,6 +22,8 @@ export default (components) => {
 
   return [status];
 };
+
+export default useStatus;
 
 const getComponentLabelPercent = (components, label) =>
   (components.filter((component) =>

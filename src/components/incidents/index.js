@@ -19,7 +19,7 @@ const NoFound = styled.div`
   margin: 0 8px;
 `;
 
-export default ({ loading, incidents }) => {
+const Incidents = ({ loading, incidents }) => {
   const [hasMounted] = useDidMount();
 
   return (
@@ -43,3 +43,5 @@ export default ({ loading, incidents }) => {
     </Container>
   );
 };
+
+export default Incidents;

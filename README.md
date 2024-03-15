@@ -30,12 +30,12 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 
 ### GitHub Pages
 
-- Run `npm run deploy` this will build the React project and deploy it to the `gh-pages` branch
+- Run `yarn deploy` this will build the React project and deploy it to the `gh-pages` branch
 - Finally make sure GitHub Pages option in your GitHub repository settings is set to use the `gh-pages` branch
 
 ### Other hosting providers
 
-- Run `npm run build` this will create a build directory containing the built app
+- Run `yarn build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
 You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates. **Including the `issue status` label in an issue template will allow unauthorised GitHub users to update the status page, this should be added when creating the issue**
@@ -49,11 +49,11 @@ Updating is important to get the latest features and patches
 
 ### GitHub Pages
 
-- Run `npm run deploy` to deploy the latest version to GitHub Pages
+- Run `yarn deploy` to deploy the latest version to GitHub Pages
 
 ### Other hosting providers
 
-- Run `npm run build` to create a new build directory
+- Run `yarn build` to create a new build directory
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
 ## Advanced
@@ -87,4 +87,4 @@ If you have any issues or questions feel free to contact me or create an issue
 
 ## Version
 
-1.1.3
+1.1.4
