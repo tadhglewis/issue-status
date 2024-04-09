@@ -24,18 +24,19 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 
 ## Setup
 
+- Install `node` & `pnpm`
 - Clone / Fork this repository to your GitHub account (forking only required for GitHub Pages)
 - Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
 - Edit the `.env` file found in the root directory and enter your [configuration options](#configuration)
 
 ### GitHub Pages
 
-- Run `yarn deploy` this will build the React project and deploy it to the `gh-pages` branch
+- Run `pnpm run deploy` this will build the React project and deploy it to the `gh-pages` branch
 - Finally make sure GitHub Pages option in your GitHub repository settings is set to use the `gh-pages` branch
 
 ### Other hosting providers
 
-- Run `yarn build` this will create a build directory containing the built app
+- Run `pnpm run build` this will create a build directory containing the built app
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
 You may also want to [configure issue templates for your repository](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) which will act as Component and Incident templates. **Including the `issue status` label in an issue template will allow unauthorised GitHub users to update the status page, this should be added when creating the issue**
@@ -49,11 +50,11 @@ Updating is important to get the latest features and patches
 
 ### GitHub Pages
 
-- Run `yarn deploy` to deploy the latest version to GitHub Pages
+- Run `pnpm run deploy` to deploy the latest version to GitHub Pages
 
 ### Other hosting providers
 
-- Run `yarn build` to create a new build directory
+- Run `pnpm run build` to create a new build directory
 - For deploying [click here](https://create-react-app.dev/docs/deployment)
 
 ## Advanced
