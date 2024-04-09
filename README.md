@@ -28,6 +28,7 @@ You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-sta
 - Clone / Fork this repository to your GitHub account (forking only required for GitHub Pages)
 - Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
 - Edit the `.env` file found in the root directory and enter your [configuration options](#configuration)
+- Run `pnpm install`
 
 ### GitHub Pages
 
