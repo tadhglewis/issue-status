@@ -1,6 +1,6 @@
 # Issue Status
 
-Simple, modern and flexible status page.
+Simple, modern and flexible status page
 
 ![Banner](/banner.gif?raw=true)
 
