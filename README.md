@@ -4,11 +4,11 @@ Simple, modern and flexible status page
 
 ![Banner](/banner.gif?raw=true)
 
-Issue Status is the static client-side status page built on React using GitHub Issues for Component and Incident reporting with live updating using the GitHub API, there is no need to rebuild and redeploy for every update. All hosted on GitHub Pages
+Issue Status is the static client-side status page built on React using GitHub Issues for Component and Incident reporting with live updating using the GitHub API, there is no need to rebuild and redeploy for every update. All hosted on GitHub Pages.
 
 ## Demo
 
-You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-status). This demo is hosted on GitHub Pages
+You can view the Issue Status demo [here](https://tadhglewis.github.io/issue-status). This demo is hosted on GitHub Pages.
 
 ## Features
 
@@ -44,7 +44,7 @@ You may also want to [configure issue templates for your repository](https://hel
 
 ## Update
 
-Updating is important to get the latest features and patches
+Updating is important to get the latest features and patches.
 
 - [This guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork) should bring you through the steps of syncing your forked version of this repository. Ensure you have backed up your `.env` configuration file as this may be overwritten, you will need to make sure you include the env variables from the latest version
 - Run `git checkout tags/VERSION` to checkout to the [latest version](#configuration). It is not recommended to setup using the master branch
@@ -85,7 +85,7 @@ Customise your status page - ensure all required options are entered and any unu
 - A `Incident` will show in the Incidents section as either `Active` or `Closed` depending whether on the GitHub Issue is Open or Closed. To create an Incident add tags `issue status` and `incident` to a GitHub Issue. You can view all the demo Incidents [here](https://github.com/tadhglewis/issue-status/issues?q=is%3Aissue+label%3A%22issue+status%22+label%3A%22incident%22)
 - Issue Status uses the [GitHub API v3](https://developer.github.com/v3) which has a rate limit of 60 requests per hour for unauthenticated requests (Issue Status is client side and will use unauthenticated requests). Issue Status will fetch 15 times per hour, sending 2 requests per fetch / 30 requests per hour (excluding reload button)
 
-If you have any issues or questions feel free to contact me or create an issue
+If you have any issues or questions feel free to contact me or create an issue.
 
 ## Version
 
