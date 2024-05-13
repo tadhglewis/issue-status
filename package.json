@@ -9,7 +9,7 @@
     "react-dom": "18.3.1",
     "react-markdown": "9.0.1",
     "react-scripts": "5.0.1",
-    "styled-components": "6.1.9"
+    "styled-components": "6.1.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.4.5",
