@@ -4,6 +4,7 @@
 import { useData } from "@/api/client";
 import { Component } from "./Component";
 import styled from "styled-components";
+import { Status } from "./Status";
 
 const Card = styled.div`
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
@@ -17,6 +18,7 @@ export const Components = () => {
 
   return (
     <Card>
+      <Status />
       {components.map((component) => (
         <Component key={component.id} {...component} />
       ))}

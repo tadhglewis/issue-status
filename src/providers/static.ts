@@ -32,7 +32,7 @@ export const staticProvider: Provider = {
     {
       id: "1",
       title: "Major service outage",
-      description: "This is a major service outage",
+      description: "_This is a major service outage_",
       createdAt: "2024-05-13T08:55:04.355Z",
       active: true,
     },

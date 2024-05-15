@@ -1,7 +1,7 @@
 "use client";
 
 import { staticProvider } from "@/providers/static";
-import { ComponentType, Data, IncidentType, Provider } from "./types";
+import { Data } from "./types";
 import { ReactNode, createContext, useContext } from "react";
 
 const DataContext = createContext<Data | undefined>(undefined);

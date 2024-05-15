@@ -5,9 +5,9 @@ import { DataProvider } from "@/api/client";
 import { StyledComponentsRegistry } from "@/lib/registry";
 import type { Metadata } from "next";
 import styled from "styled-components";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ weight: ["400", "500"], subsets: ["latin"] });
 
 // TODO ??
 // export const metadata: Metadata = {
