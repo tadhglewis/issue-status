@@ -4,6 +4,14 @@ import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit();
 
+/**
+ * We must cache the current components and incidents due to GitHub API rate limiting.
+ *
+ * Cache responses for 10 minutes.
+ *
+ * `The primary rate limit for unauthenticated requests is 60 requests per hour`
+ * https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28
+ */
 const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
   const raw = localStorage.getItem(key);
   const cached = raw ? JSON.parse(raw) : null;
@@ -19,7 +27,7 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
 
   localStorage.setItem(
     key,
-    JSON.stringify({ data, expireAt: dayjs().add(1, "hour") })
+    JSON.stringify({ data, expireAt: dayjs().add(10, "minutes") })
   );
 
   return data;
