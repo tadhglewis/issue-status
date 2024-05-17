@@ -9,21 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@octokit/rest": "^20.1.1",
-    "dayjs": "^1.11.11",
-    "lru-cache": "^10.2.2",
+    "@octokit/rest": "20.1.1",
+    "dayjs": "1.11.11",
+    "lru-cache": "10.2.2",
     "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-markdown": "^9.0.1",
-    "styled-components": "^6.1.11"
+    "react": "18",
+    "react-dom": "18",
+    "react-markdown": "9.0.1",
+    "styled-components": "6.1.11"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/node": "20",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "eslint": "8",
     "eslint-config-next": "14.2.3",
-    "typescript": "^5"
+    "typescript": "5"
   }
 }
