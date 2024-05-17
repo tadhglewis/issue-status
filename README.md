@@ -6,13 +6,19 @@ A flexible, modern and blazingly ☄️ fast status page
 
 ## Features
 
-- 🌓 Dark mode (theming)
-- 💗 System health
-- 📝 Incident history and postmortems
-- ⌨️ Pre-built templates
-- 🛜 Hosted on GitHub Pages and more
-- ✍️ Markdown support
-- 🔴 Live updates
+🌓 Dark mode (theming)
+
+💗 System health
+
+📝 Incident history and postmortems
+
+⌨️ Pre-built templates
+
+🛜 Hosted on GitHub Pages and more
+
+✍️ Markdown support
+
+🔴 Live updates
 
 ## Demo
 
