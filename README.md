@@ -2,7 +2,7 @@
 
 # issue-status
 
-A flexible, modern and blazingly ☄️ fast status page
+A flexible, modern and blazingly fast ☄️ status page
 
 ## Features
 
