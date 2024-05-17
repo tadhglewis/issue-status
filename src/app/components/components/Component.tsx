@@ -6,12 +6,13 @@ import styled from "styled-components";
 import { Badge } from "./Badge";
 
 const Box = styled.div`
-  background-color: #f7f8f9;
+  background-color: ${(props) => props.theme.colors.body};
   padding: 8px 16px;
   border-radius: 3px;
   justify-content: space-between;
   align-items: center;
   display: flex;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const Component = ({ name, status }: ComponentType) => (

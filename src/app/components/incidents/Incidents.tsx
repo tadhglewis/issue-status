@@ -10,6 +10,7 @@ import { Skeleton } from "./Skeleton";
 const Heading = styled.div`
   padding: 0 16px;
   font-size: 20px;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const Incidents = () => {

@@ -3,9 +3,10 @@
 
 import { DataProvider } from "@/api/client";
 import { StyledComponentsRegistry } from "@/lib/registry";
-import type { Metadata } from "next";
 import styled from "styled-components";
 import { Roboto } from "next/font/google";
+import { themes } from "./themes";
+import { ThemeProvider } from "./ThemeProvider";
 
 const inter = Roboto({ weight: ["400", "500"], subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ const Box = styled.div`
 `;
 
 const Body = styled.body`
-  background-color: #f5f8fa;
+  background-color: ${(props) => props.theme.colors.body};
 `;
 
 export default function RootLayout({
@@ -33,11 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <StyledComponentsRegistry>
-        <Body className={inter.className}>
-          <DataProvider>
-            <Box>{children}</Box>
-          </DataProvider>
-        </Body>
+        <ThemeProvider>
+          <Body className={inter.className}>
+            <DataProvider>
+              <Box>{children}</Box>
+            </DataProvider>
+          </Body>
+        </ThemeProvider>
       </StyledComponentsRegistry>
     </html>
   );

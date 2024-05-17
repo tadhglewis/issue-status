@@ -10,7 +10,7 @@ const Card = styled.div<{ $active: boolean }>`
   border-left: 16px solid
     ${(props) =>
       props.$active ? "rgba(73, 144, 226, 0.2)" : "rgba(177, 177, 177,0.2)"};
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.content};
   border-radius: 3px;
   padding: 16px;
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
@@ -26,17 +26,22 @@ const Details = styled.div`
 const Title = styled.div`
   margin-right: 16px;
   font-weight: bold;
-  color: #1e1e1e;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 const Description = styled.div`
-  color: #1e1e1e;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 const Status = styled(BaseBadge)<{ $active: boolean }>`
-  color: ${(props) => (props.$active ? "#2f5888" : "#6e6b6b")};
+  color: ${(props) =>
+    props.$active
+      ? props.theme.colors.status.active.text
+      : props.theme.colors.status.closed.text};
   background-color: ${(props) =>
-    props.$active ? "rgba(73, 144, 226, 0.1)" : "rgba(177, 177, 177, 0.1)"};
+    props.$active
+      ? props.theme.colors.status.active.background
+      : props.theme.colors.status.closed.background};
 `;
 
 const Created = styled.div`

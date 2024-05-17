@@ -4,5 +4,5 @@ export const Skeleton = styled.div`
   width: 100%;
   height: 44px;
   border-radius: 3px;
-  background-color: #f7f8f9;
+  background-color: ${(props) => props.theme.colors.body};
 `;

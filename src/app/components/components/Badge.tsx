@@ -9,28 +9,29 @@ export const BaseBadge = styled.div`
 `;
 
 const OperationalBadge = styled(BaseBadge)`
-  color: #247234;
-  background-color: rgba(61, 167, 81, 0.1);
+  color: ${(props) => props.theme.colors.operational.text};
+  background-color: ${(props) => props.theme.colors.operational.background};
 `;
 
 const PerformanceIssuesBadge = styled(BaseBadge)`
-  color: #2f5888;
-  background-color: rgba(73, 144, 226, 0.1);
+  color: ${(props) => props.theme.colors.performanceIssues.text};
+  background-color: ${(props) =>
+    props.theme.colors.performanceIssues.background};
 `;
 
 const PartialOutageBadge = styled(BaseBadge)`
-  color: #74582a;
-  background-color: rgba(255, 198, 103, 0.1);
+  color: ${(props) => props.theme.colors.partialOutage.text};
+  background-color: ${(props) => props.theme.colors.partialOutage.background};
 `;
 
 const MajorOutageBadge = styled(BaseBadge)`
-  color: #8e3b31;
-  background-color: rgba(217, 68, 48, 0.1);
+  color: ${(props) => props.theme.colors.majorOutage.text};
+  background-color: ${(props) => props.theme.colors.majorOutage.background};
 `;
 
 const UnknownBadge = styled(BaseBadge)`
-  color: #6e6b6b;
-  background-color: rgba(177, 177, 177, 0.1);
+  color: ${(props) => props.theme.colors.unknown.text};
+  background-color: ${(props) => props.theme.colors.unknown.background};
 `;
 
 export const Badge = ({ status }: { status: ComponentType["status"] }) => {
