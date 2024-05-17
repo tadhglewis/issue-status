@@ -13,7 +13,7 @@ const Link = styled.a`
   display: block;
   align-self: end;
 
-  :hover {
+  &:hover {
     opacity: 0.9;
   }
 `;

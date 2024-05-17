@@ -17,11 +17,8 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
   const cached = raw ? JSON.parse(raw) : null;
 
   if (cached && dayjs().isBefore(cached.expireAt)) {
-    console.log("cache:hit");
     return cached.data;
   }
-
-  console.log("cache:miss");
 
   const data = await func();
 
@@ -33,6 +30,11 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
   return data;
 };
 
+/**
+ * GitHub provider which uses GitHub Issues with specific labels as the data source
+ *
+ * Note: data is cached for 10 minutes when first visiting the site
+ */
 export const github: Provider = {
   getComponents: async () => {
     const { data } = await cached(

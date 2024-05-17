@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { IncidentType } from "@/api/types";
 import { BaseBadge } from "../components/Badge";
+import dayjs from "dayjs";
 
 const Card = styled.div<{ $active: boolean }>`
   transition: 0.3s;
@@ -29,7 +30,6 @@ const Title = styled.div`
 `;
 
 const Description = styled.div`
-  white-space: break-spaces;
   color: #1e1e1e;
 `;
 
@@ -53,7 +53,7 @@ export const Incident = ({
 }: IncidentType) => (
   <Card $active={active}>
     <Details>
-      <Created>{createdAt}</Created>
+      <Created>{dayjs(createdAt).format("MMMM D, YYYY h:mm A")}</Created>
       <Status $active={active}>{active ? "Active" : "Closed"}</Status>
     </Details>
     <Title>{title}</Title>

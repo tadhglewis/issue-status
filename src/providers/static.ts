@@ -1,5 +1,8 @@
 import { Provider } from "@/api/types";
 
+/**
+ * You may use this as inspriation for a custom provider.
+ */
 export const staticProvider: Provider = {
   getComponents: () => [
     {

@@ -11,7 +11,6 @@
   "dependencies": {
     "@octokit/rest": "20.1.1",
     "dayjs": "1.11.11",
-    "lru-cache": "10.2.2",
     "next": "14.2.3",
     "react": "18",
     "react-dom": "18",
