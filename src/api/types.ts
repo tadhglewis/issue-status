@@ -20,9 +20,10 @@ export type IncidentType = {
 export type Data = {
   components: ComponentType[];
   incidents: IncidentType[];
+  loading: boolean;
 };
 
 export type Provider = {
-  getComponents: () => ComponentType[];
-  getIncidents: () => IncidentType[];
+  getComponents: () => Promise<ComponentType[]> | ComponentType[];
+  getIncidents: () => Promise<IncidentType[]> | IncidentType[];
 };
