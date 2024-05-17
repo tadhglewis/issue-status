@@ -19,30 +19,23 @@ export const DataProvider: React.FC<{
 }> = ({ children }) => {
   const api = createApiClient();
 
-  const [loading, setLoading] = useState(true);
-  const [components, setComponents] = useState<ComponentType[]>();
-  const [incidents, setIncidents] = useState<IncidentType[]>();
+  const [state, setState] = useState<Data>({
+    loading: true,
+    components: undefined,
+    incidents: undefined,
+  });
 
   useEffect(() => {
     (async () => {
-      setComponents(await api.getComponents());
-      setIncidents(await api.getIncidents());
-      setLoading(false);
+      setState({
+        loading: false,
+        components: await api.getComponents(),
+        incidents: await api.getIncidents(),
+      });
     })();
   }, [api]);
 
-  return (
-    <DataContext.Provider
-      value={{
-        // TOOD: handle loading state
-        components: components ?? [],
-        incidents: incidents ?? [],
-        loading,
-      }}
-    >
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
 };
 
 export const useData = () => {

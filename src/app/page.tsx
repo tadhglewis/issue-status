@@ -6,17 +6,11 @@ import { Components } from "./components/components/Components";
 import { Incidents } from "./components/incidents/Incidents";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-
-const Stack = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 32px;
-  justify-content: space-between;
-`;
+import { Stack } from "./components/Stack";
 
 export default function Home() {
   return (
-    <Stack>
+    <Stack $space="large">
       <Header />
       <Components />
       <Incidents />

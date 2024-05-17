@@ -12,10 +12,6 @@ const Box = styled.div`
   justify-content: space-between;
   align-items: center;
   display: flex;
-
-  &:not(:last-child) {
-    margin-bottom: 8px;
-  }
 `;
 
 export const Component = ({ name, status }: ComponentType) => (

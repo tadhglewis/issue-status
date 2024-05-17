@@ -4,22 +4,32 @@
 import { useData } from "@/api/client";
 import styled from "styled-components";
 import { Incident } from "./Incident";
+import { Stack } from "../Stack";
+import { Skeleton } from "./Skeleton";
 
 const Heading = styled.div`
   padding: 0 16px;
   font-size: 20px;
-  margin-bottom: 16px;
 `;
 
 export const Incidents = () => {
-  const { incidents } = useData();
+  const { incidents, loading } = useData();
 
   return (
-    <div>
+    <Stack $space="medium">
       <Heading>Incidents</Heading>
-      {incidents.map((incident) => (
-        <Incident key={incident.id} {...incident} />
-      ))}
-    </div>
+      <Stack>
+        {loading ? (
+          <>
+            <Skeleton />
+            <Skeleton />
+          </>
+        ) : (
+          incidents.map((incident) => (
+            <Incident key={incident.id} {...incident} />
+          ))
+        )}
+      </Stack>
+    </Stack>
   );
 };

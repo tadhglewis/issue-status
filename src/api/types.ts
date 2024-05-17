@@ -17,11 +17,13 @@ export type IncidentType = {
   createdAt: string;
 };
 
-export type Data = {
-  components: ComponentType[];
-  incidents: IncidentType[];
-  loading: boolean;
-};
+export type Data =
+  | { loading: true; components: undefined; incidents: undefined }
+  | {
+      components: ComponentType[];
+      incidents: IncidentType[];
+      loading: false;
+    };
 
 export type Provider = {
   getComponents: () => Promise<ComponentType[]> | ComponentType[];

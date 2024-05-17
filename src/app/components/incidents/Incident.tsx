@@ -13,11 +13,6 @@ const Card = styled.div<{ $active: boolean }>`
   border-radius: 3px;
   padding: 16px;
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
-  margin-top: 8px;
-
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
 `;
 
 const Details = styled.div`

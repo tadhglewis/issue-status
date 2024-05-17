@@ -46,11 +46,26 @@ export const github: Provider = {
         ["unknown", "unknown"],
       ]);
 
+      // Essentially just return the first found valid status
+      const status = issue.labels.reduce<ComponentType["status"]>(
+        (acc, current) => {
+          if (acc !== "unknown") {
+            return acc;
+          }
+
+          // label can be string or object??
+          const label = typeof current === "string" ? current : current.name;
+          acc = label ? statusMap.get(label) ?? "unknown" : "unknown";
+
+          return acc;
+        },
+        "unknown"
+      );
+
       return {
         id: issue.id.toString(),
         name: issue.title,
-        // TODO: handle statuses
-        status: "unknown",
+        status,
       };
     });
   },
