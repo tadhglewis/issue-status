@@ -26,6 +26,12 @@ A flexible, modern and blazingly fast ☄️ status page
 
 This demo is hosted on GitHub Pages and using the GitHub [provider](#providers).
 
+## Templates
+
+Pre-built incident templates are included to quickly provide updates on an incident. These templates are available when creating a GitHub Issue.
+
+You may [modify templates](./.github/ISSUE_TEMPLATE/) to suit your needs.
+
 ## Providers
 
 The data fetching layer is separated into so called _Providers_. This allows you to swap out the underlying data source that powers the frontend.
