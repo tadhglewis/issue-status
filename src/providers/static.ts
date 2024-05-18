@@ -38,6 +38,7 @@ export const staticProvider: Provider = {
       description: "_This is a major service outage_",
       createdAt: "2024-05-13T08:55:04.355Z",
       active: true,
+      scheduled: false,
     },
     {
       id: "2",
@@ -45,11 +46,10 @@ export const staticProvider: Provider = {
       description: "This is a partial payments outage",
       createdAt: "2024-05-13T08:55:04.355Z",
       active: false,
+      scheduled: false,
     },
   ],
-  getScheduledMaintenance: function ():
-    | IncidentType[]
-    | Promise<IncidentType[]> {
+  getHistoricalIncidents: function (): IncidentType[] | Promise<IncidentType[]> {
     throw new Error("Function not implemented.");
-  },
+  }
 };

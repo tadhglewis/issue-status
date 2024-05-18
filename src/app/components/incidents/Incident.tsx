@@ -1,3 +1,5 @@
+// @ts-ignore-next
+import remarkRemoveComments from "remark-remove-comments";
 import React from "react";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
@@ -68,7 +70,9 @@ export const Incident = ({
     </Details>
     <Title>{title}</Title>
     <Description>
-      <ReactMarkdown>{description}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkRemoveComments]}>
+        {description}
+      </ReactMarkdown>
     </Description>
   </Card>
 );
