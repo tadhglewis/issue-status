@@ -1,7 +1,7 @@
 ---
 name: Degraded performance
 about: Degraded performance
-title: "Degraded performance"
+title: "<YOUR SYSTEM> degraded performance"
 labels: incident, degraded performance
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Major outage
 about: Major outage
-title: "Major outage"
+title: "<YOUR SYSTEM> major outage"
 labels: incident, major outage
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Partial outage
 about: Partial outage
-title: "Partial outage"
+title: "<YOUR SYSTEM> partial outage"
 labels: incident, partial outage
 ---
 

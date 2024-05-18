@@ -1,7 +1,7 @@
 ---
 name: Scheduled maintenance
 about: Scheduled maintenance
-title: "Scheduled maintenance"
+title: "<YOUR SYSTEM> scheduled maintenance"
 labels: incident, maintenance
 ---
 
