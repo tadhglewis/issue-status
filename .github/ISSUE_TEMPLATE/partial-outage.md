@@ -5,14 +5,19 @@ title: "Partial outage"
 labels: incident, partial outage
 ---
 
-<!-- You may uncomment updates of this template as needed -->
+<!--
+STOP! You must add the `issue status` label for this to show on the status page.
+Note: you must be an authorised user to add this label.
 
-<!-- Update: YOUR UPDATE HERE -->
+You may uncomment updates of this template as needed
+-->
 
-<!-- Resolved: This incident has been resolved -->
+<!-- **Update:** YOUR UPDATE HERE -->
 
-<!-- Monitoring: We have implemented a fix and we are continuing to monitor the incident -->
+<!-- **Resolved:** This incident has been resolved -->
 
-<!-- Identified: We have identified the issue and a fix is being implemented -->
+<!-- **Monitoring:** We have implemented a fix and we are continuing to monitor the incident -->
 
-<!-- Investigating: We are currently investigating a partial outage -->
+<!-- Identified:** We have identified the issue and a fix is being implemented -->
+
+<!-- **Investigating:** We are currently investigating a partial outage -->
