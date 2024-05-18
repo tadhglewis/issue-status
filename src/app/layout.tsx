@@ -24,6 +24,7 @@ const Box = styled.div`
 
 const Body = styled.body`
   background-color: ${(props) => props.theme.colors.body};
+  margin: 0;
 `;
 
 export default function RootLayout({

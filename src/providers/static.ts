@@ -1,4 +1,4 @@
-import { Provider } from "@/api/types";
+import { IncidentType, Provider } from "@/api/types";
 
 /**
  * You may use this as inspriation for a custom provider.
@@ -47,4 +47,9 @@ export const staticProvider: Provider = {
       active: false,
     },
   ],
+  getScheduledMaintenance: function ():
+    | IncidentType[]
+    | Promise<IncidentType[]> {
+    throw new Error("Function not implemented.");
+  },
 };

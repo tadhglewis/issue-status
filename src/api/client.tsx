@@ -1,6 +1,6 @@
 "use client";
 
-import { Data, IncidentType, ComponentType } from "./types";
+import { Data } from "./types";
 import {
   ReactNode,
   createContext,
@@ -22,6 +22,7 @@ export const DataProvider: React.FC<{
   const [state, setState] = useState<Data>({
     loading: true,
     components: undefined,
+    scheduledMaintenance: undefined,
     incidents: undefined,
   });
 
@@ -30,6 +31,7 @@ export const DataProvider: React.FC<{
       setState({
         loading: false,
         components: await api.getComponents(),
+        scheduledMaintenance: await api.getScheduledMaintenance(),
         incidents: await api.getIncidents(),
       });
     })();

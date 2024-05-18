@@ -5,7 +5,7 @@ const dark: DefaultTheme = {
     body: "rgb(28, 31, 32)",
     content: "rgb(24, 26, 27)",
     text: "rgb(213, 209, 204)",
-    hintText: "rgb(163, 156, 144)",
+    hintText: "rgb(158, 158, 158)",
     operational: {
       text: "rgb(136, 218, 153)",
       background: "rgba(61, 167, 81, 0.1)",
@@ -15,7 +15,7 @@ const dark: DefaultTheme = {
       background: "rgba(73, 144, 226, 0.1)",
     },
     partialOutage: {
-      text: "rgb(212, 183, 136)",
+      text: "rgb(218 186 135)",
       background: "rgba(255, 198, 103, 0.1)",
     },
     majorOutage: {

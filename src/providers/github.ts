@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import { ComponentType, Provider } from "@/api/types";
-import { Octokit } from "@octokit/rest";
+import { ComponentType, IncidentType, Provider } from "@/api/types";
+import { Octokit, RestEndpointMethodTypes } from "@octokit/rest";
 
 const octokit = new Octokit();
 
@@ -29,6 +29,20 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
 
   return data;
 };
+
+const issueToIncident = ({
+  id,
+  title,
+  body,
+  created_at,
+  closed_at,
+}: RestEndpointMethodTypes["issues"]["listForRepo"]["response"]["data"][number]): IncidentType => ({
+  id: id.toString(),
+  title: title,
+  description: body ?? "",
+  createdAt: created_at,
+  active: !closed_at,
+});
 
 /**
  * GitHub provider which uses GitHub Issues with specific labels as the data source
@@ -79,6 +93,20 @@ export const github: Provider = {
       };
     });
   },
+  getScheduledMaintenance: async () => {
+    const { data } = await cached(
+      "scheduledMaintenance",
+      async () =>
+        await octokit.rest.issues.listForRepo({
+          owner: "tadhglewis",
+          repo: "issue-status",
+          labels: "issue status,maintenance,scheduled",
+          state: "all",
+        })
+    );
+
+    return data.map(issueToIncident);
+  },
   getIncidents: async () => {
     const { data } = await cached(
       "incidents",
@@ -91,12 +119,6 @@ export const github: Provider = {
         })
     );
 
-    return data.map((issue) => ({
-      id: issue.id.toString(),
-      title: issue.title,
-      description: issue.body ?? "",
-      createdAt: issue.created_at,
-      active: !issue.closed_at,
-    }));
+    return data.map(issueToIncident);
   },
 };

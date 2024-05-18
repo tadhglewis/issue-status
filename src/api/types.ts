@@ -17,15 +17,26 @@ export type IncidentType = {
   createdAt: string;
 };
 
+export type ScheduledMaintenanceType = IncidentType;
+
 export type Data =
-  | { loading: true; components: undefined; incidents: undefined }
+  | {
+      loading: true;
+      components: undefined;
+      scheduledMaintenance: undefined;
+      incidents: undefined;
+    }
   | {
       components: ComponentType[];
+      scheduledMaintenance: ScheduledMaintenanceType[];
       incidents: IncidentType[];
       loading: false;
     };
 
 export type Provider = {
   getComponents: () => Promise<ComponentType[]> | ComponentType[];
+  getScheduledMaintenance: () =>
+    | Promise<ScheduledMaintenanceType[]>
+    | ScheduledMaintenanceType[];
   getIncidents: () => Promise<IncidentType[]> | IncidentType[];
 };

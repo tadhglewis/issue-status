@@ -8,7 +8,7 @@ A flexible, modern and blazingly fast ☄️ status page
 
 💗 System health
 
-📝 Incident history and postmortems
+📝 Incident history, scheduled maintenance and postmortems
 
 ⌨️ Pre-built templates
 
@@ -24,7 +24,7 @@ A flexible, modern and blazingly fast ☄️ status page
 
 [**View demo now!**](https://tadhglewis.github.io/issue-status)
 
-This demo is hosted on GitHub Pages and using the GitHub [provider](#providers)
+This demo is hosted on GitHub Pages and using the GitHub [provider](#providers).
 
 ## Providers
 

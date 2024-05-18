@@ -11,7 +11,8 @@ export const ThemeProvider: React.FC<{
   children: ReactNode | ReactNode[] | null;
 }> = ({ children }) => {
   const [theme, setTheme] = useState<keyof typeof themes>(
-    window.matchMedia("(prefers-color-scheme: light)").matches
+    typeof window !== "undefined" &&
+      window.matchMedia("(prefers-color-scheme: light)").matches
       ? "light"
       : "dark"
   );
