@@ -55,11 +55,16 @@ export const Incident = ({
   active,
   description,
   createdAt,
+  scheduled,
 }: IncidentType) => (
   <Card $active={active}>
     <Details>
       <Created>{dayjs(createdAt).format("MMMM D, YYYY h:mm A")}</Created>
-      <Status $active={active}>{active ? "Active" : "Closed"}</Status>
+      {scheduled ? (
+        <Status $active={active}>Scheduled</Status>
+      ) : (
+        <Status $active={active}>{active ? "Active" : "Closed"}</Status>
+      )}
     </Details>
     <Title>{title}</Title>
     <Description>

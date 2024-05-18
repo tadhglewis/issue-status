@@ -13,10 +13,10 @@ const OperationalBadge = styled(BaseBadge)`
   background-color: ${(props) => props.theme.colors.operational.background};
 `;
 
-const PerformanceIssuesBadge = styled(BaseBadge)`
-  color: ${(props) => props.theme.colors.performanceIssues.text};
+const DegradedPerformanceBadge = styled(BaseBadge)`
+  color: ${(props) => props.theme.colors.degradedPerformance.text};
   background-color: ${(props) =>
-    props.theme.colors.performanceIssues.background};
+    props.theme.colors.degradedPerformance.background};
 `;
 
 const PartialOutageBadge = styled(BaseBadge)`
@@ -37,8 +37,8 @@ const UnknownBadge = styled(BaseBadge)`
 export const Badge = ({ status }: { status: ComponentType["status"] }) => {
   const badges: Record<ComponentType["status"], any> = {
     operational: <OperationalBadge>Operational</OperationalBadge>,
-    performanceIssues: (
-      <PerformanceIssuesBadge>Performance Issues</PerformanceIssuesBadge>
+    degradedPerformance: (
+      <DegradedPerformanceBadge>Degraded Performance</DegradedPerformanceBadge>
     ),
     partialOutage: <PartialOutageBadge>Partial Outage</PartialOutageBadge>,
     majorOutage: <MajorOutageBadge>Major Outage</MajorOutageBadge>,

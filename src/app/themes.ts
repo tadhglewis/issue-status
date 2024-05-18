@@ -10,7 +10,7 @@ const dark: DefaultTheme = {
       text: "rgb(136, 218, 153)",
       background: "rgba(61, 167, 81, 0.1)",
     },
-    performanceIssues: {
+    degradedPerformance: {
       text: "rgb(174 207 234)",
       background: "rgba(73, 144, 226, 0.1)",
     },
@@ -49,7 +49,7 @@ const light: DefaultTheme = {
       text: "#247234",
       background: "rgba(61, 167, 81, 0.1)",
     },
-    performanceIssues: {
+    degradedPerformance: {
       text: "#2f5888",
       background: "rgba(73, 144, 226, 0.1)",
     },

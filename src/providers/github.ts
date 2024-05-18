@@ -10,6 +10,7 @@ const octokit = new Octokit();
  * Cache responses for 10 minutes.
  *
  * `The primary rate limit for unauthenticated requests is 60 requests per hour`
+ *
  * https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28
  */
 const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
@@ -30,24 +31,41 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
   return data;
 };
 
-const issueToIncident = ({
-  id,
-  title,
-  body,
-  created_at,
-  closed_at,
-}: RestEndpointMethodTypes["issues"]["listForRepo"]["response"]["data"][number]): IncidentType => ({
-  id: id.toString(),
-  title: title,
-  description: body ?? "",
-  createdAt: created_at,
-  active: !closed_at,
-});
+const getIncidents = async (state: "open" | "closed") => {
+  const { data } = await cached(
+    `${state}Incidents`,
+    async () =>
+      await octokit.rest.issues.listForRepo({
+        owner: "tadhglewis",
+        repo: "issue-status",
+        labels: "issue status,incident",
+        state,
+      })
+  );
+
+  return data.map(({ id, title, body, created_at, closed_at, labels }) => {
+    const isScheduled = Boolean(
+      labels.find(
+        (label) =>
+          (typeof label === "string" ? label : label.name) === "maintenance"
+      )
+    );
+
+    return {
+      id: id.toString(),
+      title: title,
+      description: body ?? "",
+      createdAt: created_at,
+      scheduled: isScheduled,
+      active: !closed_at,
+    };
+  });
+};
 
 /**
- * GitHub provider which uses GitHub Issues with specific labels as the data source
+ * GitHub provider which uses GitHub Issues with specific labels as the data source.
  *
- * Note: data is cached for 10 minutes when first visiting the site
+ * Note: data is cached for 10 minutes.
  */
 export const github: Provider = {
   getComponents: async () => {
@@ -64,7 +82,7 @@ export const github: Provider = {
     return data.map((issue) => {
       const statusMap = new Map<string, ComponentType["status"]>([
         ["operational", "operational"],
-        ["performance issues", "performanceIssues"],
+        ["degraded performance", "degradedPerformance"],
         ["partial outage", "partialOutage"],
         ["major outage", "majorOutage"],
         ["unknown", "unknown"],
@@ -93,32 +111,6 @@ export const github: Provider = {
       };
     });
   },
-  getScheduledMaintenance: async () => {
-    const { data } = await cached(
-      "scheduledMaintenance",
-      async () =>
-        await octokit.rest.issues.listForRepo({
-          owner: "tadhglewis",
-          repo: "issue-status",
-          labels: "issue status,maintenance,scheduled",
-          state: "all",
-        })
-    );
-
-    return data.map(issueToIncident);
-  },
-  getIncidents: async () => {
-    const { data } = await cached(
-      "incidents",
-      async () =>
-        await octokit.rest.issues.listForRepo({
-          owner: "tadhglewis",
-          repo: "issue-status",
-          labels: "issue status,incident",
-          state: "all",
-        })
-    );
-
-    return data.map(issueToIncident);
-  },
+  getIncidents: async () => await getIncidents("open"),
+  getHistoricalIncidents: async () => await getIncidents("closed"),
 };

@@ -22,8 +22,8 @@ export const DataProvider: React.FC<{
   const [state, setState] = useState<Data>({
     loading: true,
     components: undefined,
-    scheduledMaintenance: undefined,
     incidents: undefined,
+    historicalIncidents: undefined,
   });
 
   useEffect(() => {
@@ -31,8 +31,8 @@ export const DataProvider: React.FC<{
       setState({
         loading: false,
         components: await api.getComponents(),
-        scheduledMaintenance: await api.getScheduledMaintenance(),
         incidents: await api.getIncidents(),
+        historicalIncidents: await api.getHistoricalIncidents(),
       });
     })();
   }, [api]);

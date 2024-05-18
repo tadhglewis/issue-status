@@ -13,7 +13,7 @@ export const staticProvider: Provider = {
     {
       id: "2",
       name: "Website",
-      status: "performanceIssues",
+      status: "degradedPerformance",
     },
     {
       id: "3",

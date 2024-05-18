@@ -13,7 +13,7 @@ declare module "styled-components" {
       text: string;
       hintText: string;
       operational: Badge;
-      performanceIssues: Badge;
+      degradedPerformance: Badge;
       partialOutage: Badge;
       majorOutage: Badge;
       unknown: Badge;
