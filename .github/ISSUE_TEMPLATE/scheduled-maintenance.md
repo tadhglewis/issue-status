@@ -1,10 +1,9 @@
 ---
 name: Scheduled maintenance
-about: Purpose
-title: ''
+about: Scheduled maintenance
+title: "Scheduled maintenance"
 labels: incident, maintenance
-assignees: ''
-
+assignees: ""
 ---
 
-Template content
+We will be performing scheduled maintenance from June 11, 2020 12:00 AM UTC to June 11, 2020 3:00 AM UTC.
