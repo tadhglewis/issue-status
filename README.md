@@ -4,7 +4,7 @@
 
 A flexible, modern and blazingly fast ☄️ status page
 
-![Issue Status](./example.png)
+![Issue Status](./demo.png)
 
 ## Features
 
