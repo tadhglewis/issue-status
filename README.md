@@ -1,5 +1,3 @@
-# Overhaul in progress! [You can still use version 1.1.2](https://github.com/tadhglewis/issue-status/tree/d8bc206c84f59be3feaca09a04467119895939de) or alternatively [view all previously tagged releases](https://github.com/tadhglewis/issue-status/releases)
-
 # issue-status
 
 A flexible, modern and blazingly fast ☄️ status page
