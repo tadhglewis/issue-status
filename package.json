@@ -11,7 +11,7 @@
   "dependencies": {
     "@octokit/rest": "20.1.1",
     "dayjs": "1.11.11",
-    "next": "14.2.3",
+    "next": "14.2.4",
     "react": "18",
     "react-dom": "18",
     "react-markdown": "9.0.1",
