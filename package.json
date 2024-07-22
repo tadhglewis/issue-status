@@ -16,7 +16,7 @@
     "react-dom": "18",
     "react-markdown": "9.0.1",
     "remark-remove-comments": "1.0.1",
-    "styled-components": "6.1.11"
+    "styled-components": "6.1.12"
   },
   "devDependencies": {
     "@types/node": "20",
