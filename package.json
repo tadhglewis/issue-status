@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@octokit/rest": "21.0.0",
+    "@octokit/rest": "21.0.1",
     "dayjs": "1.11.11",
     "next": "14.2.5",
     "react": "18",
