@@ -29,6 +29,13 @@ export const staticProvider: Provider = {
       id: "5",
       name: "Support",
       status: "unknown",
+      children: [
+        {
+          id: "5",
+          name: "Call center",
+          status: "majorOutage",
+        },
+      ],
     },
   ],
   getIncidents: () => [
@@ -40,16 +47,19 @@ export const staticProvider: Provider = {
       active: true,
       scheduled: false,
     },
-    {
-      id: "2",
-      title: "Partial payments outage",
-      description: "This is a partial payments outage",
-      createdAt: "2024-05-13T08:55:04.355Z",
-      active: false,
-      scheduled: false,
-    },
   ],
-  getHistoricalIncidents: function (): IncidentType[] | Promise<IncidentType[]> {
-    throw new Error("Function not implemented.");
-  }
+  getHistoricalIncidents: function ():
+    | IncidentType[]
+    | Promise<IncidentType[]> {
+    return [
+      {
+        id: "2",
+        title: "Partial payments outage",
+        description: "This is a partial payments outage",
+        createdAt: "2024-05-13T08:55:04.355Z",
+        active: false,
+        scheduled: false,
+      },
+    ];
+  },
 };

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import { ComponentType, IncidentType, Provider } from "@/api/types";
-import { Octokit, RestEndpointMethodTypes } from "@octokit/rest";
+import { ComponentType, Provider } from "@/api/types";
+import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit();
 

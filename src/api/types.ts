@@ -1,4 +1,4 @@
-export type ComponentType = {
+type BaseComponentType = {
   id: string;
   name: string;
   status:
@@ -7,6 +7,10 @@ export type ComponentType = {
     | "partialOutage"
     | "majorOutage"
     | "unknown";
+};
+
+export type ComponentType = BaseComponentType & {
+  children?: BaseComponentType[];
 };
 
 export type IncidentType = {
