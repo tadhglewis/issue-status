@@ -20,7 +20,7 @@ const Box = styled.div<{ $clickable?: boolean; child?: boolean }>`
 export const Component = ({ name, status, children }: ComponentType) => {
   const [showChildren, setShowChildren] = useState(false);
 
-  const chevron = showChildren ? "⬇️" : "➡️";
+  const chevron = showChildren ? "▾" : "▸";
 
   return (
     <>
