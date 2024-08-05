@@ -28,7 +28,7 @@
     "@vitejs/plugin-react": "4.3.1",
     "eslint": "8",
     "jsdom": "24.1.0",
-    "vitest": "1.6.0",
+    "vitest": "2.0.5",
     "eslint-config-next": "14.2.5",
     "typescript": "5"
   }
