@@ -29,7 +29,7 @@
     "eslint": "8",
     "jsdom": "25.0.0",
     "vitest": "2.1.1",
-    "eslint-config-next": "14.2.11",
+    "eslint-config-next": "14.2.13",
     "typescript": "5"
   }
 }

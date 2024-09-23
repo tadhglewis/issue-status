@@ -52,8 +52,8 @@ importers:
         specifier: '8'
         version: 8.57.1
       eslint-config-next:
-        specifier: 14.2.11
-        version: 14.2.11(eslint@8.57.1)(typescript@5.6.2)
+        specifier: 14.2.13
+        version: 14.2.13(eslint@8.57.1)(typescript@5.6.2)
       jsdom:
         specifier: 25.0.0
         version: 25.0.0
@@ -383,8 +383,8 @@ packages:
   '@next/env@14.2.10':
     resolution: {integrity: sha512-dZIu93Bf5LUtluBXIv4woQw2cZVZ2DJTjax5/5DOs3lzEOeKLy7GxRSr4caK9/SCPdaW6bCgpye6+n4Dh9oJPw==}
 
-  '@next/eslint-plugin-next@14.2.11':
-    resolution: {integrity: sha512-7mw+xW7Y03Ph4NTCcAzYe+vu4BNjEHZUfZayyF3Y1D9RX6c5NIe25m1grHEAkyUuaqjRxOYhnCNeglOkIqLkBA==}
+  '@next/eslint-plugin-next@14.2.13':
+    resolution: {integrity: sha512-z8Mk0VljxhIzsSiZUSdt3wp+t2lKd+jk5a9Jsvh3zDGkItgDMfjv/ZbET6HsxEl/fSihVoHGsXV6VLyDH0lfTQ==}
 
   '@next/swc-darwin-arm64@14.2.10':
     resolution: {integrity: sha512-V3z10NV+cvMAfxQUMhKgfQnPbjw+Ew3cnr64b0lr8MDiBJs3eLnM6RpGC46nhfMZsiXgQngCJKWGTC/yDcgrDQ==}
@@ -1160,8 +1160,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-config-next@14.2.11:
-    resolution: {integrity: sha512-gGIoBoHCJuLn6vaV1Ke8UurVvgb7JjQv6oRlWmI6RAAxz7KwJOYxxm2blctavA0a3eofbE9TdgKvvTb2G55OHQ==}
+  eslint-config-next@14.2.13:
+    resolution: {integrity: sha512-aro1EKAoyYchnO/3Tlo91hnNBO7QO7qnv/79MAFC+4Jq8TdUVKQlht5d2F+YjrePjdpOvfL+mV9JPfyYNwkk1g==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
       typescript: '>=3.3.1'
@@ -2841,7 +2841,7 @@ snapshots:
 
   '@next/env@14.2.10': {}
 
-  '@next/eslint-plugin-next@14.2.11':
+  '@next/eslint-plugin-next@14.2.13':
     dependencies:
       glob: 10.3.10
 
@@ -3705,9 +3705,9 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-config-next@14.2.11(eslint@8.57.1)(typescript@5.6.2):
+  eslint-config-next@14.2.13(eslint@8.57.1)(typescript@5.6.2):
     dependencies:
-      '@next/eslint-plugin-next': 14.2.11
+      '@next/eslint-plugin-next': 14.2.13
       '@rushstack/eslint-patch': 1.10.3
       '@typescript-eslint/eslint-plugin': 7.2.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)
       '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.2)
