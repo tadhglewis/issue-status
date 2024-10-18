@@ -1,7 +1,7 @@
 ---
 name: Maintenance
 about: Maintenance - updates to things
-title: 'Maintenance - '
+title: 'dd/mm/yy - Maintenance'
 labels: issue status, maintenance
 assignees: ''
 
