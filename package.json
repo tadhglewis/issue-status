@@ -11,25 +11,25 @@
 
   },
   "dependencies": {
-    "@octokit/rest": "21.0.1",
-    "dayjs": "1.11.12",
-    "next": "14.2.5",
+    "@octokit/rest": "21.0.2",
+    "dayjs": "1.11.13",
+    "next": "15.0.4",
     "react": "18",
     "react-dom": "18",
     "react-markdown": "9.0.1",
     "remark-remove-comments": "1.0.1",
-    "styled-components": "6.1.12"
+    "styled-components": "6.1.13"
   },
   "devDependencies": {
-    "@testing-library/react": "16.0.0",
+    "@testing-library/react": "16.0.1",
     "@types/node": "22",
     "@types/react": "18",
     "@types/react-dom": "18",
-    "@vitejs/plugin-react": "4.3.1",
+    "@vitejs/plugin-react": "4.3.2",
     "eslint": "8",
-    "jsdom": "24.1.0",
-    "vitest": "1.6.0",
-    "eslint-config-next": "14.2.5",
+    "jsdom": "25.0.1",
+    "vitest": "2.1.8",
+    "eslint-config-next": "15.0.4",
     "typescript": "5"
   }
 }
