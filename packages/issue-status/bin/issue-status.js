@@ -254,10 +254,6 @@ const initCommand = async () => {
 };
 
 switch (command) {
-  case "init":
-    await initCommand();
-    break;
-
   case "dev":
     spawn(packageManager, ["exec", "vite", "--config", viteConfigPath], {
       stdio: "inherit",
@@ -288,6 +284,5 @@ switch (command) {
     break;
 
   default:
-    console.log("Usage: issue-status <init|dev|build|preview>");
-    process.exit(1);
+    await initCommand();
 }
