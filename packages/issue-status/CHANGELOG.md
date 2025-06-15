@@ -1,5 +1,23 @@
 # issue-status
 
+## 0.0.10
+
+### Patch Changes
+
+- Add support for handling yarn and npm
+
+## 0.0.9
+
+### Patch Changes
+
+- Utilise npx to find executables to avoid pnpm issues
+
+## 0.0.8
+
+### Patch Changes
+
+- Work through multiple publishing issues
+
 ## 0.0.7
 
 ### Patch Changes

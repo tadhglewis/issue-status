@@ -5,6 +5,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { input, select } from "@inquirer/prompts";
+import { findUp } from "find-up";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,7 +13,25 @@ const __dirname = path.dirname(__filename);
 const command = process.argv[2];
 
 const viteConfigPath = path.resolve(__dirname, "../vite.config.ts");
-const viteBinPath = path.resolve(__dirname, "../node_modules/.bin/vite");
+
+const detectPackageManager = async (startDir) => {
+  const pnpmLock = await findUp("pnpm-lock.yaml", { cwd: startDir });
+  if (pnpmLock) {
+    return "pnpm";
+  }
+
+  const yarnLock = findUp("yarn.lock", { cwd: startDir });
+  if (yarnLock) {
+    return "yarn";
+  }
+
+  const npmLock = findUp("package-lock.json", { cwd: startDir });
+  if (npmLock) {
+    return "npm";
+  }
+
+  return "pnpm";
+};
 
 const writeConfig = async (
   templateName,
@@ -65,8 +84,13 @@ const writeConfig = async (
   // Install dependencies
   console.log("📦 Installing dependencies...");
 
+  const packageManager = await detectPackageManager(process.cwd());
+  console.log(
+    `ℹ️  Detected package manager: ${packageManager}. Using it to install dependencies.`
+  );
+
   return new Promise((resolve, reject) => {
-    const installProcess = spawn("npm", ["install"], {
+    const installProcess = spawn(packageManager, ["install"], {
       cwd: projectPath,
       stdio: "inherit",
     });
@@ -76,13 +100,18 @@ const writeConfig = async (
         console.log("✅ Dependencies installed successfully");
         resolve();
       } else {
-        console.log("❌ Failed to install dependencies");
-        reject(new Error(`npm install failed with code ${code}`));
+        console.log(
+          `❌ Failed to install dependencies (exit code: ${code}). Please check the logs above.`
+        );
+        reject(new Error(`${packageManager} install failed with code ${code}`));
       }
     });
 
     installProcess.on("error", (error) => {
-      console.log("❌ Failed to install dependencies:", error.message);
+      console.log(
+        `❌ Failed to install dependencies using ${packageManager}:`,
+        error.message
+      );
       reject(error);
     });
   });
@@ -139,8 +168,6 @@ const initCommand = async () => {
     ],
     default: "static",
   });
-
-  let configTemplate = "";
 
   switch (provider) {
     case "static":
@@ -236,21 +263,21 @@ switch (command) {
     break;
 
   case "dev":
-    spawn(viteBinPath, ["--config", viteConfigPath], {
+    spawn("npx", ["vite", "--config", viteConfigPath], {
       stdio: "inherit",
       cwd: process.cwd(),
     });
     break;
 
   case "build":
-    spawn(viteBinPath, ["build", "--config", viteConfigPath], {
+    spawn("npx", ["vite", "build", "--config", viteConfigPath], {
       stdio: "inherit",
       cwd: process.cwd(),
     });
     break;
 
   case "preview":
-    spawn(viteBinPath, ["preview", "--config", viteConfigPath], {
+    spawn("npx", ["vite", "preview", "--config", viteConfigPath], {
       stdio: "inherit",
       cwd: process.cwd(),
     });

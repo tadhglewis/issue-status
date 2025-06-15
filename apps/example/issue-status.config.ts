@@ -29,8 +29,4 @@ export default {
     ],
     historicalIncidents: [],
   }),
-  footer: {
-    text: "Powered by Test Status",
-    link: "https://example.com",
-  },
 } satisfies IssueStatusConfig;

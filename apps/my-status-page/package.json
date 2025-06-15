@@ -1,6 +1,7 @@
 {
-  "name": "exampleRemote",
+  "name": "my-status-page",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "issue-status dev",
@@ -8,6 +9,6 @@
     "preview": "issue-status preview"
   },
   "dependencies": {
-    "issue-status": "^0.0.7"
+    "issue-status": "^0.0.10"
   }
 }
