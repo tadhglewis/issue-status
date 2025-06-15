@@ -1,0 +1,13 @@
+{
+  "name": "exampleRemote",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "issue-status dev",
+    "build": "issue-status build",
+    "preview": "issue-status preview"
+  },
+  "dependencies": {
+    "issue-status": "^0.0.7"
+  }
+}

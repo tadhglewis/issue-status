@@ -1,0 +1,14 @@
+{
+  "name": "@issue-status/example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "issue-status dev",
+    "build": "issue-status build",
+    "init": "issue-status init"
+  },
+  "devDependencies": {
+    "issue-status": "workspace:*"
+  }
+}
