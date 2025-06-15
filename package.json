@@ -9,9 +9,14 @@
   "scripts": {
     "dev:example": "pnpm --filter @issue-status/example dev",
     "build:package": "pnpm --filter issue-status build",
-    "build:example": "pnpm --filter @issue-status/example build"
+    "build:example": "pnpm --filter @issue-status/example build",
+    "test": "pnpm --filter issue-status test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "typescript": "5"
   }
 }
