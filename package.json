@@ -1,6 +1,4 @@
 {
-  "name": "issue-status-monorepo",
-  "version": "0.1.0",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -12,7 +10,7 @@
     "build:example": "pnpm --filter @issue-status/example build",
     "test": "pnpm --filter issue-status test",
     "changeset": "changeset",
-    "version-packages": "changeset version",
+    "version": "changeset version",
     "release": "changeset publish"
   },
   "devDependencies": {
