@@ -42,33 +42,10 @@ export type Provider = {
   getHistoricalIncidents: () => Promise<IncidentType[]> | IncidentType[];
 };
 
-export interface ThemeColors {
-  background: string;
-  text: string;
-  hintText: string;
-  border: string;
-  operational: string;
-  degradedPerformance: string;
-  partialOutage: string;
-  majorOutage: string;
-  unknown: string;
-}
-
-export interface Theme {
-  colors: ThemeColors;
-}
-
 export interface IssueStatusConfig {
   name: string;
   description?: string;
   favicon?: string;
   logo?: string;
   provider: Provider;
-  theme?: {
-    colors?: Partial<ThemeColors>;
-  };
-  footer?: {
-    text?: string;
-    link?: string;
-  };
 }

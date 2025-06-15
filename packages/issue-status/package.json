@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "type": "module",
   "exports": {
     ".": "./src/api/types.ts",
@@ -34,7 +34,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "9.0.1",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "@inquirer/prompts": "^7.5.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

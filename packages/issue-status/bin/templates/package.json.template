@@ -1,5 +1,5 @@
 {
-  "name": "exampleRemote",
+  "name": "{{projectName}}",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -8,6 +8,6 @@
     "preview": "issue-status preview"
   },
   "dependencies": {
-    "issue-status": "^0.0.7"
+    "issue-status": "^{{version}}"
   }
 }

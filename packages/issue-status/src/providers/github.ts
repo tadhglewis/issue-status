@@ -5,7 +5,6 @@ import { Octokit } from "@octokit/rest";
 export interface GitHubConfig {
   owner: string;
   repo: string;
-  token?: string;
 }
 
 /**
@@ -77,9 +76,7 @@ const getIncidents = async (
  * Note: data is cached for 10 minutes.
  */
 export const github = (config: GitHubConfig): Provider => {
-  const octokit = new Octokit({
-    auth: config.token,
-  });
+  const octokit = new Octokit();
 
   return {
     getComponents: async () => {
