@@ -2,47 +2,45 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Monorepo Structure
 
-Issue Status is a modern status page application built with Next.js that displays system health, incidents, and historical data. The project uses a provider-based architecture to support different data sources.
+This is a pnpm workspace monorepo with:
+- `packages/issue-status/` - Main React/TypeScript package with Vite build system
+- `apps/example/` - Example implementation that uses the main package
 
-## Development Commands
+## Common Development Commands
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production  
-- `pnpm start` - Start production server
+### Root-level commands:
+- `pnpm dev:example` - Start development server for example app
+- `pnpm build:package` - Build the main issue-status package
+- `pnpm build:example` - Build the example app
+
+### Package-specific commands (in packages/issue-status/):
+- `pnpm dev` - Start Vite development server
+- `pnpm build` - TypeScript compile + Vite build
 - `pnpm lint` - Run ESLint
-- `pnpm test` - Run tests with Vitest
 
-## Architecture
+### Example app commands (in apps/example/):
+- `pnpm dev` - Run development server via issue-status CLI
+- `pnpm build` - Build via issue-status CLI
 
-### Provider System
-Core abstraction in `src/api/types.ts` defines the `Provider` interface with three methods:
-- `getComponents()` - Fetch system components and their status
-- `getIncidents()` - Fetch active incidents  
-- `getHistoricalIncidents()` - Fetch closed incidents
+## Architecture Overview
 
-Current providers:
-- **GitHub Provider** (`src/providers/github.ts`) - Uses GitHub Issues API with specific labels as data source. Implements 10-minute caching due to rate limits.
-- **Static Provider** (`src/providers/static.ts`) - Returns mock data for testing
+### Core Architecture
+- **Provider System**: Pluggable data providers (`src/providers/`) allow different data sources (GitHub Issues, static data, etc.)
+- **Type System**: Central types in `src/api/types.ts` define the data contracts
+- **Configuration**: Uses `issue-status.config.ts` files for app configuration
 
-Provider selection happens in `src/api/client.tsx` via `createApiClient()` function.
+### Key Components
+- **Provider Interface**: All providers implement `getComponents()`, `getIncidents()`, and `getHistoricalIncidents()`
+- **Component Status System**: 5-tier status system (operational, degradedPerformance, partialOutage, majorOutage, unknown)
+- **Incident Management**: Handles both active incidents and historical incident tracking
+- **Theme System**: Customizable theming with light/dark mode support
 
-### Data Flow
-1. `DataProvider` in `src/api/client.tsx` creates React context
-2. Provider methods are called on mount to populate state
-3. Components consume data via `useData()` hook
-4. GitHub provider caches responses in localStorage for 10 minutes
+### Package Exports
+The main package exports:
+- Root export (`"."`) → `src/api/types.ts` (type definitions)
+- `"./providers"` → `src/providers/index.ts` (provider implementations)
 
-### Status Types
-Five status levels: `operational`, `degradedPerformance`, `partialOutage`, `majorOutage`, `unknown`
-
-### Theming
-Dual light/dark themes in `src/app/themes.ts` with status-specific colors. Theme switching handled by `ThemeProvider` based on system preferences.
-
-## Key Configuration
-
-- Uses styled-components for styling
-- TypeScript with strict mode enabled
-- Path alias `@/*` maps to `src/*`
-- GitHub provider currently hardcoded to `tadhglewis/issue-status` repository
+## Testing
+Tests use standard testing patterns with `.test.ts` files alongside source code. Run tests with `vitest` in the example app.

@@ -1,5 +1,4 @@
-"use client";
-
+import config from "../config";
 import type { Data } from "./types";
 import {
   type ReactNode,
@@ -8,7 +7,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { issueStatusConfig } from "../config/loader";
 
 const DataContext = createContext<Data | undefined>(undefined);
 
@@ -26,10 +24,9 @@ export const DataProvider: React.FC<{
     (async () => {
       setState({
         loading: false,
-        components: await issueStatusConfig.provider.getComponents(),
-        incidents: await issueStatusConfig.provider.getIncidents(),
-        historicalIncidents:
-          await issueStatusConfig.provider.getHistoricalIncidents(),
+        components: await config.provider.getComponents(),
+        incidents: await config.provider.getIncidents(),
+        historicalIncidents: await config.provider.getHistoricalIncidents(),
       });
     })();
   }, []);

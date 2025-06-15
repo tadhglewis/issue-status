@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { ComponentType, Provider } from "@/api/types";
+import type { ComponentType, Provider } from "../api/types";
 import { Octokit } from "@octokit/rest";
 
 export interface GitHubConfig {
@@ -35,7 +35,12 @@ const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
   return data;
 };
 
-const getIncidents = async (state: "open" | "closed", owner: string, repo: string, octokit: Octokit) => {
+const getIncidents = async (
+  state: "open" | "closed",
+  owner: string,
+  repo: string,
+  octokit: Octokit
+) => {
   const { data } = await cached(
     `${owner}/${repo}:${state}Incidents`,
     async () =>
@@ -120,7 +125,9 @@ export const github = (config: GitHubConfig): Provider => {
         };
       });
     },
-    getIncidents: async () => await getIncidents("open", config.owner, config.repo, octokit),
-    getHistoricalIncidents: async () => await getIncidents("closed", config.owner, config.repo, octokit),
+    getIncidents: async () =>
+      await getIncidents("open", config.owner, config.repo, octokit),
+    getHistoricalIncidents: async () =>
+      await getIncidents("closed", config.owner, config.repo, octokit),
   };
 };

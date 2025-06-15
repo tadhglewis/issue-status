@@ -1,6 +1,3 @@
-// TODO remove
-"use client";
-
 import { useData } from "../api/client";
 import { Incident } from "./Incident";
 
