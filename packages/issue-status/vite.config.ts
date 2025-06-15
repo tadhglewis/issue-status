@@ -18,7 +18,6 @@ export default defineConfig(async () => {
     plugins: [react(), tailwindcss()],
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),
-      __NAME__: "abc",
     },
     server: { fs: { allow: [configPath, packageRoot] } },
     build: {
