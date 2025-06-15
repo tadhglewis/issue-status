@@ -20,6 +20,39 @@ A flexible, modern and blazingly fast ☄️ status page
 
 🔴 Live updates
 
+## Usage
+
+```bash
+# Scaffhold your status page repository
+pnpm create issue-status
+
+# Start development server
+pnpm dev
+
+# Build the static status page using the configuration provided
+pnpm build
+```
+
+### Configuration
+
+`pnpm create issue-status` will scaffhold a new status page repository and guide you through the configuration.
+
+You can make further configurations with the below syntax:
+
+```typescript
+import { IssueStatusConfig } from "issue-status";
+// Import your data provider
+import { githubProvider, staticProvider } from "issue-status/providers";
+
+export default {
+  name: "My Status Page",
+  description: "System status and incident updates",
+  // provider: staticProvider({...}),
+  // OR
+  // provider: gitHubProvider({...}),
+} satisfies IssueStatusConfig;
+```
+
 ## Demo
 
 [**View demo now!**](https://tadhglewis.github.io/issue-status)
