@@ -20,11 +20,6 @@ const detectPackageManager = async (startDir) => {
     return "pnpm";
   }
 
-  const yarnLock = findUp("yarn.lock", { cwd: startDir });
-  if (yarnLock) {
-    return "yarn";
-  }
-
   const npmLock = findUp("package-lock.json", { cwd: startDir });
   if (npmLock) {
     return "npm";
@@ -32,6 +27,8 @@ const detectPackageManager = async (startDir) => {
 
   return "pnpm";
 };
+
+const packageManager = await detectPackageManager(process.cwd());
 
 const writeConfig = async (
   templateName,
@@ -84,7 +81,6 @@ const writeConfig = async (
   // Install dependencies
   console.log("📦 Installing dependencies...");
 
-  const packageManager = await detectPackageManager(process.cwd());
   console.log(
     `ℹ️  Detected package manager: ${packageManager}. Using it to install dependencies.`
   );

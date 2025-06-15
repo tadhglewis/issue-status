@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "type": "module",
   "exports": {
     ".": "./src/api/types.ts",
