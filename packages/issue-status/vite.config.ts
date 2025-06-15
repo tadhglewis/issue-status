@@ -19,5 +19,10 @@ export default defineConfig(async () => {
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),
     },
+    build: {
+      outDir: path.resolve(process.cwd(), "dist"),
+      emptyOutDir: true,
+      target: "esnext",
+    },
   };
 });

@@ -11,7 +11,8 @@
     "test": "pnpm --filter issue-status test",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "prepare": "cp README.md packages/issue-status/README.md",
+    "release": "pnpm prepare && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.4",

@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "exports": {
     ".": "./src/api/types.ts",
@@ -12,9 +12,14 @@
   "files": [
     "src",
     "bin",
-    "package.json",
-    "README.md"
+    "package.json"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tadhglewis/issue-status.git"
+  },
+  "author": "tadhglewis",
+  "homepage": "https://github.com/tadhglewis/issue-status#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

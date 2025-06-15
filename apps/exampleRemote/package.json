@@ -9,6 +9,6 @@
     "init": "issue-status init"
   },
   "devDependencies": {
-    "issue-status": "workspace:*"
+    "issue-status": "latest"
   }
 }

@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# issue-status
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A flexible, modern and blazingly fast ☄️ status page
 
-Currently, two official plugins are available:
+![Issue Status](./demo-all.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+💗 System health
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+📝 Incident history, scheduled maintenance and postmortems
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+⌨️ Pre-built templates
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🌓 Dark mode (theming)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🛜 Hosted on GitHub Pages and more
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+✍️ Markdown support
+
+🔴 Live updates
+
+## Demo
+
+[**View demo now!**](https://tadhglewis.github.io/issue-status)
+
+This demo is hosted on GitHub Pages and using the GitHub [provider](#providers).
+
+## Templates
+
+Pre-built incident templates are included to quickly provide updates on an incident. These templates are available when creating a GitHub Issue.
+
+You may [modify templates](./.github/ISSUE_TEMPLATE/) to suit your needs.
+
+## Providers
+
+The data fetching layer is separated into so called _Providers_. This allows you to swap out the underlying data source that powers the frontend.
+
+Currently, only the following providers are supported:
+
+- GitHub - uses the GitHub API and GitHub Issues as a source.
+- Static - a testing provider with static data.
+
+**Contributions:** If you have created a custom provider which may have value to others, please feel free to reach out to discuss including it in this project.
+
+## Theming
+
+Currently, there are two available themes which will automatically be applied based on the users system preferences:
+
+- `light`
+- `dark`
+
+Theming tokens are available for editing in the [themes](./src/app/themes.ts) file.

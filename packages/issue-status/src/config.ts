@@ -1,4 +1,6 @@
-/* @vite-ignore */
-const config = await import(__CONFIG_PATH__);
+const config = await import(
+  /* @vite-ignore */
+  __CONFIG_PATH__
+);
 
 export default config.default;
