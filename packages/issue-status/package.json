@@ -1,0 +1,40 @@
+{
+  "name": "issue-status",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/api/types.ts",
+    "./providers": "./src/providers/index.ts"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.2",
+    "@tailwindcss/vite": "^4.1.10",
+    "dayjs": "1.11.13",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "9.0.1",
+    "remark-remove-comments": "1.0.1",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5"
+  }
+}

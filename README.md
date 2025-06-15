@@ -1,10 +1,46 @@
-# Overhaul in progress! [You can still use version 1.1.2](https://github.com/tadhglewis/issue-status/tree/d8bc206c84f59be3feaca09a04467119895939de) or alternatively [view all previously tagged releases](https://github.com/tadhglewis/issue-status/releases)
-
 # issue-status
 
 A flexible, modern and blazingly fast ☄️ status page
 
 ![Issue Status](./demo-all.png)
+
+## Quick Start
+
+### As a Package
+
+```bash
+npm install -g issue-status
+issue-status init my-status-page
+cd my-status-page
+npm install
+issue-status dev
+```
+
+### Manual Setup
+
+1. Clone or use this repository as a template
+2. Create an `issue-status.config.ts` file:
+
+```typescript
+import { IssueStatusConfig } from "./src/api/types";
+import { github, staticProvider } from "./src/providers";
+
+export default {
+  name: "My Status Page",
+  description: "System status for My Company",
+  provider: github({
+    owner: "your-username",
+    repo: "your-status-repo",
+    token: process.env.GITHUB_TOKEN, // Optional
+  }),
+  footer: {
+    text: "Powered by My Status",
+    link: "https://mystatus.com",
+  },
+} satisfies IssueStatusConfig;
+```
+
+3. Run `npm run dev` to start the development server
 
 ## Features
 
@@ -53,3 +89,56 @@ Currently, there are two available themes which will automatically be applied ba
 - `dark`
 
 Theming tokens are available for editing in the [themes](./src/app/themes.ts) file.
+
+## Configuration
+
+The `issue-status.config.ts` file supports the following options:
+
+```typescript
+interface IssueStatusConfig {
+  name: string;                    // Display name for your status page
+  description?: string;            // Description (currently unused)
+  favicon?: string;               // Custom favicon URL (currently unused)
+  logo?: string;                  // Custom logo URL (currently unused)
+  provider: Provider;             // Data provider (see Providers section)
+  theme?: {                       // Custom theme colors
+    colors?: Partial<ThemeColors>;
+  };
+  footer?: {                      // Footer customization
+    text?: string;                // Footer text
+    link?: string;                // Footer link URL
+  };
+}
+```
+
+### Provider Configuration
+
+#### GitHub Provider
+
+```typescript
+import { github } from "./src/providers";
+
+github({
+  owner: "your-username",         // Repository owner
+  repo: "status-repo",           // Repository name
+  token: "your-token",           // Optional: GitHub token for higher rate limits
+})
+```
+
+#### Static Provider
+
+```typescript
+import { staticProvider } from "./src/providers";
+
+staticProvider({
+  components: [                   // Optional: custom components
+    {
+      id: "1",
+      name: "API",
+      status: "operational"
+    }
+  ],
+  incidents: [],                 // Optional: custom incidents
+  historicalIncidents: []        // Optional: custom historical incidents
+})
+```

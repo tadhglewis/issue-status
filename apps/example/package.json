@@ -1,0 +1,20 @@
+{
+  "name": "@issue-status/example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "issue-status dev",
+    "build": "issue-status build",
+    "init": "issue-status init"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.10",
+    "issue-status": "workspace:*",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "vitest": "2.1.8"
+  }
+}

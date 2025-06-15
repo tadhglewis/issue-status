@@ -1,35 +1,17 @@
 {
-  "name": "issue-status",
+  "name": "issue-status-monorepo",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "vitest"
-
-  },
-  "dependencies": {
-    "@octokit/rest": "21.0.2",
-    "dayjs": "1.11.13",
-    "next": "15.0.4",
-    "react": "18",
-    "react-dom": "18",
-    "react-markdown": "9.0.1",
-    "remark-remove-comments": "1.0.1",
-    "styled-components": "6.1.13"
+    "dev:example": "pnpm --filter @issue-status/example dev",
+    "build:package": "pnpm --filter issue-status build",
+    "build:example": "pnpm --filter @issue-status/example build"
   },
   "devDependencies": {
-    "@testing-library/react": "16.0.1",
-    "@types/node": "22",
-    "@types/react": "18",
-    "@types/react-dom": "18",
-    "@vitejs/plugin-react": "4.3.2",
-    "eslint": "8",
-    "jsdom": "25.0.1",
-    "vitest": "2.1.8",
-    "eslint-config-next": "15.0.4",
     "typescript": "5"
   }
 }
