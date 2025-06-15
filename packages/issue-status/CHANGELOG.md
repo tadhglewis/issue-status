@@ -1,5 +1,23 @@
 # issue-status
 
+## 0.0.16
+
+### Patch Changes
+
+- WIP
+
+## 0.0.15
+
+### Patch Changes
+
+- Fix incorrect labeling of devDependencies
+
+## 0.0.14
+
+### Patch Changes
+
+- Fix the working directory of vite
+
 ## 0.0.13
 
 ### Patch Changes

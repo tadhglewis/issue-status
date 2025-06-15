@@ -20,7 +20,7 @@ const detectPackageManager = async (startDir) => {
     return "pnpm";
   }
 
-  const npmLock = findUp("package-lock.json", { cwd: startDir });
+  const npmLock = await findUp("package-lock.json", { cwd: startDir });
   if (npmLock) {
     return "npm";
   }
@@ -259,24 +259,32 @@ switch (command) {
     break;
 
   case "dev":
-    spawn("npx", ["vite", "--config", viteConfigPath], {
+    spawn(packageManager, ["exec", "vite", "--config", viteConfigPath], {
       stdio: "inherit",
       cwd: process.cwd(),
     });
     break;
 
   case "build":
-    spawn("npx", ["vite", "build", "--config", viteConfigPath], {
-      stdio: "inherit",
-      cwd: process.cwd(),
-    });
+    spawn(
+      packageManager,
+      ["exec", "vite", "build", "--config", viteConfigPath],
+      {
+        stdio: "inherit",
+        cwd: process.cwd(),
+      }
+    );
     break;
 
   case "preview":
-    spawn("npx", ["vite", "preview", "--config", viteConfigPath], {
-      stdio: "inherit",
-      cwd: process.cwd(),
-    });
+    spawn(
+      packageManager,
+      ["exec", "vite", "preview", "--config", viteConfigPath],
+      {
+        stdio: "inherit",
+        cwd: process.cwd(),
+      }
+    );
     break;
 
   default:

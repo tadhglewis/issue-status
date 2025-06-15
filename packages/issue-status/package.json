@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.13",
+  "version": "0.0.16",
   "type": "module",
   "exports": {
     ".": "./src/api/types.ts",
@@ -25,11 +25,13 @@
   "dependencies": {
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/vite": "^4.1.10",
+    "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "10.1.0",
     "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5",
     "@inquirer/prompts": "^7.5.3",
     "find-up": "^7.0.0"
   },
@@ -38,7 +40,6 @@
     "@types/node": "^24.0.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -46,7 +47,6 @@
     "tsx": "^4.20.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.0",
-    "vite": "^6.3.5",
     "vitest": "3.2.3"
   }
 }
