@@ -22,6 +22,11 @@
   },
   "author": "tadhglewis",
   "homepage": "https://github.com/tadhglewis/issue-status#readme",
+  "keywords": [
+    "status-page",
+    "incident-management",
+    "system-monitoring"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
