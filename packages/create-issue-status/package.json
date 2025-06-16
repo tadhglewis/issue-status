@@ -4,7 +4,7 @@
   "description": "Create new issue-status projects with scaffolding templates",
   "type": "module",
   "bin": {
-    "create-issue-status": "./dist/index.js"
+    "create-issue-status": "./index.js"
   },
   "files": [
     "dist",
@@ -29,12 +29,10 @@
   "homepage": "https://github.com/tadhglewis/issue-status#readme",
   "dependencies": {
     "@clack/prompts": "^0.11.0",
-    "cross-spawn": "^7.0.6",
     "mri": "^1.2.0",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/cross-spawn": "^6.0.6",
     "@types/mri": "^1.2.0",
     "tsdown": "^0.12.7",
     "typescript": "^5.8.3"

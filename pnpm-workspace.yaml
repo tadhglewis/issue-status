@@ -1,5 +1,3 @@
-publicHoistPattern:
-  - vite
 packages:
   - packages/*
   - apps/*

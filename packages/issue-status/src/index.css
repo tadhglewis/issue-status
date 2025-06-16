@@ -1,1 +1,92 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    
+    /* Status colors */
+    --success: oklch(0.646 0.222 142.495);
+    --success-foreground: oklch(0.145 0 0);
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-foreground: oklch(0.145 0 0);
+    --error: oklch(0.577 0.245 27.325);
+    --error-foreground: oklch(0.985 0 0);
+    
+    /* Component specific */
+    --operational: oklch(0.646 0.222 142.495);
+    --operational-foreground: oklch(0.145 0 0);
+    --operational-bg: oklch(0.95 0.05 142.495);
+    --degraded: oklch(0.828 0.189 84.429);
+    --degraded-foreground: oklch(0.145 0 0);
+    --degraded-bg: oklch(0.95 0.05 84.429);
+    --outage: oklch(0.577 0.245 27.325);
+    --outage-foreground: oklch(0.985 0 0);
+    --outage-bg: oklch(0.95 0.05 27.325);
+    --unknown: oklch(0.556 0 0);
+    --unknown-foreground: oklch(0.145 0 0);
+    --unknown-bg: oklch(0.95 0 0);
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    
+    /* Status colors for dark mode */
+    --success: oklch(0.646 0.222 142.495);
+    --success-foreground: oklch(0.985 0 0);
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-foreground: oklch(0.985 0 0);
+    --error: oklch(0.704 0.191 22.216);
+    --error-foreground: oklch(0.985 0 0);
+    
+    /* Component specific for dark mode */
+    --operational: oklch(0.646 0.222 142.495);
+    --operational-foreground: oklch(0.985 0 0);
+    --operational-bg: oklch(0.205 0.1 142.495);
+    --degraded: oklch(0.828 0.189 84.429);
+    --degraded-foreground: oklch(0.985 0 0);
+    --degraded-bg: oklch(0.205 0.1 84.429);
+    --outage: oklch(0.704 0.191 22.216);
+    --outage-foreground: oklch(0.985 0 0);
+    --outage-bg: oklch(0.205 0.1 22.216);
+    --unknown: oklch(0.708 0 0);
+    --unknown-foreground: oklch(0.985 0 0);
+    --unknown-bg: oklch(0.269 0 0);
+  }
+}

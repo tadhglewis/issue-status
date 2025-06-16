@@ -10,14 +10,7 @@ const { cyan, yellow, green } = pkg;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-type ColorFunc = (str: string | number) => string;
-type Provider = {
-  name: string;
-  display: string;
-  color: ColorFunc;
-};
-
-const PROVIDERS: Provider[] = [
+const PROVIDERS = [
   {
     name: "static",
     display: "Static",
@@ -37,11 +30,7 @@ const PROVIDERS: Provider[] = [
 
 const TEMPLATES = PROVIDERS.map((p) => p.name);
 
-const renameFiles: Record<string, string | undefined> = {
-  _gitignore: ".gitignore",
-};
-
-const defaultTargetDir = "issue-status-project";
+const defaultTargetDir = "my-status-page";
 
 const init = async () => {
   const argv = mri(process.argv.slice(2), {
@@ -133,7 +122,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
   if (!isValidPackageName(getProjectName()!)) {
     const packageNameResult = await prompts.text({
       message: "Package name:",
-      placeholder: toValidPackageName(getProjectName()!),
+      placeholder: toValidPackageName(getProjectName()),
       validate: (dir) => {
         if (isValidPackageName(dir)) return;
         return "Invalid package.json name";
@@ -245,7 +234,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
 
   const templateDir = path.resolve(__dirname, "..", "template-" + template);
   const write = (file: string, content?: string) => {
-    const targetPath = path.join(root, renameFiles[file] ?? file);
+    const targetPath = path.join(root, file);
     if (content) {
       fs.writeFileSync(targetPath, content);
     } else {
