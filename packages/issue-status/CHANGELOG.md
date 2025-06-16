@@ -1,5 +1,29 @@
 # issue-status
 
+## 0.0.26
+
+### Patch Changes
+
+- Fix vite config path
+
+## 0.0.25
+
+### Patch Changes
+
+- Fix index.html not being published
+
+## 0.0.24
+
+### Patch Changes
+
+- Explicitly state published files
+
+## 0.0.23
+
+### Patch Changes
+
+- Fix entrypoint
+
 ## 0.0.22
 
 ### Patch Changes
