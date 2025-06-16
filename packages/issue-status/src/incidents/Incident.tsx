@@ -1,3 +1,5 @@
+import remarkGfm from "remark-gfm";
+
 import ReactMarkdown from "react-markdown";
 import type { IncidentType } from "../api/types";
 
@@ -54,7 +56,7 @@ export const Incident = ({
       {title}
     </div>
     <div className="text-gray-700 dark:text-gray-300">
-      <ReactMarkdown>{description}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
     </div>
   </div>
 );
