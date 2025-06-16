@@ -1,5 +1,11 @@
 # issue-status
 
+## 0.0.18
+
+### Patch Changes
+
+- d04e0b9: Fix issues with locating vite executable
+
 ## 0.0.17
 
 ### Patch Changes
