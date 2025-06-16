@@ -1,5 +1,11 @@
 # issue-status
 
+## 0.0.17
+
+### Patch Changes
+
+- Fix file system permissions when importing the config
+
 ## 0.0.16
 
 ### Patch Changes

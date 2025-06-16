@@ -1,4 +1,4 @@
-import type { IssueStatusConfig, Provider } from "issue-status";
+import { defineConfig, type Provider } from "issue-status";
 
 // TODO: Implement your custom provider
 const customProvider: Provider = {
@@ -22,8 +22,8 @@ const customProvider: Provider = {
   },
 };
 
-export default {
-  name: "{{name}}",
-  description: "{{description}}",
+export default defineConfig({
+  name: "My Status Page",
+  description: "Status page for my services",
   provider: customProvider,
-} satisfies IssueStatusConfig;
+});

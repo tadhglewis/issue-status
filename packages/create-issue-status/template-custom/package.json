@@ -1,5 +1,5 @@
 {
-  "name": "{{projectName}}",
+  "name": "issue-status-project",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,6 @@
     "preview": "issue-status preview"
   },
   "dependencies": {
-    "issue-status": "^{{version}}"
+    "issue-status": "^0.0.16"
   }
 }

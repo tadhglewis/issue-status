@@ -42,7 +42,10 @@ export type Provider = {
   getHistoricalIncidents: () => Promise<IncidentType[]> | IncidentType[];
 };
 
-export interface IssueStatusConfig {
+export const defineConfig = (config: IssueStatusConfig): IssueStatusConfig =>
+  config;
+
+interface IssueStatusConfig {
   name: string;
   description?: string;
   favicon?: string;

@@ -1,0 +1,45 @@
+{
+  "name": "create-issue-status",
+  "version": "0.0.3",
+  "description": "Create new issue-status projects with scaffolding templates",
+  "type": "module",
+  "bin": {
+    "create-issue-status": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "template-*"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadhglewis/issue-status.git",
+    "directory": "packages/create-issue-status"
+  },
+  "author": "tadhglewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tadhglewis/issue-status/issues"
+  },
+  "homepage": "https://github.com/tadhglewis/issue-status#readme",
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "cross-spawn": "^7.0.6",
+    "mri": "^1.2.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6",
+    "@types/mri": "^1.2.0",
+    "tsdown": "^0.12.7",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  }
+}

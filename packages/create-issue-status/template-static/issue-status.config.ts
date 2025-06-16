@@ -1,9 +1,9 @@
-import type { IssueStatusConfig } from "issue-status";
+import { defineConfig } from "issue-status";
 import { staticProvider } from "issue-status/providers";
 
-export default {
-  name: "{{name}}",
-  description: "{{description}}",
+export default defineConfig({
+  name: "My Status Page",
+  description: "Status page for my services",
   provider: staticProvider({
     components: [
       {
@@ -25,4 +25,4 @@ export default {
     incidents: [],
     historicalIncidents: [],
   }),
-} satisfies IssueStatusConfig;
+});
