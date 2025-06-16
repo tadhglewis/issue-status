@@ -1,5 +1,11 @@
 # create-issue-status
 
+## 0.0.5
+
+### Patch Changes
+
+- Refactor packages to use Vite's internal JavaScript API
+
 ## 0.0.4
 
 ### Patch Changes

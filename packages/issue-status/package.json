@@ -1,13 +1,13 @@
 {
   "name": "issue-status",
-  "version": "0.0.18",
+  "version": "0.0.22",
   "type": "module",
   "exports": {
     ".": "./src/api/types.ts",
     "./providers": "./src/providers/index.ts"
   },
   "bin": {
-    "issue-status": "./bin/issue-status.js"
+    "issue-status": "./issue-status.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:cli": "tsdown",
+    "dev:cli": "tsdown --watch",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublishOnly": "npm run build:cli"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.5.3",
@@ -44,6 +47,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
+    "tsdown": "^0.12.7",
     "tsx": "^4.20.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.0"

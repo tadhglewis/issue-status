@@ -1,5 +1,29 @@
 # issue-status
 
+## 0.0.22
+
+### Patch Changes
+
+- Refactor packages to use Vite's internal JavaScript API
+
+## 0.0.21
+
+### Patch Changes
+
+- Utilise vite shims for pkg managers
+
+## 0.0.20
+
+### Patch Changes
+
+- Refactor internal bin to utilise vite's javascript api
+
+## 0.0.19
+
+### Patch Changes
+
+- WIP
+
 ## 0.0.18
 
 ### Patch Changes
