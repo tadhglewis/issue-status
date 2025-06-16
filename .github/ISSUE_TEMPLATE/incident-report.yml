@@ -1,0 +1,151 @@
+name: Incident Report
+description: Report a system incident, outage, or scheduled maintenance
+title: "[INCIDENT] <YOUR SYSTEM> - "
+labels: ["incident", "issue status"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚨 Incident Report
+        
+        Use this form to report system incidents, outages, or scheduled maintenance. 
+        
+        **Important:** This issue requires the `issue status` label to appear on the status page.
+
+  - type: dropdown
+    id: incident-type
+    attributes:
+      label: Incident Type
+      description: Select the type of incident you're reporting
+      options:
+        - Major Outage
+        - Partial Outage
+        - Degraded Performance
+        - Scheduled Maintenance
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: system-name
+    attributes:
+      label: System/Service Name
+      description: Name of the affected system or service
+      placeholder: e.g., API Gateway, Database, Web Application
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Incident Description
+      description: Provide a detailed description of the incident
+      placeholder: Describe what is happening, when it started, and what users are experiencing
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: Select the severity of this incident
+      options:
+        - Critical - Complete service unavailable
+        - High - Major functionality impacted
+        - Medium - Some functionality impacted
+        - Low - Minor impact or scheduled maintenance
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: current-status
+    attributes:
+      label: Current Status
+      description: What is the current status of this incident?
+      options:
+        - Investigating - We are investigating the issue
+        - Identified - We have identified the cause
+        - Monitoring - A fix has been applied and we are monitoring
+        - Resolved - The incident has been resolved
+        - Scheduled - This is scheduled maintenance
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-services
+    attributes:
+      label: Affected Services
+      description: List all services, components, or features affected by this incident
+      placeholder: |
+        - Service 1
+        - Service 2
+        - Feature X
+    validations:
+      required: false
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline (for scheduled maintenance)
+      description: If this is scheduled maintenance, provide the timeline
+      placeholder: |
+        Start: YYYY-MM-DD HH:MM UTC
+        End: YYYY-MM-DD HH:MM UTC
+        Expected duration: X hours
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: User Impact
+      description: Describe how this incident affects users
+      placeholder: What functionality is unavailable or degraded? How many users are affected?
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: If there's a temporary workaround, describe it here
+      placeholder: Steps users can take to work around the issue
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## Status Update Templates
+        
+        After creating this incident, you can use these templates for status updates:
+        
+        ### 🔍 Investigating
+        ```
+        **Update:** We are currently investigating reports of [brief description]. We will provide updates as we learn more.
+        ```
+        
+        ### ✅ Identified
+        ```
+        **Update:** We have identified the cause of [brief description] and are working on a fix.
+        ```
+        
+        ### 👀 Monitoring
+        ```
+        **Update:** A fix has been applied and we are monitoring the situation. The issue appears to be resolved.
+        ```
+        
+        ### 🎉 Resolved
+        ```
+        **Resolved:** The incident has been resolved. All systems are operating normally.
+        ```
+        
+        ### 📋 Custom Update
+        ```
+        **Update:** [Your custom status message here]
+        ```
