@@ -1,9 +1,13 @@
+import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
 
 import ReactMarkdown from "react-markdown";
 import type { IncidentType } from "../api/types";
 
 import dayjs from "dayjs";
+import rehypeRaw from "rehype-raw";
 
 export const Incident = ({
   title,
@@ -55,8 +59,18 @@ export const Incident = ({
     <div className="mr-4 font-bold text-gray-800 dark:text-gray-200">
       {title}
     </div>
-    <div className="text-gray-700 dark:text-gray-300">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+    <div className="text-gray-700 dark:text-gray-300 space-y-4">
+      <ReactMarkdown
+        remarkPlugins={[
+          remarkParse,
+          remarkGfm,
+          remarkRehype,
+          rehypeRaw,
+          rehypeStringify,
+        ]}
+      >
+        {description}
+      </ReactMarkdown>
     </div>
   </div>
 );
