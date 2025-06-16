@@ -59,7 +59,7 @@ export const Incident = ({
     <div className="mr-4 font-bold text-gray-800 dark:text-gray-200">
       {title}
     </div>
-    <div className="text-gray-700 dark:text-gray-300 space-y-4">
+    <div className="text-gray-700 dark:text-gray-300 prose dark:prose-invert">
       <ReactMarkdown
         remarkPlugins={[
           remarkParse,

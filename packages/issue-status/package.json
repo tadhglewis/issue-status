@@ -41,6 +41,7 @@
     "@inquirer/prompts": "^7.5.3",
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/vite": "^4.1.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
     "find-up": "^7.0.0",
