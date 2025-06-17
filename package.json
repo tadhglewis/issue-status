@@ -7,7 +7,7 @@
   "scripts": {
     "dev:example": "pnpm --filter @issue-status/example dev",
     "build:package": "pnpm --filter issue-status build",
-    "build:example": "pnpm --filter issue-status build:ci && pnpm --filter @issue-status/example build",
+    "build:example": "pnpm --filter issue-status build:cli && pnpm --filter @issue-status/example build",
     "test": "pnpm --filter issue-status test",
     "changeset": "changeset",
     "version": "changeset version",
