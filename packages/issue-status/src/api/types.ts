@@ -1,3 +1,5 @@
+import type { UserConfig } from "vite";
+
 type BaseComponentType = {
   id: string;
   name: string;
@@ -42,13 +44,11 @@ export type Provider = {
   getHistoricalIncidents: () => Promise<IncidentType[]> | IncidentType[];
 };
 
-export const defineConfig = (config: IssueStatusConfig): IssueStatusConfig =>
-  config;
-
-interface IssueStatusConfig {
+export type IssueStatusConfig = {
   name: string;
   description?: string;
   favicon?: string;
   logo?: string;
   provider: Provider;
-}
+  base: UserConfig["base"];
+};

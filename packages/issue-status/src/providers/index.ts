@@ -1,2 +1,2 @@
-export { github, type GitHubConfig } from './github';
-export { staticProvider, type StaticData } from './static';
+export { github } from "./github";
+export { staticProvider } from "./static";

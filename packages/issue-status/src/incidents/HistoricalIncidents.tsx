@@ -1,4 +1,4 @@
-import { useData } from "../api/client";
+import { useData } from "../api/useData";
 
 import { Incident } from "./Incident";
 
@@ -9,7 +9,9 @@ export const HistoricalIncidents = () => {
 
   return (
     <div className="flex flex-col justify-between gap-4">
-      <div className="px-4 text-xl text-gray-800 dark:text-gray-200">Past Incidents</div>
+      <div className="px-4 text-xl text-gray-800 dark:text-gray-200">
+        Past Incidents
+      </div>
       <div className="flex flex-col justify-between gap-2">
         {loading ? (
           <>

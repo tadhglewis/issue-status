@@ -1,4 +1,4 @@
-import { useData } from "../api/client";
+import { useData } from "../api/useData";
 import { Incident } from "./Incident";
 
 export const Incidents = () => {

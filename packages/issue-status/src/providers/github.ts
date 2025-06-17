@@ -2,11 +2,6 @@ import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Octokit } from "@octokit/rest";
 
-export interface GitHubConfig {
-  owner: string;
-  repo: string;
-}
-
 /**
  * We must cache the current components and incidents due to GitHub API rate limiting.
  *
@@ -75,7 +70,7 @@ const getIncidents = async (
  *
  * Note: data is cached for 10 minutes.
  */
-export const github = (config: GitHubConfig): Provider => {
+export const github = (config: { owner: string; repo: string }): Provider => {
   const octokit = new Octokit();
 
   return {

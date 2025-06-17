@@ -1,4 +1,4 @@
-import { useData } from "../api/client";
+import { useData } from "../api/useData";
 import { Component } from "./Component";
 
 import { Status } from "./Status";

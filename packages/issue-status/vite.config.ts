@@ -5,7 +5,7 @@ import path from "path";
 import fs from "fs";
 
 export default defineConfig(async () => {
-  const packageRoot = path.dirname(new URL(import.meta.url).pathname);
+  const packageRoot = import.meta.dirname;
 
   const configPath = path.resolve(process.cwd(), "issue-status.config.ts");
 
