@@ -116,7 +116,6 @@ const buildComponentHierarchy = (issues: GitHubIssue[]): ComponentType[] => {
       const parent = components.find((c) => c.name === parentName.trim());
 
       if (parent) {
-        console.log(`pushing ${childName} to ${parentName}`);
         parent.children = parent.children || [];
 
         parent.children.push({
