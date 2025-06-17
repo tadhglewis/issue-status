@@ -1,6 +1,10 @@
 import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Octokit } from "@octokit/rest";
+import type { RestEndpointMethodTypes } from "@octokit/rest";
+
+type GitHubIssue =
+  RestEndpointMethodTypes["issues"]["listForRepo"]["response"]["data"][0];
 
 /**
  * We must cache the current components and incidents due to GitHub API rate limiting.
@@ -65,6 +69,69 @@ const getIncidents = async (
   });
 };
 
+const extractStatusFromLabels = (
+  labels: GitHubIssue["labels"]
+): ComponentType["status"] => {
+  const statusMap = new Map<string, ComponentType["status"]>([
+    ["operational", "operational"],
+    ["degraded performance", "degradedPerformance"],
+    ["partial outage", "partialOutage"],
+    ["major outage", "majorOutage"],
+    ["unknown", "unknown"],
+  ]);
+
+  return labels.reduce<ComponentType["status"]>((acc, current) => {
+    if (acc !== "unknown") {
+      return acc;
+    }
+
+    const label = typeof current === "string" ? current : current.name;
+    acc = label ? statusMap.get(label) ?? "unknown" : "unknown";
+
+    return acc;
+  }, "unknown");
+};
+
+const buildComponentHierarchy = (issues: GitHubIssue[]): ComponentType[] => {
+  // parents need to be pushed in the reduce before the child
+  const sortedIssues = [...issues].sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  return sortedIssues.reduce<ComponentType[]>(
+    (components, { title, id, labels }) => {
+      const status = extractStatusFromLabels(labels);
+      const separator = " > ";
+
+      if (!title.includes(separator)) {
+        components.push({
+          id: id.toString(),
+          name: title,
+          status,
+        });
+        return components;
+      }
+
+      const [parentName, childName] = title.split(separator);
+      const parent = components.find((c) => c.name === parentName.trim());
+
+      if (parent) {
+        console.log(`pushing ${childName} to ${parentName}`);
+        parent.children = parent.children || [];
+
+        parent.children.push({
+          id: id.toString(),
+          name: childName.trim(),
+          status,
+        });
+      }
+
+      return components;
+    },
+    []
+  );
+};
+
 /**
  * GitHub provider which uses GitHub Issues with specific labels as the data source.
  *
@@ -85,37 +152,7 @@ export const github = (config: { owner: string; repo: string }): Provider => {
           })
       );
 
-      return data.map((issue) => {
-        const statusMap = new Map<string, ComponentType["status"]>([
-          ["operational", "operational"],
-          ["degraded performance", "degradedPerformance"],
-          ["partial outage", "partialOutage"],
-          ["major outage", "majorOutage"],
-          ["unknown", "unknown"],
-        ]);
-
-        // Essentially just return the first found valid status
-        const status = issue.labels.reduce<ComponentType["status"]>(
-          (acc, current) => {
-            if (acc !== "unknown") {
-              return acc;
-            }
-
-            // label can be string or object??
-            const label = typeof current === "string" ? current : current.name;
-            acc = label ? statusMap.get(label) ?? "unknown" : "unknown";
-
-            return acc;
-          },
-          "unknown"
-        );
-
-        return {
-          id: issue.id.toString(),
-          name: issue.title,
-          status,
-        };
-      });
+      return buildComponentHierarchy(data);
     },
     getIncidents: async () =>
       await getIncidents("open", config.owner, config.repo, octokit),
