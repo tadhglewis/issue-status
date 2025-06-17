@@ -25,7 +25,8 @@
   "keywords": [
     "status-page",
     "incident-management",
-    "system-monitoring"
+    "system-monitoring",
+    "issue-status"
   ],
   "scripts": {
     "dev": "vite",
