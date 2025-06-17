@@ -33,6 +33,10 @@ pnpm dev
 pnpm build
 ```
 
+For deployment options and guides, see the [Vite static deployment documentation](https://vite.dev/guide/static-deploy).
+
+**Note:** The `base` configuration option is not supported yet.
+
 ### Configuration
 
 `pnpm create issue-status` will scaffhold a new status page repository and guide you through the configuration.
@@ -40,17 +44,42 @@ pnpm build
 You can make further configurations with the below syntax:
 
 ```typescript
-import { IssueStatusConfig } from "issue-status";
-// Import your data provider
-import { githubProvider, staticProvider } from "issue-status/providers";
+import { defineConfig } from "issue-status";
+import { github, static } from "issue-status/providers";
 
-export default {
+export default defineConfig({
   name: "My Status Page",
-  description: "System status and incident updates",
-  // provider: staticProvider({...}),
+  description: "Status page for my services",
+
+  // provider: github({
+  //   owner: "your-github-username",
+  //   repo: "your-repo-name",
+  // }),
+
   // OR
-  // provider: gitHubProvider({...}),
-} satisfies IssueStatusConfig;
+
+  // provider: staticProvider({
+  //   components: [
+  //     {
+  //       id: "api",
+  //       name: "API",
+  //       status: "operational",
+  //     },
+  //     {
+  //       id: "database",
+  //       name: "Database",
+  //       status: "operational",
+  //     },
+  //     {
+  //       id: "cdn",
+  //       name: "CDN",
+  //       status: "operational",
+  //     },
+  //   ],
+  //   incidents: [],
+  //   historicalIncidents: [],
+  // }),
+});
 ```
 
 ## Demo
@@ -82,5 +111,3 @@ Currently, there are two available themes which will automatically be applied ba
 
 - `light`
 - `dark`
-
-Theming tokens are available for editing in the [themes](./src/app/themes.ts) file.
