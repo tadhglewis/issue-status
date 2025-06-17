@@ -10,5 +10,6 @@
   },
   "devDependencies": {
     "issue-status": "workspace:*"
-  }
+  },
+  "packageManager": "pnpm@10.12.1"
 }
