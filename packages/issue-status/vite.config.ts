@@ -15,6 +15,7 @@ export default defineConfig(async () => {
 
   return {
     root: packageRoot,
+    base: "./",
     plugins: [react(), tailwindcss()],
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),

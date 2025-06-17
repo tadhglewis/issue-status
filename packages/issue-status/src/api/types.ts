@@ -1,4 +1,4 @@
-import type { UserConfig } from "vite";
+// import type { UserConfig } from "vite";
 
 type BaseComponentType = {
   id: string;
@@ -50,5 +50,5 @@ export type IssueStatusConfig = {
   favicon?: string;
   logo?: string;
   provider: Provider;
-  base: UserConfig["base"];
+  // base: UserConfig["base"];
 };
