@@ -1,5 +1,13 @@
 # issue-status
 
+## 0.0.27
+
+### Patch Changes
+
+- 432bf08: Fix md gfm html specific issues
+- 8b8af47: Fix markdown typoography styling
+- 5c6573e: Add proper support for GitHub Flavoured Markdown
+
 ## 0.0.26
 
 ### Patch Changes
