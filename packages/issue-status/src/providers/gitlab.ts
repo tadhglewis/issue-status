@@ -108,7 +108,7 @@ export const gitlab = (config: {
       `gitlab:${projectId}:${state}Incidents`,
       async () => {
         const issues = await gitlab.Issues.all({
-          projectId: "projectId",
+          projectId,
           labels: "issue status,incident",
           state,
         });
