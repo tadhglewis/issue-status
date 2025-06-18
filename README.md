@@ -85,7 +85,7 @@ export default defineConfig({
 
 Labels: `issue-status`, `component` and one of `operational`, `degraded performance`, `partial outage` or `major outage`
 
-You can create subcomponents by using naming issues with the following syntax:
+You can create subcomponents by naming issues with the following syntax:
 
 - `CDN`
 - `CDN > Oceania`
