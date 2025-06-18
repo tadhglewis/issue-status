@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Gitlab, type IssueSchemaWithBasicLabels } from "@gitbeaker/rest";
+
 /**
  * We must cache the current components and incidents due to GitLab API rate limiting.
  *
