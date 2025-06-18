@@ -1,5 +1,12 @@
 # issue-status
 
+## 0.0.28
+
+### Patch Changes
+
+- 0b73833: Add support for sub-components
+- b6a7753: Show overall system status
+
 ## 0.0.27
 
 ### Patch Changes
