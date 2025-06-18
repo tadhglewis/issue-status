@@ -249,6 +249,8 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     write(file);
   }
 
+  write(".gitignore");
+
   const pkg = JSON.parse(
     fs.readFileSync(path.join(templateDir, `package.json`), "utf-8")
   );
