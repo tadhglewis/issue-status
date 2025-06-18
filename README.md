@@ -98,7 +98,7 @@ Labels: `issue-status`, `incident` and optionally `maintenance` which will mark 
 
 #### Limitations
 
-- The provider respects GitHub's unauthenticated requests API rate limit and therefore responses are cached for 10 minutes in the browser.
+- The provider respects GitHub's unauthenticated requests API rate limit and therefore responses are cached in the browser for 10 minutes.
 
 ### Static Provider
 
