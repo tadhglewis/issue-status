@@ -50,23 +50,27 @@ const getIncidents = async (
       })
   );
 
-  return data.map(({ id, title, body, created_at, closed_at, labels }) => {
-    const isScheduled = Boolean(
-      labels.find(
-        (label) =>
-          (typeof label === "string" ? label : label.name) === "maintenance"
-      )
-    );
+  const fourteenDaysAgo = dayjs().subtract(14, "days");
 
-    return {
-      id: id.toString(),
-      title: title,
-      description: body ?? "",
-      createdAt: created_at,
-      scheduled: isScheduled,
-      active: !closed_at,
-    };
-  });
+  return data
+    .filter(({ created_at }) => dayjs(created_at).isAfter(fourteenDaysAgo))
+    .map(({ id, title, body, created_at, closed_at, labels }) => {
+      const isScheduled = Boolean(
+        labels.find(
+          (label) =>
+            (typeof label === "string" ? label : label.name) === "maintenance"
+        )
+      );
+
+      return {
+        id: id.toString(),
+        title: title,
+        description: body ?? "",
+        createdAt: created_at,
+        scheduled: isScheduled,
+        active: !closed_at,
+      };
+    });
 };
 
 const extractStatusFromLabels = (
