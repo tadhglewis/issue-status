@@ -54,6 +54,7 @@ export default defineConfig({
 The data fetching is separated into so called _providers_. This allows you to swap out the underlying data source that powers the frontend.
 
 - [GitHub](#github-provider) - powered by GitHub Issues
+- [GitLab](#gitlab-provider) - powered by GitLab Issues
 - [Static](#static-provider)
 
 > [!NOTE]  
@@ -92,6 +93,40 @@ Labels: `issue-status`, `incident` and optionally `maintenance` which will mark 
 #### Limitations
 
 - The provider respects GitHub's unauthenticated requests API rate limit and therefore responses are cached in the browser for 10 minutes.
+
+### GitLab Provider
+
+This provider utilises GitLab Issues with specific labels as the data source for the status page
+
+```typescript
+import { gitlab } from "issue-status/providers";
+
+export default defineConfig({
+  ...
+  provider: gitlab({
+    projectId: "your-project-id",
+    host: "https://gitlab.com", // optional, defaults to gitlab.com
+  }),
+});
+```
+
+#### Components
+
+Labels: `issue status`, `component` and one of `operational`, `degraded performance`, `partial outage` or `major outage`
+
+You can create subcomponents by naming issues with the following syntax:
+
+- `CDN`
+- `CDN > Oceania`
+- `CDN > Southeast Asia`
+
+#### Incidents
+
+Labels: `issue status`, `incident` and optionally `maintenance` which will mark the incident as "Scheduled" instead of "Active"
+
+#### Limitations
+
+- The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
 
 ### Static Provider
 
