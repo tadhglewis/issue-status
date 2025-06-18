@@ -43,7 +43,8 @@ export const Component = ({ name, status, children }: ComponentType) => {
         onClick={() => setShowChildren(!showChildren)}
         clickable={isClickable}
       >
-        {children ? chevron : null} {name} <Badge status={status} />
+        {children ? chevron : null} {name}{" "}
+        {status === "unknown" && children ? null : <Badge status={status} />}
       </Box>
       {showChildren
         ? children?.map((child) => (
