@@ -49,12 +49,6 @@ export default defineConfig({
 });
 ```
 
-## Templates
-
-Pre-built incident templates are included to quickly provide updates on an incident. These templates are available when creating a GitHub Issue.
-
-You may [modify templates](./.github/ISSUE_TEMPLATE/) to suit your needs.
-
 ## Providers
 
 The data fetching is separated into so called _providers_. This allows you to swap out the underlying data source that powers the frontend.
@@ -67,7 +61,7 @@ The data fetching is separated into so called _providers_. This allows you to sw
 
 ### GitHub Provider
 
-Uses GitHub Issues with specific labels as the data source.
+This provider utilises GitHub Issues with specific labels as the data source for the status page
 
 ```typescript
 import { github } from "issue-status/providers";
@@ -90,7 +84,6 @@ You can create subcomponents by naming issues with the following syntax:
 - `CDN`
 - `CDN > Oceania`
 - `CDN > Southeast Asia`
-- `CDN > Europe`
 
 #### Incidents
 
@@ -152,6 +145,12 @@ export default defineConfig({
   }),
 });
 ```
+
+## Templates
+
+Pre-built incident templates are included to quickly provide updates on an incident. These templates are available when creating a GitHub Issue.
+
+You may [modify templates](./.github/ISSUE_TEMPLATE/) to suit your needs.
 
 ## Demo
 
