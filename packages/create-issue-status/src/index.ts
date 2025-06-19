@@ -3,9 +3,9 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import mri from "mri";
 import * as prompts from "@clack/prompts";
-import pkg from "picocolors";
+import colors from "picocolors";
 
-const { cyan, yellow, green } = pkg;
+const { cyan, yellow, green, red } = colors;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +20,11 @@ const PROVIDERS = [
     name: "github",
     display: "GitHub",
     color: green,
+  },
+  {
+    name: "gitlab",
+    display: "GitLab",
+    color: red,
   },
   {
     name: "custom",
@@ -70,6 +75,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
   let statusPageDescription: string;
   let githubOwner: string | undefined;
   let githubRepo: string | undefined;
+  let gitlabProjectId: string | undefined;
 
   if (!targetDir) {
     const projectName = await prompts.text({
@@ -220,6 +226,23 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     githubRepo = githubRepoResult;
   }
 
+  if (provider === "gitlab") {
+    const gitlabProjectIdResult = await prompts.text({
+      message: "GitLab project ID or path (e.g., 'owner/repo' or project ID):",
+      validate: (input) => {
+        if (input.trim().length > 0) return;
+        return "Please enter the project ID or path";
+      },
+    });
+
+    if (prompts.isCancel(gitlabProjectIdResult)) {
+      prompts.cancel("Operation cancelled.");
+      process.exit(0);
+    }
+
+    gitlabProjectId = gitlabProjectIdResult;
+  }
+
   const root = path.join(cwd, targetDir!);
 
   if (shouldOverwrite) {
@@ -273,6 +296,10 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     configContent = configContent
       .replace(/your-github-username/g, githubOwner)
       .replace(/your-repo-name/g, githubRepo);
+  }
+
+  if (template === "gitlab" && gitlabProjectId) {
+    configContent = configContent.replace(/your-project-id/g, gitlabProjectId);
   }
 
   write("issue-status.config.ts", configContent);
