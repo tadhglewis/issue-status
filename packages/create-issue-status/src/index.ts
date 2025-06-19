@@ -5,7 +5,7 @@ import mri from "mri";
 import * as prompts from "@clack/prompts";
 import colors from "picocolors";
 
-const { cyan, yellow, green, red } = colors;
+const { cyan, yellow, green, red, blue } = colors;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +25,11 @@ const PROVIDERS = [
     name: "gitlab",
     display: "GitLab",
     color: red,
+  },
+  {
+    name: "googlesheets",
+    display: "Google Sheets",
+    color: blue,
   },
   {
     name: "custom",
@@ -76,6 +81,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
   let githubOwner: string | undefined;
   let githubRepo: string | undefined;
   let gitlabProjectId: string | undefined;
+  let googlesheetsUrl: string | undefined;
 
   if (!targetDir) {
     const projectName = await prompts.text({
@@ -243,6 +249,23 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     gitlabProjectId = gitlabProjectIdResult;
   }
 
+  if (provider === "googlesheets") {
+    const googlesheetsUrlResult = await prompts.text({
+      message: "Google Sheets published CSV URL:",
+      validate: (input) => {
+        if (input.trim().length > 0) return;
+        return "Please enter the published CSV URL";
+      },
+    });
+
+    if (prompts.isCancel(googlesheetsUrlResult)) {
+      prompts.cancel("Operation cancelled.");
+      process.exit(0);
+    }
+
+    googlesheetsUrl = googlesheetsUrlResult;
+  }
+
   const root = path.join(cwd, targetDir!);
 
   if (shouldOverwrite) {
@@ -300,6 +323,10 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
 
   if (template === "gitlab" && gitlabProjectId) {
     configContent = configContent.replace(/your-project-id/g, gitlabProjectId);
+  }
+
+  if (template === "googlesheets" && googlesheetsUrl) {
+    configContent = configContent.replace(/your-sheet-url/g, googlesheetsUrl);
   }
 
   write("issue-status.config.ts", configContent);

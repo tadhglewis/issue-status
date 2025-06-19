@@ -1,5 +1,5 @@
 import { defineConfig } from "issue-status";
-import { github, gitlab } from "issue-status/providers";
+import { googlesheets } from "issue-status/providers";
 
 export default defineConfig({
   name: "My Status Page",
@@ -8,7 +8,8 @@ export default defineConfig({
   //   owner: "tadhglewis",
   //   repo: "issue-status",
   // }),
-  provider: gitlab({
-    projectId: "70936298",
+  provider: googlesheets({
+    sheetUrl:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdHI3IMwlGoyshZIdvccQcHVpBtZHTslp-7XCoY-XLRNt3FFM_DJbTJVt-rVWqb3MeXGK-cu556daK/pub?output=csv",
   }),
 });
