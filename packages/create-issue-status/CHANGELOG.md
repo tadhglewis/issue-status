@@ -1,5 +1,15 @@
 # create-issue-status
 
+## 0.1.0
+
+### Minor Changes
+
+- fe1cca4: Add gitlab provider template
+
+### Patch Changes
+
+- d8750c6: Ensure .gitignore is copied during setup
+
 ## 0.0.5
 
 ### Patch Changes
