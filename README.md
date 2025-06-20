@@ -55,6 +55,7 @@ The data fetching is separated into so called _providers_. This allows you to sw
 
 - [GitHub](#github-provider) - powered by GitHub Issues
 - [GitLab](#gitlab-provider) - powered by GitLab Issues
+- [Google Sheets](#google-sheets-provider) - powered by Google Sheets CSV export
 - [Static](#static-provider)
 
 > [!NOTE]  
@@ -127,6 +128,59 @@ Labels: `issue status`, `incident` and optionally `maintenance` which will mark 
 #### Limitations
 
 - The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
+
+### Google Sheets Provider
+
+This provider uses a published Google Sheets CSV export as the data source for the status page
+
+```typescript
+import { googlesheets } from "issue-status/providers";
+
+export default defineConfig({
+  ...
+  provider: googlesheets({
+    sheetUrl: "https://docs.google.com/spreadsheets/d/.../export?format=csv",
+  }),
+});
+```
+
+#### Setup
+
+1. Create a Google Sheet with your components and incidents
+2. Publish the sheet as CSV: File → Share → Publish to web → CSV
+3. Use the published CSV URL in your configuration
+
+#### Sheet Format
+
+Your Google Sheet should have the following structure:
+
+**For Components (rows starting from row 1):**
+- Column A: Component Name (use " > " for hierarchy, e.g., "API > Authentication")
+- Column B: Status (`operational`, `degraded performance`, `partial outage`, `major outage`)
+
+**For Incidents (rows continuing after components):**
+- Column A: Incident Title
+- Column B: Incident Description
+- Column C: Type (`incident` or `maintenance`)
+- Column D: Created Date (ISO format)
+- Column E: Resolved Date (ISO format, leave empty for active incidents)
+
+#### Example Sheet Structure
+
+```
+Component Name          | Status              | Type        | Created Date        | Resolved Date
+API                     | operational         |             |                     |
+API > Authentication    | degraded performance |            |                     |
+Database                | operational         |             |                     |
+Slow API Response       | Investigating...    | incident    | 2023-12-01T10:00:00Z|
+Scheduled Maintenance   | Database upgrade    | maintenance | 2023-12-02T02:00:00Z| 2023-12-02T04:00:00Z
+```
+
+#### Limitations
+
+- Data is cached for 10 minutes to improve performance
+- Sheet must be publicly accessible via the published CSV URL
+- Requires manual updates to the Google Sheet
 
 ### Static Provider
 
