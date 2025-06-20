@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.28",
+  "version": "0.1.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
