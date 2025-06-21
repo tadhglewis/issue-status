@@ -1,5 +1,11 @@
 # issue-status
 
+## 0.1.2
+
+### Patch Changes
+
+- b6d0268: Tweak status page colors
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # create-issue-status
 
+## 0.1.1
+
+### Patch Changes
+
+- 3b6a7ca: Fix .gitignore copying
+
 ## 0.1.0
 
 ### Minor Changes
