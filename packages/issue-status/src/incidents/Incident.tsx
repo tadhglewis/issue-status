@@ -22,7 +22,9 @@ export const Incident = ({
       border-l-8
       ${
         active
-          ? "border-blue-200 dark:border-blue-600"
+          ? scheduled
+            ? "border-blue-200 dark:border-blue-900"
+            : "border-red-200 dark:border-red-900"
           : "border-gray-200 dark:border-gray-600"
       }
       bg-white dark:bg-gray-800 rounded-xs p-4
@@ -48,8 +50,8 @@ export const Incident = ({
         <div
           className={`${
             active
-              ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-              : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+              ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+              : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
           } px-3 py-1 rounded-full text-xs font-semibold`}
         >
           {active ? "Active" : "Closed"}
