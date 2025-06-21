@@ -74,7 +74,7 @@ const buildComponentHierarchy = (issues: GitHubIssue[]): ComponentType[] => {
  *
  * The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
  *
- *  `The primary rate limit for unauthenticated requests is 60 requests per hour`
+ * `The primary rate limit for unauthenticated requests is 60 requests per hour`
  *
  * https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28
  */
