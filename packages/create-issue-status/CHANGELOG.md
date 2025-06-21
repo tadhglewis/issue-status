@@ -1,5 +1,11 @@
 # create-issue-status
 
+## 0.1.2
+
+### Patch Changes
+
+- c892ea4: Don't copy \_gitignore
+
 ## 0.1.1
 
 ### Patch Changes
