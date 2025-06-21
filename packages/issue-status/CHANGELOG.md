@@ -1,5 +1,15 @@
 # issue-status
 
+## 0.1.0
+
+### Minor Changes
+
+- fe1cca4: Add gitlab provider
+
+### Patch Changes
+
+- 4ae03e0: Update the subcomponent chevron icons
+
 ## 0.0.28
 
 ### Patch Changes
