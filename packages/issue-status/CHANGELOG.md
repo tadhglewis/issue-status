@@ -1,5 +1,12 @@
 # issue-status
 
+## 0.1.1
+
+### Patch Changes
+
+- d95ca8e: github: only show incidents from the past 14 days
+- d95ca8e: gitlab: only show incidents from the past 14 days
+
 ## 0.1.0
 
 ### Minor Changes
