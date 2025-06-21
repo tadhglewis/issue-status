@@ -267,7 +267,10 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
 
   const files = fs.readdirSync(templateDir);
   for (const file of files.filter(
-    (f) => f !== "package.json" && f !== "issue-status.config.ts"
+    (f) =>
+      f !== "package.json" &&
+      f !== "issue-status.config.ts" &&
+      f !== "_gitignore"
   )) {
     write(file);
   }
