@@ -1,14 +1,10 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
 import mri from "mri";
 import * as prompts from "@clack/prompts";
 import colors from "picocolors";
 
 const { cyan, yellow, green, red } = colors;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const PROVIDERS = [
   {
@@ -255,7 +251,11 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
 
   console.log(`\nScaffolding project in ${root}...`);
 
-  const templateDir = path.resolve(__dirname, "..", "template-" + template);
+  const templateDir = path.resolve(
+    import.meta.dirname,
+    "..",
+    "template-" + template
+  );
   const write = (file: string, content?: string) => {
     const targetPath = path.join(root, file);
     if (content) {
@@ -272,7 +272,12 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     write(file);
   }
 
-  write(".gitignore");
+  // Copy _gitignore and rename to .gitignore
+  const gitignoreContent = fs.readFileSync(
+    path.join(templateDir, "_gitignore"),
+    "utf-8"
+  );
+  write(".gitignore", gitignoreContent);
 
   const pkg = JSON.parse(
     fs.readFileSync(path.join(templateDir, `package.json`), "utf-8")
