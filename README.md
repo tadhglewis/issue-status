@@ -25,9 +25,11 @@ pnpm create issue-status
 # Start development server
 pnpm dev
 
-# Build the static status page using the configuration provided
+# Build the static status page using the configuration provided with output `dist`
 pnpm build
 ```
+
+This status page can be deployed to any static hosting provider such as GitHub Pages, GitLab Pages, Cloudflare, Netlify, Vercel, Surge, Azure Static Web Apps, Render, Flightcontrol, Kinsta, xmit and more.
 
 For deployment options and guides, see the [Vite static deployment documentation](https://vite.dev/guide/static-deploy).
 
