@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "type": "module",
   "description": "A flexible, modern and blazingly fast ☄️ status page",
+  "license": "MIT",
   "exports": {
     ".": "./src/index.ts",
     "./providers": "./src/providers/index.ts"
