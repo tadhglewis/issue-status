@@ -1,5 +1,5 @@
 import { defineConfig } from "issue-status";
-import { github } from "issue-status/providers";
+import { github, gitlab } from "issue-status/providers";
 
 export default defineConfig({
   name: "My Status Page",
@@ -8,4 +8,7 @@ export default defineConfig({
     owner: "tadhglewis",
     repo: "issue-status",
   }),
+  // provider: gitlab({
+  //   projectId: "70936298",
+  // }),
 });

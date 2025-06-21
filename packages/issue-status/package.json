@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.0.27",
+  "version": "0.1.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
@@ -33,15 +33,16 @@
     "build": "tsc -b && vite build",
     "build:cli": "tsdown",
     "dev:cli": "tsdown --watch",
-    "lint": "eslint .",
+    "lint": "tsc -b && eslint .",
     "preview": "vite preview",
     "test": "vitest",
     "prepublishOnly": "npm run build:cli"
   },
   "dependencies": {
+    "@gitbeaker/rest": "^42.5.0",
     "@octokit/rest": "^22.0.0",
-    "@tailwindcss/vite": "^4.1.10",
     "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.10",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
     "react": "^19.1.0",

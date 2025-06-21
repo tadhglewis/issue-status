@@ -8,6 +8,6 @@
     "preview": "issue-status preview"
   },
   "dependencies": {
-    "issue-status": "^0.0.16"
+    "issue-status": "^0.1.0"
   }
 }
