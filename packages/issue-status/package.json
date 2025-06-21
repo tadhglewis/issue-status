@@ -1,6 +1,6 @@
 {
   "name": "issue-status",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "description": "A flexible, modern and blazingly fast ☄️ status page",
   "license": "MIT",
