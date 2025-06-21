@@ -1,5 +1,11 @@
 # issue-status
 
+## 0.1.3
+
+### Patch Changes
+
+- 5eef69f: Fix gitlab provider payload
+
 ## 0.1.2
 
 ### Patch Changes
