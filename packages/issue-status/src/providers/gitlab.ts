@@ -1,32 +1,7 @@
 import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Gitlab, type IssueSchemaWithBasicLabels } from "@gitbeaker/rest";
-
-/**
- * We must cache the current components and incidents due to GitLab API rate limiting.
- *
- * Cache responses for 10 minutes.
- *
- * GitLab.com API rate limits: 2,000 requests per minute for authenticated requests
- * https://docs.gitlab.com/ee/user/gitlab_com/index.html#gitlabcom-specific-rate-limits
- */
-const cached = async <T>(key: string, func: () => Promise<T>): Promise<T> => {
-  const raw = localStorage.getItem(key);
-  const cached = raw ? JSON.parse(raw) : null;
-
-  if (cached && dayjs().isBefore(cached.expireAt)) {
-    return cached.data;
-  }
-
-  const data = await func();
-
-  localStorage.setItem(
-    key,
-    JSON.stringify({ data, expireAt: dayjs().add(10, "minutes") })
-  );
-
-  return data;
-};
+import { cached } from "./shared";
 
 const extractStatusFromLabels = (labels: string[]): ComponentType["status"] => {
   const statusMap = new Map<string, ComponentType["status"]>([
@@ -91,20 +66,22 @@ const buildComponentHierarchy = (
 /**
  * GitLab provider which uses GitLab Issues with specific labels as the data source.
  *
- * Note: data is cached for 10 minutes.
+ * The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
+ *
+ * https://docs.gitlab.com/ee/user/gitlab_com/index.html#gitlabcom-specific-rate-limits
  */
-export const gitlab = (config: {
+export const gitlab = ({
+  projectId,
+  host,
+}: {
   projectId: string;
   host?: string;
 }): Provider => {
   const gitlab = new Gitlab({
-    host: config.host ?? "https://gitlab.com",
+    host: host ?? "https://gitlab.com",
   });
 
-  const getIncidents = async (
-    state: "opened" | "closed",
-    projectId: string
-  ) => {
+  const getIncidents = async (state: "open" | "closed") => {
     const data = await cached(
       `gitlab:${projectId}:${state}Incidents`,
       async () => {
@@ -112,50 +89,49 @@ export const gitlab = (config: {
           projectId,
           labels: "issue status,incident",
           state,
+          updatedAfter:
+            state === "open"
+              ? undefined
+              : dayjs().subtract(14, "days").toISOString(),
         });
 
         return issues;
-      }
+      },
+      10
     );
 
-    const fourteenDaysAgo = dayjs().subtract(14, "days");
+    return data.map((issue) => {
+      const isScheduled = issue.labels.includes("maintenance");
 
-    return data
-      .filter((issue) =>
-        dayjs(issue.created_at.toString()).isAfter(fourteenDaysAgo)
-      )
-      .map((issue) => {
-        const isScheduled = issue.labels.includes("maintenance");
-
-        return {
-          id: issue.id.toString(),
-          title: issue.title,
-          description: issue.description,
-          createdAt: issue.created_at,
-          scheduled: isScheduled,
-          active: !issue.closed_at,
-        };
-      });
+      return {
+        id: issue.id.toString(),
+        title: issue.title,
+        description: issue.description,
+        createdAt: issue.created_at,
+        scheduled: isScheduled,
+        active: !issue.closed_at,
+      };
+    });
   };
 
   return {
     getComponents: async () => {
       const data = await cached(
-        `gitlab:${config.projectId}:components`,
+        `gitlab:${projectId}:components`,
         async () => {
           const issues = await gitlab.Issues.all({
             labels: "issue status,component",
-            projectId: config.projectId,
+            projectId: projectId,
           });
 
           return issues;
-        }
+        },
+        10
       );
 
       return buildComponentHierarchy(data);
     },
-    getIncidents: async () => await getIncidents("opened", config.projectId),
-    getHistoricalIncidents: async () =>
-      await getIncidents("closed", config.projectId),
+    getIncidents: async () => await getIncidents("open"),
+    getHistoricalIncidents: async () => await getIncidents("closed"),
   };
 };
