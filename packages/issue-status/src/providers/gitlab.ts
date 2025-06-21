@@ -81,7 +81,7 @@ export const gitlab = ({
     host: host ?? "https://gitlab.com",
   });
 
-  const getIncidents = async (state: "open" | "closed") => {
+  const getIncidents = async (state: "opened" | "closed") => {
     const data = await cached(
       `gitlab:${projectId}:${state}Incidents`,
       async () => {
@@ -90,7 +90,7 @@ export const gitlab = ({
           labels: "issue status,incident",
           state,
           updatedAfter:
-            state === "open"
+            state === "opened"
               ? undefined
               : dayjs().subtract(14, "days").toISOString(),
         });
@@ -131,7 +131,7 @@ export const gitlab = ({
 
       return buildComponentHierarchy(data);
     },
-    getIncidents: async () => await getIncidents("open"),
+    getIncidents: async () => await getIncidents("opened"),
     getHistoricalIncidents: async () => await getIncidents("closed"),
   };
 };
