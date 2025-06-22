@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/mri": "^1.2.0",
-    "@types/node": "^24.0.2",
+    "@types/node": "^24.0.3",
     "tsdown": "^0.12.8",
     "typescript": "^5.8.3"
   },
