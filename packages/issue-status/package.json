@@ -47,6 +47,7 @@
     "@tailwindcss/vite": "^4.1.10",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
+    "ky": "^1.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "10.1.0",
