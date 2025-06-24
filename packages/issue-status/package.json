@@ -23,6 +23,9 @@
     "url": "https://github.com/tadhglewis/issue-status.git"
   },
   "author": "tadhglewis",
+  "bugs": {
+    "url": "https://github.com/tadhglewis/issue-status/issues"
+  },
   "homepage": "https://github.com/tadhglewis/issue-status#readme",
   "funding": "https://github.com/tadhglewis/issue-status?sponsor=1",
   "keywords": [
