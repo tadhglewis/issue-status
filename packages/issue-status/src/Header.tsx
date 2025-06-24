@@ -1,7 +1,16 @@
 import config from "./config";
 
 export const Header = () => (
-  <h1 className="text-gray-800 dark:text-gray-200 text-3xl font-bold">
-    {config.name}
-  </h1>
+  <div className="flex items-center gap-4">
+    {config.logo && (
+      <img 
+        src={config.logo} 
+        alt={`${config.name} logo`}
+        className="h-8 w-auto"
+      />
+    )}
+    <h1 className="text-gray-800 dark:text-gray-200 text-3xl font-bold">
+      {config.name}
+    </h1>
+  </div>
 );
