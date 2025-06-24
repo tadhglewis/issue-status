@@ -24,6 +24,7 @@
   },
   "author": "tadhglewis",
   "homepage": "https://github.com/tadhglewis/issue-status#readme",
+  "funding": "https://github.com/tadhglewis/issue-status?sponsor=1",
   "keywords": [
     "status-page",
     "incident-management",
