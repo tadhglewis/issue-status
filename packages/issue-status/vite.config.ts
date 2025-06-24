@@ -36,8 +36,9 @@ export default defineConfig(async () => {
     ],
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),
+      __CWD__: JSON.stringify(process.cwd()),
     },
-    server: { fs: { allow: [configPath, packageRoot] } },
+    server: { fs: { allow: [packageRoot, process.cwd()] } },
     build: {
       outDir: path.resolve(process.cwd(), "dist"),
       emptyOutDir: true,

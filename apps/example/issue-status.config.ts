@@ -4,8 +4,8 @@ import { github, gitlab } from "issue-status/providers";
 export default defineConfig({
   name: "My Status Page",
   description: "Status page for my services",
-  favicon: "https://www.seek.com.au/favicon.ico",
-  logo: "https://www.seek.com.au/apple-touch-icon.png",
+  logo: "/assets/react.svg",
+  favicon: "/assets/vite.svg",
   provider: github({
     owner: "tadhglewis",
     repo: "issue-status",
