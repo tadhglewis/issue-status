@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 export const cached = async <T>(
   key: string,
   func: () => Promise<T>,
-  minutes: number
+  seconds: number
 ): Promise<T> => {
   const raw = localStorage.getItem(key);
   const cached = raw ? JSON.parse(raw) : null;
@@ -19,7 +19,7 @@ export const cached = async <T>(
 
   localStorage.setItem(
     key,
-    JSON.stringify({ data, expireAt: dayjs().add(minutes, "minutes") })
+    JSON.stringify({ data, expireAt: dayjs().add(seconds, "seconds") })
   );
 
   return data;

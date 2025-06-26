@@ -73,6 +73,7 @@ const buildComponentHierarchy = (issues: GitHubIssue[]): ComponentType[] => {
  * GitHub provider which uses GitHub Issues with specific labels as the data source.
  *
  * The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
+ * With 3 requests per page load, 10min caching = 18 requests/hour (30% of limit)
  *
  * `The primary rate limit for unauthenticated requests is 60 requests per hour`
  *
@@ -101,7 +102,7 @@ export const github = ({
               ? undefined
               : dayjs().subtract(14, "days").toISOString(),
         }),
-      10
+      10 * 60
     );
 
     return data.map(({ id, title, body, created_at, closed_at, labels }) => {
@@ -133,7 +134,7 @@ export const github = ({
             repo,
             labels: "issue status,component",
           }),
-        10
+        10 * 60
       );
 
       return buildComponentHierarchy(data);
