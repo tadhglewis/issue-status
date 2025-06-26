@@ -135,7 +135,7 @@ export const atlassian = ({ baseUrl }: { baseUrl: string }): Provider => {
         `atlassian:${baseUrl}:components`,
         async () =>
           api.get("components.json").json<AtlassianComponentsResponse>(),
-        5
+        30
       );
 
       return buildComponentHierarchy(data.components);
@@ -148,7 +148,7 @@ export const atlassian = ({ baseUrl }: { baseUrl: string }): Provider => {
           api
             .get("incidents/unresolved.json")
             .json<AtlassianIncidentsResponse>(),
-        5
+        30
       );
 
       return data.incidents.map(mapIncident);
@@ -159,7 +159,7 @@ export const atlassian = ({ baseUrl }: { baseUrl: string }): Provider => {
         `atlassian:${baseUrl}:incidents:all`,
         async () =>
           api.get("incidents.json").json<AtlassianIncidentsResponse>(),
-        5
+        30
       );
 
       const cutoffDate = dayjs().subtract(14, "days");
