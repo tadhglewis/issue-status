@@ -1,14 +1,50 @@
-import type { Data } from "./types";
-import { createContext, useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import config from "../config";
 
-export const DataContext = createContext<Data | undefined>(undefined);
+export const useComponents = () => {
+  return useQuery({
+    queryKey: ["components"],
+    queryFn: () => config.provider.getComponents(),
+  });
+};
+
+export const useIncidents = () => {
+  return useQuery({
+    queryKey: ["incidents"],
+    queryFn: () => config.provider.getIncidents(),
+  });
+};
+
+export const useHistoricalIncidents = () => {
+  return useQuery({
+    queryKey: ["historicalIncidents"],
+    queryFn: () => config.provider.getHistoricalIncidents(),
+  });
+};
 
 export const useData = () => {
-  const data = useContext(DataContext);
+  const components = useComponents();
+  const incidents = useIncidents();
+  const historicalIncidents = useHistoricalIncidents();
 
-  if (!data) {
-    throw new Error("DataProvider was not provided");
+  const loading =
+    components.isLoading ||
+    incidents.isLoading ||
+    historicalIncidents.isLoading;
+
+  if (loading) {
+    return {
+      loading: true as const,
+      components: undefined,
+      incidents: undefined,
+      historicalIncidents: undefined,
+    };
   }
 
-  return data;
+  return {
+    loading: false as const,
+    components: components.data || [],
+    incidents: incidents.data || [],
+    historicalIncidents: historicalIncidents.data || [],
+  };
 };

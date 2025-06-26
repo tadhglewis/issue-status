@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Gitlab, type IssueSchemaWithBasicLabels } from "@gitbeaker/rest";
-import { cached } from "./shared";
 
 const extractStatusFromLabels = (labels: string[]): ComponentType["status"] => {
   const statusMap = new Map<string, ComponentType["status"]>([
@@ -85,23 +84,15 @@ export const gitlab = ({
   });
 
   const getIncidents = async (state: "opened" | "closed") => {
-    const data = await cached(
-      `gitlab:${projectId}:${state}Incidents`,
-      async () => {
-        const issues = await gitlab.Issues.all({
-          projectId,
-          labels: "issue status,incident",
-          state,
-          updatedAfter:
-            state === "opened"
-              ? undefined
-              : dayjs().subtract(14, "days").toISOString(),
-        });
-
-        return issues;
-      },
-      30
-    );
+    const data = await gitlab.Issues.all({
+      projectId,
+      labels: "issue status,incident",
+      state,
+      updatedAfter:
+        state === "opened"
+          ? undefined
+          : dayjs().subtract(14, "days").toISOString(),
+    });
 
     return data.map((issue) => {
       const isScheduled = issue.labels.includes("maintenance");
@@ -119,22 +110,15 @@ export const gitlab = ({
 
   return {
     getComponents: async () => {
-      const data = await cached(
-        `gitlab:${projectId}:components`,
-        async () => {
-          const issues = await gitlab.Issues.all({
-            labels: "issue status,component",
-            projectId: projectId,
-          });
-
-          return issues;
-        },
-        30
-      );
+      const data = await gitlab.Issues.all({
+        labels: "issue status,component",
+        projectId: projectId,
+      });
 
       return buildComponentHierarchy(data);
     },
     getIncidents: async () => await getIncidents("opened"),
     getHistoricalIncidents: async () => await getIncidents("closed"),
+    cacheTime: 30 * 1000,
   };
 };
