@@ -66,7 +66,10 @@ const buildComponentHierarchy = (
 /**
  * GitLab provider which uses GitLab Issues with specific labels as the data source.
  *
- * The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
+ * The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 30 seconds.
+ * With 3 requests per page load, 30s caching = 6 requests/minute (1.2% of limit)
+ *
+ * `Unauthenticated traffic from an IP address | 500 requests each minute`
  *
  * https://docs.gitlab.com/ee/user/gitlab_com/index.html#gitlabcom-specific-rate-limits
  */
@@ -97,7 +100,7 @@ export const gitlab = ({
 
         return issues;
       },
-      10
+      30
     );
 
     return data.map((issue) => {
@@ -126,7 +129,7 @@ export const gitlab = ({
 
           return issues;
         },
-        10
+        30
       );
 
       return buildComponentHierarchy(data);
