@@ -1,0 +1,17 @@
+{
+  "powered_by": "Powered by Issue Status",
+  "history": "Past Incidents",
+  "all_systems_operational": "All Systems Operational",
+  "major_service_outage": "Major Service Outage",
+  "partial_outage": "Partial Outage",
+  "minor_service_outage": "Minor Service Outage",
+  "degraded": "Degraded Performance",
+  "scheduled": "Scheduled",
+  "active": "Active",
+  "closed": "Closed",
+  "operational": "Operational",
+  "degraded_performance": "Degraded Performance",
+  "partial_outage": "Partial Outage",
+  "major_outage": "Major Outage",
+  "unknown": "Unknown"
+}

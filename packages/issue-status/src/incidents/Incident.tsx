@@ -5,6 +5,7 @@ import remarkRehype from "remark-rehype";
 
 import ReactMarkdown from "react-markdown";
 import type { IncidentType } from "../api/types";
+import { useTranslation } from "react-i18next";
 
 import dayjs from "dayjs";
 import rehypeRaw from "rehype-raw";
@@ -15,7 +16,9 @@ export const Incident = ({
   description,
   createdAt,
   scheduled,
-}: IncidentType) => (
+}: IncidentType) => {
+  const { t } = useTranslation();
+  return (
   <div
     className={`
       transition-all duration-300 ease-in-out
@@ -44,7 +47,7 @@ export const Incident = ({
               : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
           } px-3 py-1 rounded-full text-xs font-semibold`}
         >
-          Scheduled
+          {t("scheduled")}
         </div>
       ) : (
         <div
@@ -54,7 +57,7 @@ export const Incident = ({
               : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
           } px-3 py-1 rounded-full text-xs font-semibold`}
         >
-          {active ? "Active" : "Closed"}
+          {active ? t("active") : t("closed")}
         </div>
       )}
     </div>
@@ -75,4 +78,5 @@ export const Incident = ({
       </ReactMarkdown>
     </div>
   </div>
-);
+  );
+};
