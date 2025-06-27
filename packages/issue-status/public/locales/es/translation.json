@@ -11,7 +11,6 @@
   "closed": "Cerrado",
   "operational": "Operativo",
   "degraded_performance": "Rendimiento Degradado",
-  "partial_outage": "Interrupción Parcial",
   "major_outage": "Interrupción Mayor",
   "unknown": "Desconocido"
 }
