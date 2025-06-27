@@ -1,9 +1,11 @@
 import { useData } from "../api/useData";
 import type { ComponentType } from "../api/types";
 import { Skeleton } from "./Skeleton";
+import { useTranslation } from "react-i18next";
 
 const calculateOverallStatus = (
-  components: ComponentType[]
+  components: ComponentType[],
+  t: (key: string) => string
 ): { message: string; color: string } => {
   const allComponents = components.flatMap((comp) =>
     comp.children ? [comp, ...comp.children] : [comp]
@@ -19,35 +21,35 @@ const calculateOverallStatus = (
   if (statusCounts.operational === totalComponents) {
     // overall = operational
     return {
-      message: "All Systems Operational",
+      message: t("all_systems_operational"),
       color: "bg-green-600 dark:bg-green-700",
     };
   }
   if (statusCounts.majorOutage === totalComponents) {
     // overall = major
     return {
-      message: "Major System Outage",
+      message: t("major_service_outage"),
       color: "bg-red-600 dark:bg-red-700",
     };
   }
   if (statusCounts.partialOutage === totalComponents) {
     // overall = partial
     return {
-      message: "Partial System Outage",
+      message: t("partial_outage"),
       color: "bg-red-500 dark:bg-red-600",
     };
   }
   if (statusCounts.majorOutage > 0) {
     // overall = partial
     return {
-      message: "Partial System Outage",
+      message: t("partial_outage"),
       color: "bg-red-500 dark:bg-red-600",
     };
   }
   if (statusCounts.partialOutage > 0) {
     // overall = minor
     return {
-      message: "Minor Service Outage",
+      message: t("minor_service_outage"),
       color: "bg-yellow-600 dark:bg-yellow-700",
     };
   }
@@ -57,27 +59,28 @@ const calculateOverallStatus = (
   ) {
     // overall = degraded
     return {
-      message: "Degraded System Performance",
+      message: t("degraded"),
       color: "bg-yellow-500 dark:bg-yellow-600",
     };
   }
   if (statusCounts.degradedPerformance > 0) {
     // overall = degraded
     return {
-      message: "Partially Degraded Service",
+      message: t("degraded"),
       color: "bg-yellow-500 dark:bg-yellow-600",
     };
   }
 
   // overall = operational
   return {
-    message: "All Systems Operational",
+    message: t("all_systems_operational"),
     color: "bg-green-600 dark:bg-green-700",
   };
 };
 
 export const Status = () => {
   const { components, loading } = useData();
+  const { t } = useTranslation();
 
   if (loading || !components) {
     return (
@@ -87,7 +90,7 @@ export const Status = () => {
     );
   }
 
-  const { message, color } = calculateOverallStatus(components);
+  const { message, color } = calculateOverallStatus(components, t);
 
   return (
     <div

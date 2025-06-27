@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs from "dayjs/esm";
 import type { ComponentType, Provider } from "../api/types";
 import { Gitlab, type IssueSchemaWithBasicLabels } from "@gitbeaker/rest";
 

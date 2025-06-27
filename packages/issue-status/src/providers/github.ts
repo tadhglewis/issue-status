@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs from "dayjs/esm";
 import type { ComponentType, Provider } from "../api/types";
 import { Octokit } from "@octokit/rest";
 import type { RestEndpointMethodTypes } from "@octokit/rest";
