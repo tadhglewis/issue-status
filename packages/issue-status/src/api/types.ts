@@ -42,6 +42,7 @@ export type Provider = {
   getComponents: () => Promise<ComponentType[]> | ComponentType[];
   getIncidents: () => Promise<IncidentType[]> | IncidentType[];
   getHistoricalIncidents: () => Promise<IncidentType[]> | IncidentType[];
+  cacheTime?: number;
 };
 
 export type IssueStatusConfig = {
