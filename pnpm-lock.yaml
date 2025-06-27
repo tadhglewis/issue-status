@@ -60,6 +60,15 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.10
         version: 4.1.10(vite@7.0.0(@types/node@24.0.4)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3))
+      '@tanstack/query-sync-storage-persister':
+        specifier: ^5.81.2
+        version: 5.81.2
+      '@tanstack/react-query':
+        specifier: ^5.81.2
+        version: 5.81.2(react@19.1.0)
+      '@tanstack/react-query-persist-client':
+        specifier: ^5.81.2
+        version: 5.81.2(@tanstack/react-query@5.81.2(react@19.1.0))(react@19.1.0)
       '@vitejs/plugin-react-swc':
         specifier: ^3.10.2
         version: 3.10.2(vite@7.0.0(@types/node@24.0.4)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3))
@@ -912,6 +921,26 @@ packages:
     resolution: {integrity: sha512-QWnD5HDY2IADv+vYR82lOhqOlS1jSCUUAmfem52cXAhRTKxpDh3ARX8TTXJTCCO7Rv7cD2Nlekabv02bwP3a2A==}
     peerDependencies:
       vite: ^5.2.0 || ^6
+
+  '@tanstack/query-core@5.81.2':
+    resolution: {integrity: sha512-QLYkPdrudoMATDFa3MiLEwRhNnAlzHWDf0LKaXUqJd0/+QxN8uTPi7bahRlxoAyH0UbLMBdeDbYzWALj7THOtw==}
+
+  '@tanstack/query-persist-client-core@5.81.2':
+    resolution: {integrity: sha512-FSLHr3DL+eezaKNiAexM7+KdgpXvLmUuMQhtORPIC7QuhemM6kfzcrQC5AN34zhvVh2PZXRcib2JnHKeTMjyyg==}
+
+  '@tanstack/query-sync-storage-persister@5.81.2':
+    resolution: {integrity: sha512-rNY3SSo2vIbdoSUoYmHf7eNQe8tat+Dzw+3ooOJOLVp+qTqkdFS4unlQLSkUgEmxLtj9789Sq3KRnWtd943ojA==}
+
+  '@tanstack/react-query-persist-client@5.81.2':
+    resolution: {integrity: sha512-HUlnB7FGqN/he4AOvR0vNA06Wn4dg3rEK7EgzenWfc0gQ9Aa6thqTWgT3Q27CnKiTkzhRn2uZJKRseTP4g54LQ==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.81.2
+      react: ^18 || ^19
+
+  '@tanstack/react-query@5.81.2':
+    resolution: {integrity: sha512-pe8kFlTrL2zFLlcAj2kZk9UaYYHDk9/1hg9EBaoO3cxDhOZf1FRGJeziSXKrVZyxIfs7b3aoOj/bw7Lie0mDUg==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
@@ -3131,6 +3160,28 @@ snapshots:
       '@tailwindcss/oxide': 4.1.10
       tailwindcss: 4.1.10
       vite: 7.0.0(@types/node@24.0.4)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)
+
+  '@tanstack/query-core@5.81.2': {}
+
+  '@tanstack/query-persist-client-core@5.81.2':
+    dependencies:
+      '@tanstack/query-core': 5.81.2
+
+  '@tanstack/query-sync-storage-persister@5.81.2':
+    dependencies:
+      '@tanstack/query-core': 5.81.2
+      '@tanstack/query-persist-client-core': 5.81.2
+
+  '@tanstack/react-query-persist-client@5.81.2(@tanstack/react-query@5.81.2(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-persist-client-core': 5.81.2
+      '@tanstack/react-query': 5.81.2(react@19.1.0)
+      react: 19.1.0
+
+  '@tanstack/react-query@5.81.2(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.81.2
+      react: 19.1.0
 
   '@tybys/wasm-util@0.9.0':
     dependencies:

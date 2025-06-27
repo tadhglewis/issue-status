@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import type { ComponentType, Provider } from "../api/types";
 import { Octokit } from "@octokit/rest";
 import type { RestEndpointMethodTypes } from "@octokit/rest";
-import { cached } from "./shared";
 
 type GitHubIssue =
   RestEndpointMethodTypes["issues"]["listForRepo"]["response"]["data"][0];
@@ -89,21 +88,16 @@ export const github = ({
   const octokit = new Octokit();
 
   const getIncidents = async (state: "open" | "closed") => {
-    const { data } = await cached(
-      `${owner}/${repo}:${state}Incidents`,
-      async () =>
-        await octokit.rest.issues.listForRepo({
-          owner,
-          repo,
-          labels: "issue status,incident",
-          state,
-          since:
-            state === "open"
-              ? undefined
-              : dayjs().subtract(14, "days").toISOString(),
-        }),
-      10 * 60
-    );
+    const { data } = await octokit.rest.issues.listForRepo({
+      owner,
+      repo,
+      labels: "issue status,incident",
+      state,
+      since:
+        state === "open"
+          ? undefined
+          : dayjs().subtract(14, "days").toISOString(),
+    });
 
     return data.map(({ id, title, body, created_at, closed_at, labels }) => {
       const isScheduled = Boolean(
@@ -126,20 +120,16 @@ export const github = ({
 
   return {
     getComponents: async () => {
-      const { data } = await cached(
-        `${owner}/${repo}:components`,
-        async () =>
-          await octokit.rest.issues.listForRepo({
-            owner,
-            repo,
-            labels: "issue status,component",
-          }),
-        10 * 60
-      );
+      const { data } = await octokit.rest.issues.listForRepo({
+        owner,
+        repo,
+        labels: "issue status,component",
+      });
 
       return buildComponentHierarchy(data);
     },
     getIncidents: async () => await getIncidents("open"),
     getHistoricalIncidents: async () => await getIncidents("closed"),
+    cacheTime: 10 * 60 * 1000,
   };
 };

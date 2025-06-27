@@ -1,28 +1,31 @@
+import { QueryClient } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
+import { type ReactNode } from "react";
 import config from "../config";
-import { type ReactNode, useState, useEffect } from "react";
-import type { Data } from "./types";
-import { DataContext } from "./useData";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      gcTime: config.provider.cacheTime,
+      staleTime: config.provider.cacheTime,
+    },
+  },
+});
+
+const persister = createSyncStoragePersister({
+  storage: window.localStorage,
+});
 
 export const DataProvider: React.FC<{
   children: ReactNode | ReactNode[] | null;
 }> = ({ children }) => {
-  const [state, setState] = useState<Data>({
-    loading: true,
-    components: undefined,
-    incidents: undefined,
-    historicalIncidents: undefined,
-  });
-
-  useEffect(() => {
-    (async () => {
-      setState({
-        loading: false,
-        components: await config.provider.getComponents(),
-        incidents: await config.provider.getIncidents(),
-        historicalIncidents: await config.provider.getHistoricalIncidents(),
-      });
-    })();
-  }, []);
-
-  return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
+  return (
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{ persister }}
+    >
+      {children}
+    </PersistQueryClientProvider>
+  );
 };
