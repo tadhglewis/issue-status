@@ -2,7 +2,10 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
-import dayjs from "dayjs";
+import dayjs from "dayjs/esm";
+
+import "dayjs/esm/locale/es";
+import "dayjs/esm/locale/fr";
 
 i18n
   .use(Backend)
@@ -27,18 +30,6 @@ i18n
   });
 
 i18n.on("languageChanged", async (language) => {
-  switch (language) {
-    case "en":
-      await import("dayjs/locale/en");
-      break;
-    case "es":
-      await import("dayjs/locale/es");
-      break;
-    case "fr":
-      await import("dayjs/locale/fr");
-      break;
-  }
-
   dayjs.locale(language);
 });
 
