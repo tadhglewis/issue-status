@@ -4,7 +4,7 @@ const logo = config.logo
   ? (
       await import(
         /* @vite-ignore */
-        `${__CWD__}/${config.logo}`
+        `${__LOGO_PATH__}`
       )
     ).default
   : undefined;
