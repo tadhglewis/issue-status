@@ -18,13 +18,10 @@ export default defineConfig(async () => {
     throw new Error("issue-status.config.ts not found.");
   }
 
-  const logoPath = config.logo
-    ? path.resolve(process.cwd(), config.logo)
-    : undefined;
-
   return {
     root: packageRoot,
     base: "./",
+    publicDir: path.resolve(process.cwd(), "public"),
     plugins: [
       react(),
       tailwindcss(),
@@ -49,7 +46,6 @@ export default defineConfig(async () => {
     ],
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),
-      __LOGO_PATH__: JSON.stringify(logoPath),
     },
     server: { fs: { allow: [packageRoot, process.cwd()] } },
     build: {
