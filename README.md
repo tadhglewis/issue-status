@@ -128,7 +128,7 @@ Labels: `issue status`, `incident` and optionally `maintenance` which will mark 
 
 #### Limitations
 
-- The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 10 minutes.
+- The provider respects GitLab's API rate limits and therefore responses are cached in the browser for 30 seconds.
 
 ### Static Provider
 
