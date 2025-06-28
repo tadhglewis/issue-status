@@ -1,7 +1,12 @@
 import config from "./config";
 
 const logo = config.logo
-  ? (await import(`${__CWD__}/${config.logo}`)).default
+  ? (
+      await import(
+        /* @vite-ignore */
+        `${__CWD__}/${config.logo}`
+      )
+    ).default
   : undefined;
 
 export const Header = () => (

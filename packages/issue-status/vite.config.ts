@@ -27,10 +27,19 @@ export default defineConfig(async () => {
       {
         name: "html-transform",
         transformIndexHtml(html: string) {
-          return html.replace(
-            /<title>Vite \+ React \+ TS<\/title>/,
-            `<title>${config.name}</title>`
-          );
+          return html
+            .replace(
+              /<title>Vite \+ React \+ TS<\/title>/,
+              `<title>${config.name}</title>`
+            )
+            .replace(
+              /<link rel="icon" href="\/vite.svg" \/>/,
+              `<link rel="icon" href="/vite.svg" />`
+            )
+            .replace(
+              /<meta name="description" content="My status page description" \/>/,
+              `<meta name="description" content="${config.description}" />`
+            );
         },
       },
     ],
