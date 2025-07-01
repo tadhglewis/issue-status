@@ -48,7 +48,7 @@
     "@gitbeaker/rest": "^42.5.0",
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.10",
+    "@tailwindcss/vite": "^4.1.11",
     "@tanstack/query-sync-storage-persister": "^5.81.5",
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-query-persist-client": "^5.81.5",
