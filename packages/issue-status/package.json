@@ -51,7 +51,7 @@
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/query-sync-storage-persister": "^5.81.5",
     "@tanstack/react-query": "^5.81.2",
-    "@tanstack/react-query-persist-client": "^5.81.2",
+    "@tanstack/react-query-persist-client": "^5.81.5",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
     "react": "^19.1.0",
