@@ -1,7 +1,7 @@
+import resourcesToBackend from "i18next-resources-to-backend";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import Backend from "i18next-http-backend";
 import dayjs from "dayjs/esm";
 
 import "dayjs/esm/locale/es";
@@ -9,16 +9,17 @@ import "dayjs/esm/locale/fr";
 import "dayjs/esm/locale/de";
 
 i18n
-  .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
+  .use(
+    resourcesToBackend(
+      async (language: string, namespace: string) =>
+        await import(`./locales/${language}/${namespace}.json`)
+    )
+  )
   .init({
     fallbackLng: "en",
     debug: false,
-
-    backend: {
-      loadPath: "locales/{{lng}}/{{ns}}.json",
-    },
 
     supportedLngs: ["en", "es", "fr", "de"],
 
