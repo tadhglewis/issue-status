@@ -1,0 +1,16 @@
+{
+  "powered_by": "Propulsé par Issue Status",
+  "history": "Incidents Passés",
+  "all_systems_operational": "Tous les systèmes sont opérationnels",
+  "major_service_outage": "Panne Majeure du Service",
+  "partial_outage": "Panne Partielle",
+  "minor_service_outage": "Panne Mineure du Service",
+  "degraded": "Performance Dégradée",
+  "scheduled": "Planifié",
+  "active": "Actif",
+  "closed": "Fermé",
+  "operational": "Opérationnel",
+  "degraded_performance": "Performance Dégradée",
+  "major_outage": "Panne Majeure",
+  "unknown": "Inconnu"
+}

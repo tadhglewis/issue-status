@@ -1,6 +1,8 @@
 import type { ComponentType } from "../api/types";
+import { useTranslation } from "react-i18next";
 
 export const Badge = ({ status }: { status: ComponentType["status"] }) => {
+  const { t } = useTranslation();
   const statusClasses: Record<ComponentType["status"], string> = {
     operational: "text-green-800 bg-green-100 dark:text-green-200 dark:bg-green-900",
     degradedPerformance: "text-amber-800 bg-amber-100 dark:text-amber-200 dark:bg-amber-900",
@@ -10,11 +12,11 @@ export const Badge = ({ status }: { status: ComponentType["status"] }) => {
   };
 
   const statusText: Record<ComponentType["status"], string> = {
-    operational: "Operational",
-    degradedPerformance: "Degraded Performance",
-    partialOutage: "Partial Outage",
-    majorOutage: "Major Outage",
-    unknown: "Unknown",
+    operational: t("operational"),
+    degradedPerformance: t("degraded_performance"),
+    partialOutage: t("partial_outage"),
+    majorOutage: t("major_outage"),
+    unknown: t("unknown"),
   };
 
   const badgeClasses = `

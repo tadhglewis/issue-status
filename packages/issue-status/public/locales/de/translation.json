@@ -1,0 +1,16 @@
+{
+  "powered_by": "Bereitgestellt von Issue Status",
+  "history": "Vergangene Vorfälle",
+  "all_systems_operational": "Alle Systeme in Betrieb",
+  "major_service_outage": "Große Dienstunterbrechung",
+  "partial_outage": "Teilweise Unterbrechung",
+  "minor_service_outage": "Geringfügige Dienstunterbrechung",
+  "degraded": "Beeinträchtigte Leistung",
+  "scheduled": "Geplant",
+  "active": "Aktiv",
+  "closed": "Geschlossen",
+  "operational": "Operationell",
+  "degraded_performance": "Beeinträchtigte Leistung",
+  "major_outage": "Großer Ausfall",
+  "unknown": "Unbekannt"
+}
