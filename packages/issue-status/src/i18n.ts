@@ -6,6 +6,7 @@ import dayjs from "dayjs/esm";
 
 import "dayjs/esm/locale/es";
 import "dayjs/esm/locale/fr";
+import "dayjs/esm/locale/de";
 
 i18n
   .use(Backend)
