@@ -48,10 +48,10 @@
     "@gitbeaker/rest": "^42.5.0",
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.10",
-    "@tanstack/query-sync-storage-persister": "^5.81.2",
-    "@tanstack/react-query": "^5.81.2",
-    "@tanstack/react-query-persist-client": "^5.81.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "@tanstack/query-sync-storage-persister": "^5.81.5",
+    "@tanstack/react-query": "^5.81.5",
+    "@tanstack/react-query-persist-client": "^5.81.5",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "dayjs": "1.11.13",
     "i18next": "^25.2.1",
@@ -66,21 +66,21 @@
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "tailwindcss": "^4.1.10",
+    "tailwindcss": "^4.1.11",
     "vite": "^7.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
-    "@types/node": "^24.0.4",
+    "@eslint/js": "^9.30.0",
+    "@types/node": "^24.0.8",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
-    "tsdown": "^0.12.8",
+    "tsdown": "^0.12.9",
     "tsx": "^4.20.3",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.0"
+    "typescript-eslint": "^8.35.1"
   }
 }
