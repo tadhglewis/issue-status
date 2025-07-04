@@ -1,6 +1,6 @@
 {
-  "powered_by": "Desarrollado por Issue Status",
-  "history": "Incidentes Pasados",
+  "powered_by": "Con la tecnología de Issue Status",
+  "history": "Incidentes Anteriores",
   "all_systems_operational": "Todos los Sistemas Operativos",
   "major_service_outage": "Interrupción Mayor del Servicio",
   "partial_outage": "Interrupción Parcial",
@@ -9,7 +9,7 @@
   "scheduled": "Programado",
   "active": "Activo",
   "closed": "Cerrado",
-  "operational": "Operativo",
+  "operational": "Operacional",
   "degraded_performance": "Rendimiento Degradado",
   "major_outage": "Interrupción Mayor",
   "unknown": "Desconocido"
