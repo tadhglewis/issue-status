@@ -21,7 +21,7 @@ export default defineConfig(async () => {
   return {
     root: packageRoot,
     base: "./",
-    publicDir: path.resolve(process.cwd(), "public"),
+    // publicDir: path.resolve(process.cwd(), "public"),
     plugins: [
       react(),
       tailwindcss(),
