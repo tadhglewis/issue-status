@@ -62,7 +62,7 @@
     "i18next-resources-to-backend": "^1.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-i18next": "^15.5.3",
+    "react-i18next": "^15.6.0",
     "react-markdown": "10.1.0",
     "rehype-raw": "^7.0.0",
     "rehype-stringify": "^10.0.1",
