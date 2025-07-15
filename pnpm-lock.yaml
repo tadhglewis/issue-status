@@ -64,11 +64,11 @@ importers:
         specifier: ^5.83.0
         version: 5.83.0
       '@tanstack/react-query':
-        specifier: ^5.81.5
-        version: 5.81.5(react@19.1.0)
+        specifier: ^5.83.0
+        version: 5.83.0(react@19.1.0)
       '@tanstack/react-query-persist-client':
         specifier: ^5.83.0
-        version: 5.83.0(@tanstack/react-query@5.81.5(react@19.1.0))(react@19.1.0)
+        version: 5.83.0(@tanstack/react-query@5.83.0(react@19.1.0))(react@19.1.0)
       '@vitejs/plugin-react-swc':
         specifier: ^3.10.2
         version: 3.10.2(vite@7.0.4(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3))
@@ -1073,9 +1073,6 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@tanstack/query-core@5.81.5':
-    resolution: {integrity: sha512-ZJOgCy/z2qpZXWaj/oxvodDx07XcQa9BF92c0oINjHkoqUPsmm3uG08HpTaviviZ/N9eP1f9CM7mKSEkIo7O1Q==}
-
   '@tanstack/query-core@5.83.0':
     resolution: {integrity: sha512-0M8dA+amXUkyz5cVUm/B+zSk3xkQAcuXuz5/Q/LveT4ots2rBpPTZOzd7yJa2Utsf8D2Upl5KyjhHRY+9lB/XA==}
 
@@ -1091,8 +1088,8 @@ packages:
       '@tanstack/react-query': ^5.83.0
       react: ^18 || ^19
 
-  '@tanstack/react-query@5.81.5':
-    resolution: {integrity: sha512-lOf2KqRRiYWpQT86eeeftAGnjuTR35myTP8MXyvHa81VlomoAWNEd8x5vkcAfQefu0qtYCvyqLropFZqgI2EQw==}
+  '@tanstack/react-query@5.83.0':
+    resolution: {integrity: sha512-/XGYhZ3foc5H0VM2jLSD/NyBRIOK4q9kfeml4+0x2DlL6xVuAcVEW+hTlTapAmejObg0i3eNqhkr2dT+eciwoQ==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -3372,8 +3369,6 @@ snapshots:
       tailwindcss: 4.1.11
       vite: 7.0.4(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)
 
-  '@tanstack/query-core@5.81.5': {}
-
   '@tanstack/query-core@5.83.0': {}
 
   '@tanstack/query-persist-client-core@5.83.0':
@@ -3385,15 +3380,15 @@ snapshots:
       '@tanstack/query-core': 5.83.0
       '@tanstack/query-persist-client-core': 5.83.0
 
-  '@tanstack/react-query-persist-client@5.83.0(@tanstack/react-query@5.81.5(react@19.1.0))(react@19.1.0)':
+  '@tanstack/react-query-persist-client@5.83.0(@tanstack/react-query@5.83.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@tanstack/query-persist-client-core': 5.83.0
-      '@tanstack/react-query': 5.81.5(react@19.1.0)
+      '@tanstack/react-query': 5.83.0(react@19.1.0)
       react: 19.1.0
 
-  '@tanstack/react-query@5.81.5(react@19.1.0)':
+  '@tanstack/react-query@5.83.0(react@19.1.0)':
     dependencies:
-      '@tanstack/query-core': 5.81.5
+      '@tanstack/query-core': 5.83.0
       react: 19.1.0
 
   '@tybys/wasm-util@0.9.0':
