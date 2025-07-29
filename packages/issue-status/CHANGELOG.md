@@ -1,5 +1,17 @@
 # issue-status
 
+## 0.2.0
+
+### Minor Changes
+
+- 47c70a6: Add localisation support for Spanish, French and German
+- 133d9f0: Add branding configuration
+
+### Patch Changes
+
+- e84102b: Reduce GitLab provider cache duration from 10 minutes to 30 seconds for more responsive updates
+- e740a4c: Optimise data fetching
+
 ## 0.1.3
 
 ### Patch Changes
