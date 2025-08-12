@@ -60,7 +60,7 @@
     "i18next": "^25.3.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-resources-to-backend": "^1.2.1",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-i18next": "^15.6.1",
     "react-markdown": "10.1.0",
@@ -75,7 +75,7 @@
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@types/node": "^24.1.0",
-    "@types/react": "^19.1.8",
+    "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.6",
     "eslint": "^9.31.0",
     "eslint-plugin-react-hooks": "^5.2.0",
