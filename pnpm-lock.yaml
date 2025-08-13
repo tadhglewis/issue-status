@@ -49,8 +49,8 @@ importers:
   packages/issue-status:
     dependencies:
       '@gitbeaker/rest':
-        specifier: ^42.5.0
-        version: 42.5.0
+        specifier: ^43.4.0
+        version: 43.4.0
       '@octokit/rest':
         specifier: ^22.0.0
         version: 22.0.0
@@ -608,16 +608,16 @@ packages:
     resolution: {integrity: sha512-1+WqvgNMhmlAambTvT3KPtCl/Ibr68VldY2XY40SL1CE0ZXiakFR/cbTspaF5HsnpDMvcYYoJHfl4980NBjGag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@gitbeaker/core@42.5.0':
-    resolution: {integrity: sha512-rMWpOPaZi1iLiifnOIoVO57p2EmQQdfIwP4txqNyMvG4WjYP5Ez0U7jRD9Nra41x6K5kTPBZkuQcAdxVWRJcEQ==}
+  '@gitbeaker/core@43.4.0':
+    resolution: {integrity: sha512-SN7/2raXQa99i/koOV5voQ3q5Pz9F8TkyECBDmY8lDrgufgf5QLfRvTVc1uRU/As543KCrPi2s/Hn+vZgwLdYw==}
     engines: {node: '>=18.20.0'}
 
-  '@gitbeaker/requester-utils@42.5.0':
-    resolution: {integrity: sha512-HLdLS9LPBMVQumvroQg/4qkphLDtwDB+ygEsrD2u4oYCMUtXV4V1xaVqU4yTXjbTJ5sItOtdB43vYRkBcgueBw==}
+  '@gitbeaker/requester-utils@43.4.0':
+    resolution: {integrity: sha512-W15fZbLzEonMdqzz+/H3KmIByI3neUE2+HjnvnyMl5g4CHZuPCkj0boTkGRBH1c6ax1Fmdhz5vPv7OjRF274gQ==}
     engines: {node: '>=18.20.0'}
 
-  '@gitbeaker/rest@42.5.0':
-    resolution: {integrity: sha512-oC5cM6jS7aFOp0luTw5mWSRuMgdxwHRLZQ/aWkI+ETMfsprR/HyxsXfljlMY/XJ/fRxTbRJiodR5Axf66WjO3w==}
+  '@gitbeaker/rest@43.4.0':
+    resolution: {integrity: sha512-SmyBcC16+wNuAT77vcqk1gQr5ITC0yD4ln5/s7qplEC4U3hQtII/NKvpiygapMDrFF4GGA3GTCQAPQuUk22onw==}
     engines: {node: '>=18.20.0'}
 
   '@humanfs/core@0.19.1':
@@ -3020,23 +3020,23 @@ snapshots:
       '@eslint/core': 0.15.1
       levn: 0.4.1
 
-  '@gitbeaker/core@42.5.0':
+  '@gitbeaker/core@43.4.0':
     dependencies:
-      '@gitbeaker/requester-utils': 42.5.0
+      '@gitbeaker/requester-utils': 43.4.0
       qs: 6.14.0
       xcase: 2.0.1
 
-  '@gitbeaker/requester-utils@42.5.0':
+  '@gitbeaker/requester-utils@43.4.0':
     dependencies:
       picomatch-browser: 2.2.6
       qs: 6.14.0
       rate-limiter-flexible: 4.0.1
       xcase: 2.0.1
 
-  '@gitbeaker/rest@42.5.0':
+  '@gitbeaker/rest@43.4.0':
     dependencies:
-      '@gitbeaker/core': 42.5.0
-      '@gitbeaker/requester-utils': 42.5.0
+      '@gitbeaker/core': 43.4.0
+      '@gitbeaker/requester-utils': 43.4.0
 
   '@humanfs/core@0.19.1': {}
 
