@@ -16,6 +16,10 @@ A flexible, modern and blazingly fast ☄️ status page.
 - 🛜 Hosted on Cloudflare, GitHub Pages and more
 - ✍️ Markdown support
 
+Special thanks to my sponsors for their contributions
+
+- [Tailscale](https://tailscale.com)
+
 ## Usage
 
 ```bash
