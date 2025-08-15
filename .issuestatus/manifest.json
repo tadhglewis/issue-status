@@ -3,17 +3,17 @@
   "name": "Inworld Status Page",
   "icons": [
     {
-      "src": "https://assets.inworld.ai/meta/logo192.png",
+      "src": "https://assets.inworld.ai/brand/inworld-logotype-black.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "https://assets.inworld.ai/meta/logo192.png",
+      "src": "https://assets.inworld.ai/brand/inworld-logotype-black.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://assets.inworld.ai/meta/logo192.png",
+      "src": "https://assets.inworld.ai/brand/inworld-logotype-black.png",
       "type": "image/png",
       "sizes": "512x512"
     }
