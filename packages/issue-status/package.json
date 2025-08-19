@@ -70,7 +70,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "tailwindcss": "^4.1.11",
-    "vite": "^7.0.6"
+    "vite": "^7.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
