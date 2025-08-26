@@ -75,7 +75,7 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@types/node": "^24.1.0",
-    "@types/react": "^19.1.10",
+    "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.6",
     "eslint": "^9.31.0",
     "eslint-plugin-react-hooks": "^5.2.0",
