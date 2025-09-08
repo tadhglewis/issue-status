@@ -55,7 +55,7 @@
     "@tanstack/query-sync-storage-persister": "^5.83.0",
     "@tanstack/react-query": "^5.83.0",
     "@tanstack/react-query-persist-client": "^5.85.3",
-    "@vitejs/plugin-react-swc": "^4.0.0",
+    "@vitejs/plugin-react-swc": "^4.0.1",
     "dayjs": "1.11.13",
     "i18next": "^25.3.6",
     "i18next-browser-languagedetector": "^8.2.0",
