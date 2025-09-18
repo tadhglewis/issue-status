@@ -1,5 +1,11 @@
 # create-issue-status
 
+## 0.1.3
+
+### Patch Changes
+
+- c29b5ac: Bump template versions
+
 ## 0.1.2
 
 ### Patch Changes
