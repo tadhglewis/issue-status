@@ -1,5 +1,11 @@
 # issue-status
 
+## 0.2.1
+
+### Patch Changes
+
+- d2084c2: Fix tsx dependency declaration
+
 ## 0.2.0
 
 ### Minor Changes
