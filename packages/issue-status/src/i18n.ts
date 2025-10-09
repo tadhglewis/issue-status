@@ -13,8 +13,11 @@ i18n
   .use(initReactI18next)
   .use(
     resourcesToBackend(
-      async (language: string, namespace: string) =>
-        await import(`./locales/${language}/${namespace}.json`)
+      async (language: string, namespace: string) => {
+        // Load default locale
+        const defaultResources = await import(`./locales/${language}/${namespace}.json`);
+        return defaultResources;
+      }
     )
   )
   .init({
@@ -32,5 +35,21 @@ i18n
 i18n.on("languageChanged", async (language) => {
   dayjs.locale(language);
 });
+
+// Function to load and merge custom locales
+export const loadCustomLocales = async (customLocales?: Record<string, string>) => {
+  if (!customLocales) return;
+
+  for (const [lang, path] of Object.entries(customLocales)) {
+    try {
+      // Load custom locale file
+      const customResources = await import(/* @vite-ignore */ path);
+      // Merge with existing resources for this language
+      i18n.addResourceBundle(lang, 'translation', customResources.default || customResources, true, true);
+    } catch (error) {
+      console.warn(`Failed to load custom locale for ${lang} from ${path}:`, error);
+    }
+  }
+};
 
 export default i18n;

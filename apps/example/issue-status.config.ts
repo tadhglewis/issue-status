@@ -6,6 +6,7 @@ export default defineConfig({
   description: "Status page for my services",
   logo: "./assets/react.svg",
   favicon: "./assets/vite.svg",
+  customCss: "/custom.css",
   provider: github({
     owner: "tadhglewis",
     repo: "issue-status",

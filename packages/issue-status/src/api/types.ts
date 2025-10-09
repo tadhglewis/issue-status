@@ -51,5 +51,8 @@ export type IssueStatusConfig = {
   favicon?: string;
   logo?: string;
   provider: Provider;
+  customCss?: string;
+  customTemplate?: string;
+  customLocales?: Record<string, string>;
   // base: UserConfig["base"];
 };

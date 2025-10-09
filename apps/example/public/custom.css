@@ -1,0 +1,26 @@
+/* Custom styles to override default appearance */
+
+body {
+  background-color: #f0f8ff; /* Light blue background */
+  font-family: 'Arial', sans-serif; /* Custom font */
+}
+
+h1, h2, h3 {
+  color: #ff4500; /* Orange red for headings */
+}
+
+.status-operational {
+  color: #32cd32; /* Lime green for operational */
+}
+
+.status-degradedPerformance {
+  color: #ffa500; /* Orange for degraded */
+}
+
+.status-partialOutage {
+  color: #ff6347; /* Tomato for partial outage */
+}
+
+.status-majorOutage {
+  color: #dc143c; /* Crimson for major outage */
+}

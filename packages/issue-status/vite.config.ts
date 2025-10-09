@@ -28,7 +28,11 @@ export default defineConfig(async () => {
       {
         name: "html-transform",
         transformIndexHtml(html: string) {
-          return html
+          let transformedHtml = html;
+          if (config.customTemplate && fs.existsSync(config.customTemplate)) {
+            transformedHtml = fs.readFileSync(config.customTemplate, "utf-8");
+          }
+          return transformedHtml
             .replace(
               /<title>Vite \+ React \+ TS<\/title>/,
               `<title>${config.name}</title>`
@@ -46,6 +50,8 @@ export default defineConfig(async () => {
     ],
     define: {
       __CONFIG_PATH__: JSON.stringify(configPath),
+      __CUSTOM_CSS__: JSON.stringify(config.customCss || null),
+      __CUSTOM_TEMPLATE__: JSON.stringify(config.customTemplate || null),
     },
     server: { fs: { allow: [packageRoot, process.cwd()] } },
     build: {
