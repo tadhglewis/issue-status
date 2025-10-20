@@ -71,7 +71,7 @@
     "remark-rehype": "^11.1.2",
     "tailwindcss": "^4.1.11",
     "tsx": "^4.20.4",
-    "vite": "^7.1.5"
+    "vite": "^7.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
