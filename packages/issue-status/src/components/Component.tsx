@@ -3,6 +3,33 @@ import type { ComponentType } from "../api/types";
 import { Badge } from "../incidents/Badge";
 import { useState } from "react";
 
+const Box = ({
+  children,
+  clickable,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  clickable?: boolean;
+  className?: string;
+  onClick?: () => void;
+}) => (
+  <div
+    onClick={onClick}
+    className={`
+        bg-gray-50 dark:bg-gray-900
+        p-2 px-4
+        rounded-xs
+        flex justify-between items-center
+        text-gray-800 dark:text-gray-200
+        ${clickable ? "cursor-pointer" : "cursor-default"}
+        ${className || ""}
+      `}
+  >
+    {children}
+  </div>
+);
+
 export const Component = ({ name, status, children }: ComponentType) => {
   const [showChildren, setShowChildren] = useState(false);
 
@@ -41,33 +68,6 @@ export const Component = ({ name, status, children }: ComponentType) => {
   );
 
   const isClickable = Boolean(children?.length);
-
-  const Box = ({
-    children: boxChildren,
-    clickable,
-    className,
-    onClick,
-  }: {
-    children: React.ReactNode;
-    clickable?: boolean;
-    className?: string;
-    onClick?: () => void;
-  }) => (
-    <div
-      onClick={onClick}
-      className={`
-        bg-gray-50 dark:bg-gray-900        
-        p-2 px-4               
-        rounded-xs             
-        flex justify-between items-center 
-        text-gray-800 dark:text-gray-200          
-        ${clickable ? "cursor-pointer" : "cursor-default"} 
-        ${className || ""}     
-      `}
-    >
-      {boxChildren}
-    </div>
-  );
 
   return (
     <>

@@ -78,7 +78,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
       message: "Project name:",
       placeholder: defaultTargetDir,
       validate: (input) => {
-        const trimmed = input.trim();
+        const trimmed = input?.trim() ?? "";
         if (trimmed.length === 0) return "Please enter a project name";
         if (!/^[a-zA-Z0-9-_]+$/.test(trimmed))
           return "Project name can only contain letters, numbers, hyphens, and underscores";
@@ -126,7 +126,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
       message: "Package name:",
       placeholder: toValidPackageName(getProjectName()),
       validate: (dir) => {
-        if (isValidPackageName(dir)) return;
+        if (dir && isValidPackageName(dir)) return;
         return "Invalid package.json name";
       },
     });
@@ -194,7 +194,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     const githubOwnerResult = await prompts.text({
       message: "GitHub repository owner/organization:",
       validate: (input) => {
-        if (input.trim().length > 0) return;
+        if ((input?.trim().length ?? 0) > 0) return;
         return "Please enter the owner";
       },
     });
@@ -209,7 +209,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     const githubRepoResult = await prompts.text({
       message: "GitHub repository name:",
       validate: (input) => {
-        if (input.trim().length > 0) return;
+        if ((input?.trim().length ?? 0) > 0) return;
         return "Please enter the repository name";
       },
     });
@@ -226,7 +226,7 @@ ${PROVIDERS.map((p) => `  ${p.color(p.name.padEnd(12))} ${p.display}`).join(
     const gitlabProjectIdResult = await prompts.text({
       message: "GitLab project ID or path (e.g., 'owner/repo' or project ID):",
       validate: (input) => {
-        if (input.trim().length > 0) return;
+        if ((input?.trim().length ?? 0) > 0) return;
         return "Please enter the project ID or path";
       },
     });

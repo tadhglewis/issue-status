@@ -1,3 +1,5 @@
-import { describe } from "vitest";
+import { describe, test } from "vitest";
 
-describe("github", () => {});
+describe("github", () => {
+  test.todo("add coverage for github provider");
+});

@@ -33,9 +33,6 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
     devDependencies:
-      '@types/mri':
-        specifier: ^1.2.0
-        version: 1.2.0
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
@@ -992,10 +989,6 @@ packages:
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
-
-  '@types/mri@1.2.0':
-    resolution: {integrity: sha512-G4+QT8Plq6q1UnOX6JgtLrEU/4QXF/Z5oNr6TWdiv9EU2hsJPbemH4rCecwNajzij+2CxrxFg2Y98Q+ViDV79Q==}
-    deprecated: This is a stub types definition. mri provides its own type definitions, so you do not need this installed.
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
@@ -3395,10 +3388,6 @@ snapshots:
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
-
-  '@types/mri@1.2.0':
-    dependencies:
-      mri: 1.2.0
 
   '@types/ms@2.1.0': {}
 

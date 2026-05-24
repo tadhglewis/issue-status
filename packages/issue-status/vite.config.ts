@@ -11,12 +11,12 @@ export default defineConfig(async () => {
 
   const configPath = path.resolve(process.cwd(), "issue-status.config.ts");
 
-  const config = (await tsImport(configPath, import.meta.dirname))
-    .default as IssueStatusConfig;
-
   if (!fs.existsSync(configPath)) {
     throw new Error("issue-status.config.ts not found.");
   }
+
+  const config = (await tsImport(configPath, import.meta.dirname))
+    .default as IssueStatusConfig;
 
   return {
     root: packageRoot,
@@ -31,15 +31,15 @@ export default defineConfig(async () => {
           return html
             .replace(
               /<title>Vite \+ React \+ TS<\/title>/,
-              `<title>${config.name}</title>`
+              `<title>${config.name}</title>`,
             )
             .replace(
               /<link rel="icon" href="\/vite.svg" \/>/,
-              `<link rel="icon" href="/vite.svg" />`
+              `<link rel="icon" href="/vite.svg" />`,
             )
             .replace(
               /<meta name="description" content="My status page description" \/>/,
-              `<meta name="description" content="${config.description}" />`
+              `<meta name="description" content="${config.description}" />`,
             );
         },
       },
