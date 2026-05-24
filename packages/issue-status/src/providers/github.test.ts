@@ -1,3 +1,3 @@
-import { describe, test } from "vitest";
+import { describe } from "vitest";
 
 describe("github", () => {});
